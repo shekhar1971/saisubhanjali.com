@@ -1,37 +1,32 @@
+// app/layout.tsx — removed “About Amma” nav item
+// ------------------------------------------------------------------
 import './globals.css';
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
-
-const inter = Inter({ subsets: ['latin'] });
+import type { ReactNode } from 'react';
 
 export const metadata = {
-  title: 'SaiSubhanjali – Devotional Bhajans by Subbalakshmi Sattiraju',
-  description: 'Listen to soulful Sai Baba bhajans and explore Amma’s spiritual legacy.'
+  title: 'Sai Subhanjali',
+  description: 'A devotional treasury of Sai Baba bhajans by Smt. Subbalakshmi Sattiraju',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {/* ------------ NAVBAR ------------- */}
-        <header className="bg-brand-700 text-white">
-          <nav className="container mx-auto flex items-center justify-between p-4">
-            <Link href="/" className="text-xl font-semibold tracking-wide">
-              Sai Subhanjali
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-gray-50 text-gray-800 antialiased">
+        {/* ——— SITE NAV ——— */}
+        <header className="sticky top-0 z-20 bg-brand-700 py-3 text-white shadow">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
+            <Link href="/" className="text-lg font-semibold hover:text-brand-100">
+              Sai Subhanjali
             </Link>
-            <ul className="flex gap-4 text-sm md:text-base">
+            <ul className="flex items-center gap-6 text-sm font-medium">
               <li>
-                <Link href="/bhajans" className="hover:text-brand-50">
+                <Link href="/bhajans" className="hover:text-brand-100">
                   Bhajans
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-brand-50">
-                  About Amma
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-50">
+                <Link href="/contact" className="hover:text-brand-100">
                   Contact
                 </Link>
               </li>
@@ -39,13 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
-        {/* ------------ MAIN ------------- */}
-        <main className="container mx-auto min-h-[75vh] px-4 py-8">{children}</main>
-
-        {/* ------------ FOOTER ------------- */}
-        <footer className="bg-gray-100 border-t mt-12 py-6 text-center text-sm text-gray-600">
-          © {new Date().getFullYear()} SaiSubhanjali • Built with 🤍 in devotion to Sri Sai Baba
-        </footer>
+        {/* ——— MAIN CONTENT ——— */}
+        <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">{children}</main>
       </body>
     </html>
   );
