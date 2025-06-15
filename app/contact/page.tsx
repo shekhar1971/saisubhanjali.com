@@ -1,5 +1,3 @@
-// app/contact/page.tsx – styled contact card
-// -------------------------------------------------------------
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-md rounded-xl bg-white p-8 shadow">
@@ -9,7 +7,7 @@ export default function ContactPage() {
         href="mailto:shekhar72@hotmail.com"
         className="block rounded bg-brand-700 py-3 text-center font-medium text-white hover:bg-brand-600"
       >
-        📧 Email us: shekhar72@hotmail.com
+        📧 Email us: shekhar72@hotmail.com
       </a>
     </div>
   );
