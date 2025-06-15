@@ -68,7 +68,7 @@ export default function Home() {
         />
       </section>
 
-   {/* FAMILY HERITAGE */}
+ {/* FAMILY HERITAGE */}
 <section className="grid gap-6 md:grid-cols-3 md:items-center">
   {/* Grandparents montage */}
   <Image
@@ -98,6 +98,7 @@ export default function Home() {
     </p>
   </div>
 </section>
+
   {/* Parents’ portrait */}
   <Image
     src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
