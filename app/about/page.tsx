@@ -1,10 +1,16 @@
-// app/about/page.tsx (placeholder)
-// -------------------------
+// app/about/page.tsx – improved typography placeholder
+// -------------------------------------------------------------
 export default function AboutPage() {
   return (
-    <section className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">About Amma</h1>
-      <p>Om Sairam! Sai Subhanjali is the result of love and devotion of Mrs. Subbalakshmi Sattiraju to Sri Shirdi Sai Baba and his teachings…</p>
-    </section>
+    <article className="prose prose-lg mx-auto">
+      <h1>About Amma</h1>
+      <p>
+        Om Sairam! Sai Subhanjali is the outcome of the unwavering devotion of
+        <strong>Mrs. Subbalakshmi Sattiraju</strong> to Sri Shirdi Sai Baba and His teachings…
+      </p>
+      <p className="text-blue-600">(Full biography coming soon.)</p>
+    </article>
   );
 }
+
+// -------------------------------------------------------------
