@@ -1,5 +1,5 @@
-// app/page.tsx – cleaned up layout (parents grid removed from top photos, image paths fixed)
-// ---------------------------------------------------------------------------
+// app/page.tsx – image path fixes & minor polish
+// ---------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,15 +8,13 @@ export default function Home() {
     <div className="space-y-20">
       {/* HERO */}
       <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow">
-        {/* subtle backdrop */}
         <Image
           src="/SaiBaba1.png"
-          alt="Shirdi Sai Baba sanctum"
+          alt="Shirdi Sai Baba sanctum"
           fill
           priority
           className="object-cover opacity-20"
         />
-
         <div className="relative z-10 grid gap-8 px-6 py-20 md:grid-cols-2 md:items-center">
           <div>
             <h1 className="mb-4 text-5xl font-extrabold leading-tight text-brand-700 drop-shadow md:text-6xl">
@@ -45,7 +43,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DEVOTIONAL PHOTO GRID (two‑up) */}
+      {/* DEVOTIONAL PHOTO GRID */}
       <section className="grid gap-6 md:grid-cols-2">
         <Image
           src="/SubbaLakshmi_Sattiraju.png"
@@ -65,29 +63,29 @@ export default function Home() {
 
       {/* FAMILY HERITAGE */}
       <section className="grid gap-6 md:grid-cols-3 md:items-center">
-        {/* Grandparents montage */}
+        {/* Grandparents */}
         <Image
-          src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
+          src="/Smt_Subbalakshi_and_Shri_Nageswara_Rao_Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
           width={450}
           height={350}
           className="rounded-xl object-cover shadow"
         />
 
-        {/* Parents’ portrait */}
+        {/* Parents’ portrait – ensure file present in /public with this exact name */}
         <Image
-          src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
+          src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
           width={450}
           height={350}
           className="rounded-xl object-cover shadow"
         />
 
-        {/* Heritage text */}
+        {/* Text block */}
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
+          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
-            From humble roots in East and West Godavari Districts, the Sattiraju family passed down
+            From humble roots in East and West Godavari Districts, the Sattiraju family passed down
             faith, music, and selfless service across generations. Their blessings echo through every
             note of <em>Sai Subhanjali</em>.
           </p>
@@ -97,8 +95,8 @@ export default function Home() {
       {/* SON‑IN‑LAW TRIBUTE */}
       <section className="mx-auto max-w-md text-center">
         <Image
-          src="/54e7db2b-1c7e-4e95-8b54-2b5c13acc504.jpg" // corrected path
-          alt="Sri Mohana Krishna — Son‑in‑law &amp; recording pillar"
+          src="/Shri_Mohan_Krishna.jpg" // make sure this exact file is in /public
+          alt="Sri Mohana Krishna — son‑in‑law &amp; recording pillar"
           width={300}
           height={400}
           className="mx-auto rounded-full object-cover shadow-md"
@@ -118,4 +116,4 @@ export default function Home() {
     </div>
   );
 }
-// ---------------------------------------------------------------------------
+// ---------------------------------------------------------------
