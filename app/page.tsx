@@ -1,9 +1,21 @@
-// app/page.tsx — devotional collage fixed to actual filenames (rev 4)
-// -----------------------------------------------------------------
+// app/page.tsx — unified image sizing + full‑width rendering (rev 5)
+// ------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+  /** Helper to render a responsive image with identical styling */
+  const DevotionalImg = ({ src, alt }: { src: string; alt: string }) => (
+    <Image
+      src={src}
+      alt={alt}
+      width={400}
+      height={260}
+      // identical sizing:  h‑48 on mobile (≈192 px) and grow with container while preserving aspect
+      className="h-48 w-auto rounded-xl object-cover shadow lg:h-60"
+    />
+  );
+
   return (
     <div className="space-y-24">
       {/* HERO */}
@@ -44,43 +56,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AMMA DEVOTIONAL MOMENTS (actual files) */}
+      {/* AMMA DEVOTIONAL MOMENTS */}
       <section className="flex flex-wrap justify-center gap-6">
-        {[
-          '/SubbaLakshmi_Sattiraju.png',
-          '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
-        ].map((src) => (
-          <Image
-            key={src}
-            src={src}
-            alt="Amma devotional moments"
-            width={320}
-            height={220}
-            className="rounded-xl object-cover shadow"
-          />
-        ))}
+        <DevotionalImg src="/SubbaLakshmi_Sattiraju.png" alt="Amma devotional moments" />
+        <DevotionalImg
+          src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg"
+          alt="International Women’s Day award in Delhi"
+        />
       </section>
 
       {/* FAMILY HERITAGE */}
       <section className="grid gap-8 md:grid-cols-3 md:items-center">
-        <Image
+        <DevotionalImg
           src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
-          width={450}
-          height={350}
-          className="rounded-xl object-cover shadow"
         />
 
-        <Image
+        <DevotionalImg
           src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
-          width={450}
-          height={350}
-          className="rounded-xl object-cover shadow"
         />
 
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
+          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
             From humble roots in East and West Godavari Districts, the Sattiraju family passed down
             faith, music, and selfless service across generations. Their blessings echo through
@@ -104,13 +102,19 @@ export default function Home() {
         </p>
       </section>
 
-      {/* HISTORIC SAI IMAGE STRIP */}
-      <section className="grid gap-4 md:grid-cols-3">
-        <Image src="/SaiBaba2.png" alt="Sai blessing" width={400} height={500} className="rounded-xl shadow" />
-        <Image src="/SaiBaba3.png" alt="Sai in Dwarkamai" width={400} height={500} className="rounded-xl shadow" />
-        <Image src="/SaiBaba5.png" alt="Rare photo of Sai Baba" width={400} height={500} className="rounded-xl shadow" />
+      {/* HISTORIC SAI IMAGE STRIP — identical heights */}
+      <section className="flex flex-wrap justify-center gap-6">
+        {['/SaiBaba2.png', '/SaiBaba3.png', '/SaiBaba5.png'].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Historic Sai Baba photograph"
+            width={350}
+            height={500}
+            className="h-96 w-auto rounded-xl object-cover shadow"
+          />
+        ))}
       </section>
     </div>
   );
 }
-// -----------------------------------------------------------------
