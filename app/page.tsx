@@ -1,4 +1,4 @@
-// app/page.tsx — widen devotional photos (rev 14)
+// app/page.tsx — wider devotional photos, two‑row layout, build‑safe (rev 15)
 // ------------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,7 +19,7 @@ function DevotionalImg({ src, alt }: { src: string; alt: string }) {
 export default function Home() {
   return (
     <div className="space-y-24">
-      {/** ───────────────────── HERO ───────────────────── */}
+      {/* ───────────────────── HERO ───────────────────── */}
       <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow">
         {/* subtle backdrop */}
         <Image
@@ -58,7 +58,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/** ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
+      {/* ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
       <section className="mx-auto max-w-6xl space-y-6 rounded-xl bg-white/60 p-8 shadow lg:max-w-7xl">
         <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
         <p> Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.</p>
@@ -73,7 +73,7 @@ export default function Home() {
         <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
-      {/** ─── DEVOTIONAL MOMENTS — NOW TWO ROWS ─── */}
+      {/* ─── DEVOTIONAL MOMENTS — NOW TWO ROWS ─── */}
       <section className="flex justify-center px-2">
         <DevotionalImg src="/SubbaLakshmi_Sattiraju.png" alt="Amma devotional moments montage" />
       </section>
@@ -81,7 +81,7 @@ export default function Home() {
         <DevotionalImg src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg" alt="International Women’s Day award in Delhi" />
       </section>
 
-      {/** ───── FAMILY HERITAGE ───── */}
+      {/* ───── FAMILY HERITAGE ───── */}
       <section className="grid gap-6 md:grid-cols-[auto_auto_1fr] md:items-center">
         <Image
           src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
@@ -106,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/** ───── SON‑IN‑LAW TRIBUTE ───── */}
+      {/* ───── SON‑IN‑LAW TRIBUTE ───── */}
       <section className="mx-auto max-w-md text-center">
         <Image
           src="/Shri_Mohan_Krishna.jpg"
@@ -116,4 +116,23 @@ export default function Home() {
           className="mx-auto rounded-full object-cover shadow-md"
         />
         <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri 
+          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings possible.
+        </p>
+      </section>
+
+      {/* ───── HISTORIC SAI IMAGE STRIP ───── */}
+      <section className="flex flex-wrap justify-center gap-6">
+        {['/SaiBaba2.png', '/SaiBaba3.png', '/SaiBaba5.png'].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Historic Sai Baba photograph"
+            width={400}
+            height={500}
+            className="h-72 w-auto rounded-xl object-cover shadow"
+          />
+        ))}
+      </section>
+    </div>
+  );
+}
