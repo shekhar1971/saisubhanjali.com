@@ -68,24 +68,37 @@ export default function Home() {
         />
       </section>
 
-      {/* FAMILY HERITAGE */}
-      <section className="grid gap-6 md:grid-cols-2 md:items-center">
-        <Image
-          src="/Smt Subbalakshi and Shri Nageswara Rao Parents.png"
-          alt="Amma & Ayyagaru’s parents"
-          width={700}
-          height={450}
-          className="rounded-xl object-cover shadow"
-        />
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
-          <p>
-            From humble roots in East and West Godavari Districts, the Sattiraju family passed down
-            faith, music, and selfless service across generations. Their blessings echo through every
-            note of <em>Sai Subhanjali</em>.
-          </p>
-        </div>
-      </section>
+     {/* FAMILY HERITAGE */}
+<section className="grid gap-6 md:grid-cols-3 md:items-center">
+  {/* Grandparents montage */}
+  <Image
+    src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
+    alt="Parental roots of Amma & Ayyagaru"
+    width={450}
+    height={350}
+    className="rounded-xl object-cover shadow"
+  />
+
+  {/* Parents’ portrait */}
+  <Image
+    src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
+    alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
+    width={450}
+    height={350}
+    className="rounded-xl object-cover shadow"
+  />
+
+  {/* Heritage text */}
+  <div className="space-y-4">
+    <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
+    <p>
+      From humble roots in East and West Godavari Districts, the Sattiraju family passed down
+      faith, music, and selfless service across generations. Their blessings echo through every
+      note of <em>Sai Subhanjali</em>.
+    </p>
+  </div>
+</section>
+
 
      {/* SON-IN-LAW TRIBUTE */}
 <section className="mx-auto max-w-md text-center">
