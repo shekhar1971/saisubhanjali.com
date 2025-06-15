@@ -1,12 +1,16 @@
-// app/contact/page.tsx
-// -------------------------
+// app/contact/page.tsx – styled contact card
+// -------------------------------------------------------------
 export default function ContactPage() {
   return (
-    <section className="max-w-2xl mx-auto p-6 text-center">
-      <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-      <p>📧 <a href="mailto:shekhar72@hotmail.com" className="text-blue-600 underline">shekhar72@hotmail.com</a></p>
-    </section>
+    <div className="mx-auto max-w-md rounded-xl bg-white p-8 shadow">
+      <h1 className="mb-4 text-2xl font-bold text-brand-700">Get in Touch</h1>
+      <p className="mb-6">We’d love to hear your blessings, feedback, or collaborations.</p>
+      <a
+        href="mailto:shekhar72@hotmail.com"
+        className="block rounded bg-brand-700 py-3 text-center font-medium text-white hover:bg-brand-600"
+      >
+        📧 Email us: shekhar72@hotmail.com
+      </a>
+    </div>
   );
 }
-
-// -------------------------
