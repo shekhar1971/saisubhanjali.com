@@ -1,6 +1,9 @@
-// app/globals.css (simple reset)
-// -------------------------
+// globals.css (Tailwind base + custom)
+// -------------------------------------------------------------
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
+  @apply bg-slate-50 text-gray-800;
 }
