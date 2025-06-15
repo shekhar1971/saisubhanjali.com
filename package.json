@@ -1,4 +1,3 @@
-// package.json (same as before; Tailwind handled via postcss in Next.js)
 {
   "name": "saisubhanjali",
   "version": "1.0.0",
