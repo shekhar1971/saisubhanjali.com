@@ -1,4 +1,4 @@
-// app/page.tsx — image fit tweak for grandparents montage (rev 6)
+// app/page.tsx — add detailed About section (rev 7)
 // ------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -55,6 +55,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ABOUT — full narrative */}
+      <section className="mx-auto max-w-4xl space-y-6 rounded-xl bg-white/60 p-8 shadow">
+        <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
+        <p>
+          <strong>Sai Subhanjali</strong> blossomed from the unwavering devotion of
+          <strong> Smt. Subbalakshmi Sattiraju</strong> (fondly called “Subha Amma”) to Sri Shirdi Sai Baba and His
+          timeless teachings. What began as humble <em>parayanam</em> (daily reading) of the
+          <em>Sai Satcharitra</em> soon blossomed, through Baba’s grace, into original bhajans that flowed to her as
+          spontaneous divine inspiration.
+        </p>
+        <p>
+          Over the decades Subha Amma released <strong>six audio albums</strong> (10–14 tracks each) and authored
+          <strong> two books</strong> — in Telugu and Hindi — chronicling her spiritual experiences. Her soul‑stirring
+          compositions continue to kindle faith and joy in countless devotees.
+        </p>
+        <p>
+          <strong>Late Sri Nageswara Rao Sattiraju</strong> — a civil engineer whose 40‑year career helped bring life‑giving
+          water projects to India — stood by her side as a quiet <em>Karma Yogi</em>. Their daughter’s husband,
+          <strong> Sri Mohana Krishna</strong>, lovingly provided the technical know‑how that captured Amma’s voice in studio
+          quality. We feel their blessings in every note you hear today.
+        </p>
+        <p>
+          <em>Sai Subhanjali</em> remains a not‑for‑profit, seva‑driven initiative sustained entirely by the family and
+          well‑wishers. May these melodies bring you peace, and may Sri Sai Baba’s message of 
+          <strong>Śraddhā ( Faith ) &amp; Sabūrī ( Patience )</strong> shine in your heart.
+        </p>
+      </section>
+
       {/* AMMA DEVOTIONAL MOMENTS */}
       <section className="flex flex-wrap justify-center gap-6">
         <DevotionalImg src="/SubbaLakshmi_Sattiraju.png" alt="Amma devotional moments" />
@@ -66,7 +94,7 @@ export default function Home() {
 
       {/* FAMILY HERITAGE */}
       <section className="grid gap-8 md:grid-cols-3 md:items-center">
-        {/* Grandparents montage – use object‑contain so the full collage is visible */}
+        {/* Grandparents montage */}
         <Image
           src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
@@ -86,8 +114,8 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
             From humble roots in East and West Godavari Districts, the Sattiraju family passed down
-            faith, music, and selfless service across generations. Their blessings echo through
-            every note of <em>Sai Subhanjali</em>.
+            faith, music, and selfless service across generations. Their blessings echo through every
+            note of <em>Sai Subhanjali</em>.
           </p>
         </div>
       </section>
@@ -102,8 +130,8 @@ export default function Home() {
           className="mx-auto rounded-full object-cover shadow-md"
         />
         <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these
-          recordings possible.
+          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings
+          possible.
         </p>
       </section>
 
