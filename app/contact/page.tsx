@@ -1,13 +1,16 @@
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-md rounded-xl bg-white p-8 shadow">
-      <h1 className="mb-4 text-2xl font-bold text-brand-700">Get in Touch</h1>
-      <p className="mb-6">We’d love to hear your blessings, feedback, or collaborations.</p>
+    <div className="mx-auto max-w-md rounded-xl bg-white p-8 shadow-lg">
+      <h1 className="mb-4 text-3xl font-extrabold text-brand-700">Contact Us</h1>
+      <p className="mb-6 text-lg">
+        Send blessings, feedback, or collaboration ideas — we’d love to hear from you!
+      </p>
+
       <a
         href="mailto:shekhar72@hotmail.com"
-        className="block rounded bg-brand-700 py-3 text-center font-medium text-white hover:bg-brand-600"
+        className="block rounded-xl bg-brand-600 py-3 text-center font-medium text-white hover:bg-brand-700"
       >
-        📧 Email us: shekhar72@hotmail.com
+        📧 shekhar72@hotmail.com
       </a>
     </div>
   );
