@@ -87,20 +87,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SON-IN-LAW TRIBUTE */}
-      <section className="mx-auto max-w-md text-center">
-        <Image
-          src="/f66151a5-091e-4fec-9ac0-49e45e5c5cd9.jpg"
-          alt="Sri Mohana Krishna — son-in-law & recording pillar"
-          width={300}
-          height={400}
-          className="mx-auto rounded-full object-cover shadow-md"
-        />
-        <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made
-          these recordings possible.
-        </p>
-      </section>
+     {/* SON-IN-LAW TRIBUTE */}
+<section className="mx-auto max-w-md text-center">
+  <Image
+    src="/54e7db2b-1c7e-4e95-8b54-2b5c13acc504.jpg" /* correct filename */
+    alt="Sri Mohana Krishna — son-in-law & recording pillar"
+    width={300}
+    height={400}
+    className="mx-auto rounded-full object-cover shadow-md"
+  />
+  <p className="mt-4 text-sm text-gray-600">
+    In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these
+    recordings possible.
+  </p>
+</section>
 
       {/* HISTORIC SAI IMAGE STRIP */}
       <section className="grid gap-4 md:grid-cols-3">
