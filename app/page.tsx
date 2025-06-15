@@ -1,11 +1,11 @@
-// app/page.tsx — split devotional images onto separate rows (rev 12)
+// app/page.tsx — fix build error + keep two devotional rows (rev 13)
 // ------------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
-  /** Consistent utility for non‑historic devotional photos */
-  const DevotionalImg = ({ src, alt }: { src: string; alt: string }) => (
+/** Utility to keep non‑historic devotional images consistent */
+function DevotionalImg({ src, alt }: { src: string; alt: string }) {
+  return (
     <Image
       src={src}
       alt={alt}
@@ -14,10 +14,12 @@ export default function Home() {
       className="h-48 w-full max-w-[320px] flex-none rounded-xl object-cover shadow md:h-56 lg:h-60"
     />
   );
+}
 
+export default function Home() {
   return (
     <div className="space-y-24">
-      {/* ───────────────────── HERO ───────────────────── */}
+      {/** ───────────────────── HERO ───────────────────── */}
       <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow">
         {/* subtle backdrop */}
         <Image
@@ -56,72 +58,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
+      {/** ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
       <section className="mx-auto max-w-6xl space-y-6 rounded-xl bg-white/60 p-8 shadow lg:max-w-7xl">
         <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
-        <p>
-          Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as
-          Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.
-        </p>
-        <p>
-          Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by
-          Mrs. Subbalakshmi Sattiraju. She has released six albums with 10 to 14 bhajans in each album. She has also
-          written two books – one in Telugu and one in Hindi. These books give detailed insights on experience on this
-          spiritual path.
-        </p>
-        <p>
-          This journey started when Mrs. Subha Sattiraju decided to do <em>Parayanam</em> of Sai Satcharitra. Initially,
-          she was not sure if she had the courage to go on this path. With Sri Sai Baba's blessings she came across the
-          book – Sri Sai Leela Amritam and started reading it. She felt instant peace and joy while reading the book.
-        </p>
-        <p>
-          This experience set the foundations of her following the path towards Sri Sai Baba and spirituality. Soon she
-          had the Divine awakening to write, compose, and sing her own bhajans on Sai Baba. Inspiration, lyrics and
-          music composition continue to come to her with divine blessings of Sri Sai Baba.
-        </p>
-        <p>
-          Mrs. Subha Sattiraju passed away in September 2024. She was a trained musician and a home maker. Mrs. Late
-          Subha Sattiraju &amp; her late husband Late Nageswara Rao Sattiraju were born in small villages in Andhra Pradesh
-          (Sidhantam &amp; Kattunga Village, in West &amp; East Godavari district). Mrs. Sattiraju has performed at various
-          spiritual events for many years, throughout the city.
-        </p>
-        <p>
-          Sai Subhanjali is a not‑for‑profit initiative with the sole purpose of promoting spirituality, peace, and joy.
-          This initiative was made possible by encouragement and unflinching support of her husband Late Sri Nageswara
-          Rao Sattiraju, a civil engineer, who spent 40+ years helping build dams in India. Many of the key water
-          projects in India have his signature on them. He was always humble, a <em>Karma Yogi</em>, who gave a lot more
-          to the world than we will ever know. We all miss him dearly.
-        </p>
-        <p>
-          All music recordings were facilitated by her late son‑in‑law Sri Mohana Krishna (husband of Smt Lalita — second
-          eldest among 5 siblings). Without Sri Mohan's encouragement, know‑how &amp; support, this would not have been
-          possible. We miss Sri Mohan immensely and see him smiling and blessing us as more &amp; more devotees can now
-          hear these soulful bhajans.
-        </p>
-        <p>
-          This endeavour was possible only with divine blessings from Sri Sai Baba, selfless dedication from
-          Late Sri Nageswara Rao &amp; Subha Sattiraju, their late son‑in‑law Sri Mohana Krishna, their immediate/extended
-          family along with numerous voluntary musicians &amp; friends over the years.
-        </p>
-        <p>
-          All expenses for recording and publishing these songs and books are borne completely by Mrs. Subha Sattiraju
-          &amp; her late husband Sri Nageswara Rao Sattiraju.
-        </p>
+        <p> Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.</p>
+        <p> Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by Mrs. Subbalakshmi Sattiraju. She has released six albums with 10 to 14 bhajans in each album. She has also written two books – one in Telugu and one in Hindi. These books give detailed insights on experience on this spiritual path.</p>
+        <p> This journey started when Mrs. Subha Sattiraju decided to do <em>Parayanam</em> of Sai Satcharitra. Initially, she was not sure if she had the courage to go on this path. With Sri Sai Baba's blessings she came across the book – Sri Sai Leela Amritam and started reading it. She felt instant peace and joy while reading the book.</p>
+        <p> This experience set the foundations of her following the path towards Sri Sai Baba and spirituality. Soon she had the Divine awakening to write, compose, and sing her own bhajans on Sai Baba. Inspiration, lyrics and music composition continue to come to her with divine blessings of Sri Sai Baba.</p>
+        <p> Mrs. Subha Sattiraju passed away in September 2024. She was a trained musician and a home maker. Mrs. Late Subha Sattiraju &amp; her late husband Late Nageswara Rao Sattiraju were born in small villages in Andhra Pradesh (Sidhantam &amp; Kattunga Village, in West &amp; East Godavari district). Mrs. Sattiraju has performed at various spiritual events for many years, throughout the city.</p>
+        <p> Sai Subhanjali is a not‑for‑profit initiative with the sole purpose of promoting spirituality, peace, and joy. This initiative was made possible by encouragement and unflinching support of her husband Late Sri Nageswara Rao Sattiraju, a civil engineer, who spent 40+ years helping build dams in India. Many of the key water projects in India have his signature on them. He was always humble, a <em>Karma Yogi</em>, who gave a lot more to the world than we will ever know. We all miss him dearly.</p>
+        <p> All music recordings were facilitated by her late son‑in‑law Sri Mohana Krishna (husband of Smt Lalita — second eldest among 5 siblings). Without Sri Mohan's encouragement, know‑how &amp; support, this would not have been possible. We miss Sri Mohan immensely and see him smiling and blessing us as more &amp; more devotees can now hear these soulful bhajans.</p>
+        <p> This endeavour was possible only with divine blessings from Sri Sai Baba, selfless dedication from Late Sri Nageswara Rao &amp; Subha Sattiraju, their late son‑in‑law Sri Mohana Krishna, their immediate/extended family along with numerous voluntary musicians &amp; friends over the years.</p>
+        <p> All expenses for recording and publishing these songs and books are borne completely by Mrs. Subha Sattiraju &amp; her late husband Sri Nageswara Rao Sattiraju.</p>
         <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
-      {/* ─── DEVOTIONAL MOMENTS — SEPARATE ROWS ─── */}
+      {/** ─── DEVOTIONAL MOMENTS — SEPARATE ROWS ─── */}
       <section className="flex justify-center px-2">
         <DevotionalImg src="/SubbaLakshmi_Sattiraju.png" alt="Amma devotional moments montage" />
       </section>
       <section className="flex justify-center px-2">
-        <DevotionalImg
-          src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg"
-          alt="International Women’s Day award in Delhi"
-        />
+        <DevotionalImg src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg" alt="International Women’s Day award in Delhi" />
       </section>
 
-      {/* ───── FAMILY HERITAGE ───── */}
+      {/** ───── FAMILY HERITAGE ───── */}
       <section className="grid gap-6 md:grid-cols-[auto_auto_1fr] md:items-center">
         <Image
           src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
@@ -130,7 +90,6 @@ export default function Home() {
           height={350}
           className="w-full rounded-xl object-contain shadow"
         />
-
         <Image
           src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
@@ -138,7 +97,6 @@ export default function Home() {
           height={350}
           className="w-full rounded-xl object-cover shadow"
         />
-
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
@@ -148,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───── SON‑IN‑LAW TRIBUTE ───── */}
+      {/** ───── SON‑IN‑LAW TRIBUTE ───── */}
       <section className="mx-auto max-w-md text-center">
         <Image
           src="/Shri_Mohan_Krishna.jpg"
@@ -158,4 +116,23 @@ export default function Home() {
           className="mx-auto rounded-full object-cover shadow-md"
         />
         <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri Mohana 
+          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings possible.
+        </p>
+      </section>
+
+      {/** ───── HISTORIC SAI IMAGE STRIP ───── */}
+      <section className="flex flex-wrap justify-center gap-6">
+        {['/SaiBaba2.png', '/SaiBaba3.png', '/SaiBaba5.png'].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Historic Sai Baba photograph"
+            width={400}
+            height={500}
+            className="h-72 w-auto rounded-xl object-cover shadow"
+          />
+        ))}
+      </section>
+    </div>
+  );
+}
