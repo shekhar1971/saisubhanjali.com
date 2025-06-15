@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* ————————————— ABOUT (verbatim narrative) ————————————— */}
-      <section className="mx-auto max-w-5xl space-y-6 rounded-xl bg-white/60 p-8 shadow">
+      <section className="mx-auto max-w-6xl lg:max-w-7xl space-y-6 rounded-xl bg-white/60 p-8 shadow">
         <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
         <p> Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.</p>
         <p> Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by Mrs. Subbalakshmi Sattiraju. She has released six albums with 10 to 14 bhajans in each album. She has also written two books – one in Telugu and one in Hindi. These books give detailed insights on experience on this spiritual path.</p>
