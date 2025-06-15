@@ -1,4 +1,4 @@
-// app/page.tsx — full narrative + mobile‑friendly grids (rev 11)
+// app/page.tsx — split devotional images onto separate rows (rev 12)
 // ------------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -110,9 +110,11 @@ export default function Home() {
         <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
-      {/* ───── DEVOTIONAL MOMENTS (collage wraps) ───── */}
-      <section className="flex flex-wrap justify-center gap-6 px-2">
+      {/* ─── DEVOTIONAL MOMENTS — SEPARATE ROWS ─── */}
+      <section className="flex justify-center px-2">
         <DevotionalImg src="/SubbaLakshmi_Sattiraju.png" alt="Amma devotional moments montage" />
+      </section>
+      <section className="flex justify-center px-2">
         <DevotionalImg
           src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg"
           alt="International Women’s Day award in Delhi"
@@ -156,28 +158,4 @@ export default function Home() {
           className="mx-auto rounded-full object-cover shadow-md"
         />
         <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings
-          possible.
-        </p>
-      </section>
-
-      {/* ───── HISTORIC SAI IMAGE STRIP ───── */}
-      <section className="grid gap-4 sm:grid-cols-3">
-        {[
-          { src: '/SaiBaba2.png', alt: 'Sai blessing' },
-          { src: '/SaiBaba3.png', alt: 'Sai in Dwarkamai' },
-          { src: '/SaiBaba5.png', alt: 'Rare photo of Sai Baba' },
-        ].map(({ src, alt }, i) => (
-          <Image
-            key={i}
-            src={src}
-            alt={alt}
-            width={450}
-            height={600}
-            className="h-80 w-full rounded-xl object-cover shadow"
-          />
-        ))}
-      </section>
-    </div>
-  );
-}
+          In loving memory of <strong>Sri Mohana 
