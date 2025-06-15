@@ -1,14 +1,11 @@
-// SaiSubhanjali.com — Minimal working starter (Next.js App Router)
+// SaiSubhanjali.com — Minimal, build‑safe Next.js App Router starter
 
 // -------------------------
-// next.config.js  (root-level)
+// next.config.js  (root)
 // -------------------------
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    appDir: true // tell Next.js we are using /app directory
-  }
+  reactStrictMode: true
 };
 module.exports = nextConfig;
 
@@ -34,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 // -------------------------
-// app/page.tsx (Homepage)
+// app/page.tsx (Homepage)  – NO image import, direct /public ref
 // -------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,8 +39,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main className="p-6 max-w-4xl mx-auto text-center">
-      {/* hero image served from /public */}
-      <Image src="/SaiBaba2.png" alt="Sai Baba" width={400} height={400} className="mx-auto mb-6 rounded-xl shadow" />
+      <Image src="/SaiBaba2.png" alt="Sai Baba" width={400} height={400} className="mx-auto mb-6 rounded-xl shadow" />
 
       <h1 className="text-4xl font-bold mb-4">Sai Subhanjali</h1>
       <p className="mb-6 max-w-prose mx-auto">A devotional tribute by Smt. Subbalakshmi Sattiraju — singer, composer, and Sai devotee.</p>
@@ -58,7 +54,7 @@ export default function Home() {
 }
 
 // -------------------------
-// app/about/page.tsx  (placeholder — no image yet)
+// app/about/page.tsx (placeholder)
 // -------------------------
 export default function AboutPage() {
   return (
@@ -70,9 +66,8 @@ export default function AboutPage() {
 }
 
 // -------------------------
-// app/globals.css  (simple reset + font)
+// app/globals.css (simple reset)
 // -------------------------
-/* Add any global styles you like here */
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
