@@ -68,7 +68,7 @@ export default function Home() {
         />
       </section>
 
-     {/* FAMILY HERITAGE */}
+   {/* FAMILY HERITAGE */}
 <section className="grid gap-6 md:grid-cols-3 md:items-center">
   {/* Grandparents montage */}
   <Image
@@ -79,6 +79,25 @@ export default function Home() {
     className="rounded-xl object-cover shadow"
   />
 
+  {/* Parents’ portrait */}
+  <Image
+    src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
+    alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
+    width={450}
+    height={350}
+    className="rounded-xl object-cover shadow"
+  />
+
+  {/* Heritage text */}
+  <div className="space-y-4">
+    <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
+    <p>
+      From humble roots in East and West Godavari Districts, the Sattiraju family passed down
+      faith, music, and selfless service across generations. Their blessings echo through every
+      note of <em>Sai Subhanjali</em>.
+    </p>
+  </div>
+</section>
   {/* Parents’ portrait */}
   <Image
     src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
