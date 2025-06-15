@@ -1,22 +1,9 @@
-// app/page.tsx — refined devotional grids & correct filenames (rev 3)
+// app/page.tsx — devotional collage fixed to actual filenames (rev 4)
 // -----------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  /*
-    🔑 Verified files now in /public:
-      SubbaLakshmi_Sattiraju.png
-      SubbaLakshmi_Performance.png
-      SubbaLakshmi_Singing_With_Sitar.png
-      SubbaLakshmi_Award_Felicitations.png
-      SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg
-      SaiBaba1‑5.png
-      Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png
-      Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg
-      Shri_Mohan_Krishna.jpg
-  */
-
   return (
     <div className="space-y-24">
       {/* HERO */}
@@ -57,12 +44,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AMMA DEVOTIONAL MOMENTS */}
+      {/* AMMA DEVOTIONAL MOMENTS (actual files) */}
       <section className="flex flex-wrap justify-center gap-6">
         {[
-          '/SubbaLakshmi_Performance.png',
-          '/SubbaLakshmi_Singing_With_Sitar.png',
-          '/SubbaLakshmi_Award_Felicitations.png',
+          '/SubbaLakshmi_Sattiraju.png',
           '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
         ].map((src) => (
           <Image
