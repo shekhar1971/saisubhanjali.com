@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import HeroImage from '@/public/SaiBaba2.png'; // placeholder
-
+import HeroImage from '@/public/SaiBaba2.png';
 export default function Home() {
   return (
     <main className="p-6 max-w-4xl mx-auto text-center">
