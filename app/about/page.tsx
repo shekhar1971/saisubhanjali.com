@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import AmmaPhoto from '@/public/Shri_NageswaraRaoGaru&Smt SubbalakshmiGaru.jpg'; // replace with actual image
-
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto p-6">
