@@ -1,17 +1,17 @@
-// app/page.tsx — fix build error + keep two devotional rows (rev 13)
+// app/page.tsx — widen devotional photos (rev 14)
 // ------------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
-/** Utility to keep non‑historic devotional images consistent */
+/** Utility to render a devotional photo with a wider max‑width so phone crops stop */
 function DevotionalImg({ src, alt }: { src: string; alt: string }) {
   return (
     <Image
       src={src}
       alt={alt}
-      width={320}
-      height={220}
-      className="h-48 w-full max-w-[320px] flex-none rounded-xl object-cover shadow md:h-56 lg:h-60"
+      width={450}
+      height={300}
+      className="h-60 w-full max-w-[450px] flex-none rounded-xl object-cover shadow md:h-64 lg:h-72"
     />
   );
 }
@@ -73,7 +73,7 @@ export default function Home() {
         <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
-      {/** ─── DEVOTIONAL MOMENTS — SEPARATE ROWS ─── */}
+      {/** ─── DEVOTIONAL MOMENTS — NOW TWO ROWS ─── */}
       <section className="flex justify-center px-2">
         <DevotionalImg src="/SubbaLakshmi_Sattiraju.png" alt="Amma devotional moments montage" />
       </section>
@@ -98,9 +98,9 @@ export default function Home() {
           className="w-full rounded-xl object-cover shadow"
         />
         <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
+          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
-            From humble roots in East and West Godavari Districts, the Sattiraju family passed down faith, music, and
+            From humble roots in East and West Godavari Districts, the Sattiraju family passed down faith, music, and
             selfless service across generations. Their blessings echo through every note of <em>Sai Subhanjali</em>.
           </p>
         </div>
@@ -116,23 +116,4 @@ export default function Home() {
           className="mx-auto rounded-full object-cover shadow-md"
         />
         <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings possible.
-        </p>
-      </section>
-
-      {/** ───── HISTORIC SAI IMAGE STRIP ───── */}
-      <section className="flex flex-wrap justify-center gap-6">
-        {['/SaiBaba2.png', '/SaiBaba3.png', '/SaiBaba5.png'].map((src) => (
-          <Image
-            key={src}
-            src={src}
-            alt="Historic Sai Baba photograph"
-            width={400}
-            height={500}
-            className="h-72 w-auto rounded-xl object-cover shadow"
-          />
-        ))}
-      </section>
-    </div>
-  );
-}
+          In loving memory of <strong>Sri 
