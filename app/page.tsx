@@ -1,17 +1,16 @@
-// app/page.tsx — unified image sizing + full‑width rendering (rev 5)
+// app/page.tsx — image fit tweak for grandparents montage (rev 6)
 // ------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  /** Helper to render a responsive image with identical styling */
+  /** Helper to render a responsive devotional photo */
   const DevotionalImg = ({ src, alt }: { src: string; alt: string }) => (
     <Image
       src={src}
       alt={alt}
       width={400}
       height={260}
-      // identical sizing:  h‑48 on mobile (≈192 px) and grow with container while preserving aspect
       className="h-48 w-auto rounded-xl object-cover shadow lg:h-60"
     />
   );
@@ -67,16 +66,22 @@ export default function Home() {
 
       {/* FAMILY HERITAGE */}
       <section className="grid gap-8 md:grid-cols-3 md:items-center">
-        <DevotionalImg
+        {/* Grandparents montage – use object‑contain so the full collage is visible */}
+        <Image
           src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
+          width={400}
+          height={260}
+          className="h-48 w-auto rounded-xl object-contain shadow lg:h-60"
         />
 
+        {/* Parents’ portrait */}
         <DevotionalImg
           src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
         />
 
+        {/* Heritage blurb */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
@@ -102,7 +107,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* HISTORIC SAI IMAGE STRIP — identical heights */}
+      {/* HISTORIC SAI IMAGE STRIP */}
       <section className="flex flex-wrap justify-center gap-6">
         {['/SaiBaba2.png', '/SaiBaba3.png', '/SaiBaba5.png'].map((src) => (
           <Image
