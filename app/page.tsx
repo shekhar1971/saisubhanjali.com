@@ -1,5 +1,5 @@
-// app/page.tsx – image path fixes & minor polish
-// ---------------------------------------------------------------
+// app/page.tsx – fix image paths & sizing issues
+// -----------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -44,37 +44,38 @@ export default function Home() {
       </section>
 
       {/* DEVOTIONAL PHOTO GRID */}
-      <section className="grid gap-6 md:grid-cols-2">
-        <Image
-          src="/SubbaLakshmi_Sattiraju.png"
-          alt="Amma performing Sai bhajans"
-          width={700}
-          height={450}
-          className="h-64 w-full rounded-xl object-cover shadow"
-        />
-        <Image
-          src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg"
-          alt="International Women’s Day award in Delhi"
-          width={700}
-          height={450}
-          className="h-64 w-full rounded-xl object-cover shadow"
-        />
+      <section className="grid gap-6 md:grid-cols-4">
+        {[
+          '/SubbaLakshmi_Sattiraju_1.png',
+          '/SubbaLakshmi_Sattiraju_2.png',
+          '/SubbaLakshmi_Sattiraju_3.png',
+          '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
+        ].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Amma devotional moments"
+            width={450}
+            height={300}
+            className="w-full rounded-xl object-cover shadow"
+          />
+        ))}
       </section>
 
       {/* FAMILY HERITAGE */}
       <section className="grid gap-6 md:grid-cols-3 md:items-center">
         {/* Grandparents */}
         <Image
-          src="/Smt_Subbalakshi_and_Shri_Nageswara_Rao_Parents.png"
+          src="/Smt%20Subbalakshi%20%26%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
           width={450}
           height={350}
           className="rounded-xl object-cover shadow"
         />
 
-        {/* Parents’ portrait – ensure file present in /public with this exact name */}
+        {/* Parents portrait */}
         <Image
-          src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
+          src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
           width={450}
           height={350}
@@ -95,7 +96,7 @@ export default function Home() {
       {/* SON‑IN‑LAW TRIBUTE */}
       <section className="mx-auto max-w-md text-center">
         <Image
-          src="/Shri_Mohan_Krishna.jpg" // make sure this exact file is in /public
+          src="/54e7db2b-1c7e-4e95-8b54-2b5c13acc504.jpg"
           alt="Sri Mohana Krishna — son‑in‑law &amp; recording pillar"
           width={300}
           height={400}
@@ -116,4 +117,4 @@ export default function Home() {
     </div>
   );
 }
-// ---------------------------------------------------------------
+// -----------------------------------------------------------------
