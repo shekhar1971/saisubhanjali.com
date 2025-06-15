@@ -1,4 +1,4 @@
-// app/page.tsx — full “About” narrative (rev 8)
+// app/page.tsx — full “About” narrative (rev 9)
 // ------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT — full narrative (verbatim) */}
-      <section className="mx-auto max-w-4xl space-y-6 rounded-xl bg-white/60 p-8 shadow">
+      <section className="mx-auto max-w-5xl space-y-6 rounded-xl bg-white/60 p-8 shadow">
         <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
         <p>
           Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.
@@ -139,13 +139,4 @@ export default function Home() {
           <Image
             key={src}
             src={src}
-            alt="Historic Sai Baba photograph"
-            width={350}
-            height={500}
-            className="h-96 w-auto rounded-xl object-cover shadow"
-          />
-        ))}
-      </section>
-    </div>
-  );
-}
+            alt="Historic Sai B
