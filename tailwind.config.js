@@ -1,5 +1,3 @@
-// tailwind.config.js (root)
-// -------------------------------------------------------------
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
