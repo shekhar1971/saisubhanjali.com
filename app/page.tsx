@@ -1,11 +1,25 @@
-// app/page.tsx – fixed image paths and grid
+// app/page.tsx — refined devotional grids & verified image paths
 // -----------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+  /*
+    🔑 Heads‑up on file names
+    ‑ /public/
+      ├─ SubbaLakshmi_Sattiraju.png
+      ├─ SubbaLakshmi_Performance.png              ⟵ NEW (first grid image)
+      ├─ SubbaLakshmi_Singing_With_Sitar.png        ⟵ NEW (second grid image)
+      ├─ SubbaLakshmi_Award_Felicitations.png       ⟵ NEW (third grid image)
+      ├─ SubbaLakshmi_International_Womens_Day.jpg  ⟵ already used (big image)
+      ├─ SaiBaba1/2/3/4/5.png … etc.
+      ├─ GrandParents_Montage.png                   ⟵ merged montage (blue background)
+      ├─ Parents_Portrait.jpg                       ⟵ smiling couple (no spaces!)
+      ├─ MohanaKrishna.jpg                          ⟵ circular tribute
+  */
+
   return (
-    <div className="space-y-20">
+    <div className="space-y-24">
       {/* HERO */}
       <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow">
         <Image
@@ -15,7 +29,7 @@ export default function Home() {
           priority
           className="object-cover opacity-20"
         />
-        <div className="relative z-10 grid gap-8 px-6 py-20 md:grid-cols-2 md:items-center">
+        <div className="relative z-10 grid gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
           <div>
             <h1 className="mb-4 text-5xl font-extrabold leading-tight text-brand-700 drop-shadow md:text-6xl">
               Sai Subhanjali
@@ -43,51 +57,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DEVOTIONAL PHOTO GRID */}
-      <section className="grid gap-6 md:grid-cols-3">
+      {/* AMMA DEVOTIONAL MOMENTS – own row so they stay aligned */}
+      <section className="flex flex-wrap justify-center gap-6">
         {[
-          '/SubbaLakshmi_Sattiraju.png',
-          '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
-          '/0210995b-baf7-4b29-8547-1107b4aa063e.jpg',
+          '/SubbaLakshmi_Performance.png',
+          '/SubbaLakshmi_Singing_With_Sitar.png',
+          '/SubbaLakshmi_Award_Felicitations.png',
+          '/SubbaLakshmi_International_Womens_Day.jpg',
         ].map((src) => (
           <Image
             key={src}
             src={src}
             alt="Amma devotional moments"
-            width={450}
-            height={300}
-            className="w-full rounded-xl object-cover shadow"
+            width={320}
+            height={220}
+            className="rounded-xl object-cover shadow"
           />
         ))}
       </section>
 
       {/* FAMILY HERITAGE */}
-      <section className="grid gap-6 md:grid-cols-3 md:items-center">
-        {/* Grandparents */}
+      <section className="grid gap-8 md:grid-cols-3 md:items-center">
         <Image
-          src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
+          src="/GrandParents_Montage.png"
           alt="Parental roots of Amma & Ayyagaru"
           width={450}
           height={350}
           className="rounded-xl object-cover shadow"
         />
 
-        {/* Parents portrait */}
         <Image
-          src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
+          src="/Parents_Portrait.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
           width={450}
           height={350}
           className="rounded-xl object-cover shadow"
         />
 
-        {/* Text block */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
-            From humble roots in East and West Godavari Districts, the Sattiraju family passed down
-            faith, music, and selfless service across generations. Their blessings echo through every
-            note of <em>Sai Subhanjali</em>.
+            From humble roots in East and West Godavari Districts, the Sattiraju family passed down
+            faith, music, and selfless service across generations. Their blessings echo through
+            every note of <em>Sai Subhanjali</em>.
           </p>
         </div>
       </section>
@@ -95,7 +107,7 @@ export default function Home() {
       {/* SON‑IN‑LAW TRIBUTE */}
       <section className="mx-auto max-w-md text-center">
         <Image
-          src="/54e7db2b-1c7e-4e95-8b54-2b5c13acc504.jpg"
+          src="/MohanaKrishna.jpg"
           alt="Sri Mohana Krishna — son‑in‑law &amp; recording pillar"
           width={300}
           height={400}
