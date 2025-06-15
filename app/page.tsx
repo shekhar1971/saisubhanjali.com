@@ -1,4 +1,4 @@
-// app/page.tsx – fix image paths & sizing issues
+// app/page.tsx – fixed image paths and grid
 // -----------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -44,12 +44,11 @@ export default function Home() {
       </section>
 
       {/* DEVOTIONAL PHOTO GRID */}
-      <section className="grid gap-6 md:grid-cols-4">
+      <section className="grid gap-6 md:grid-cols-3">
         {[
-          '/SubbaLakshmi_Sattiraju_1.png',
-          '/SubbaLakshmi_Sattiraju_2.png',
-          '/SubbaLakshmi_Sattiraju_3.png',
+          '/SubbaLakshmi_Sattiraju.png',
           '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
+          '/0210995b-baf7-4b29-8547-1107b4aa063e.jpg',
         ].map((src) => (
           <Image
             key={src}
@@ -66,7 +65,7 @@ export default function Home() {
       <section className="grid gap-6 md:grid-cols-3 md:items-center">
         {/* Grandparents */}
         <Image
-          src="/Smt%20Subbalakshi%20%26%20Shri%20Nageswara%20Rao%20Parents.png"
+          src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
           width={450}
           height={350}
@@ -76,7 +75,7 @@ export default function Home() {
         {/* Parents portrait */}
         <Image
           src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
-          alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
+          alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
           width={450}
           height={350}
           className="rounded-xl object-cover shadow"
