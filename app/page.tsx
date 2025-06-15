@@ -1,3 +1,4 @@
+/* app/page.tsx ------------------------------------------------------------ */
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,7 +7,6 @@ export default function Home() {
     <div className="space-y-20">
       {/* HERO */}
       <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow">
-        {/* subtle backdrop */}
         <Image
           src="/SaiBaba1.png"
           alt="Shirdi Sai Baba sanctum"
@@ -21,9 +21,10 @@ export default function Home() {
               Sai Subhanjali
             </h1>
             <p className="mb-8 max-w-prose text-lg">
-              A devotional treasury of Sai Baba bhajans — lovingly written, composed &amp; sung
-              by<strong> Subbalakshmi Sattiraju</strong>.
+              A devotional treasury of Sai Baba bhajans — lovingly written, composed&nbsp;and&nbsp;sung by
+              <span className="font-semibold"> Smt. Subbalakshmi&nbsp;Sattiraju</span>.
             </p>
+
             <Link
               href="/bhajans"
               className="inline-block rounded-xl bg-brand-600 px-8 py-3 font-medium text-white shadow hover:bg-brand-700"
@@ -43,7 +44,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DEVOTIONAL PHOTO GRID */}
+      {/* DEVOTIONAL PHOTOS GRID */}
       <section className="grid gap-6 md:grid-cols-3">
         <Image
           src="/SubbaLakshmi_Sattiraju.png"
@@ -52,6 +53,7 @@ export default function Home() {
           height={400}
           className="h-64 w-full rounded-xl object-cover shadow"
         />
+
         <Image
           src="/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg"
           alt="International Women’s Day award in Delhi"
@@ -59,8 +61,9 @@ export default function Home() {
           height={400}
           className="h-64 w-full rounded-xl object-cover shadow"
         />
+
         <Image
-          src="/Shri_NageswaraRao and Smt Subbalakshmi.jpg"
+          src="/Shri_NageswaraRao%20and%20Smt%20Subbalakshmi.jpg"
           alt="Sri Nageswara Rao & Smt Subbalakshmi"
           width={600}
           height={400}
@@ -68,96 +71,57 @@ export default function Home() {
         />
       </section>
 
- {/* FAMILY HERITAGE */}
-<section className="grid gap-6 md:grid-cols-3 md:items-center">
-  {/* Grandparents montage */}
-  <Image
-    src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
-    alt="Parental roots of Amma & Ayyagaru"
-    width={450}
-    height={350}
-    className="rounded-xl object-cover shadow"
-  />
+      {/* FAMILY HERITAGE */}
+      <section className="grid gap-6 md:grid-cols-3 md:items-center">
+        {/* Grandparents montage */}
+        <Image
+          src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
+          alt="Parental roots of Amma & Ayyagaru"
+          width={450}
+          height={350}
+          className="rounded-xl object-cover shadow"
+        />
 
-  {/* Parents’ portrait */}
-  <Image
-    src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
-    alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
-    width={450}
-    height={350}
-    className="rounded-xl object-cover shadow"
-  />
+        {/* Parents’ portrait */}
+        <Image
+          src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
+          alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
+          width={450}
+          height={350}
+          className="rounded-xl object-cover shadow"
+        />
 
-  {/* Heritage text */}
-  <div className="space-y-4">
-    <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
-    <p>
-      From humble roots in East and West Godavari Districts, the Sattiraju family passed down
-      faith, music, and selfless service across generations. Their blessings echo through every
-      note of <em>Sai Subhanjali</em>.
-    </p>
-  </div>
-</section>
+        {/* Heritage text */}
+        <div className="space-y-4">
+          <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
+          <p>
+            From humble roots in East&nbsp;and West Godavari Districts, the Sattiraju family passed down
+            faith, music, and selfless service across generations. Their blessings echo through every
+            note of <em>Sai Subhanjali</em>.
+          </p>
+        </div>
+      </section>
 
-  {/* Parents’ portrait */}
-  <Image
-    src="/0210995b-baf7-4b29-8547-1107b4aa063e.jpg"
-    alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
-    width={450}
-    height={350}
-    className="rounded-xl object-cover shadow"
-  />
-
-  {/* Heritage text */}
-  <div className="space-y-4">
-    <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
-    <p>
-      From humble roots in East and West Godavari Districts, the Sattiraju family passed down
-      faith, music, and selfless service across generations. Their blessings echo through every
-      note of <em>Sai Subhanjali</em>.
-    </p>
-  </div>
-</section>
-
-
-     {/* SON-IN-LAW TRIBUTE */}
-<section className="mx-auto max-w-md text-center">
-  <Image
-    src="/54e7db2b-1c7e-4e95-8b54-2b5c13acc504.jpg" /* correct filename */
-    alt="Sri Mohana Krishna — son-in-law & recording pillar"
-    width={300}
-    height={400}
-    className="mx-auto rounded-full object-cover shadow-md"
-  />
-  <p className="mt-4 text-sm text-gray-600">
-    In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these
-    recordings possible.
-  </p>
-</section>
+      {/* SON-IN-LAW TRIBUTE */}
+      <section className="mx-auto max-w-md text-center">
+        <Image
+          src="/54e7db2b-1c7e-4e95-8b54-2b5c13acc504.jpg" // Mohana Krishna portrait
+          alt="Sri Mohana Krishna — son-in-law & recording pillar"
+          width={300}
+          height={400}
+          className="mx-auto rounded-full object-cover shadow-md"
+        />
+        <p className="mt-4 text-sm text-gray-600">
+          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these
+          recordings possible.
+        </p>
+      </section>
 
       {/* HISTORIC SAI IMAGE STRIP */}
       <section className="grid gap-4 md:grid-cols-3">
-        <Image
-          src="/SaiBaba2.png"
-          alt="Sai blessing"
-          width={400}
-          height={500}
-          className="rounded-xl shadow"
-        />
-        <Image
-          src="/SaiBaba3.png"
-          alt="Sai in Dwarkamai"
-          width={400}
-          height={500}
-          className="rounded-xl shadow"
-        />
-        <Image
-          src="/SaiBaba5.png"
-          alt="Rare photo of Sai Baba"
-          width={400}
-          height={500}
-          className="rounded-xl shadow"
-        />
+        <Image src="/SaiBaba2.png" alt="Sai blessing" width={400} height={500} className="rounded-xl shadow" />
+        <Image src="/SaiBaba3.png" alt="Sai in Dwarkamai" width={400} height={500} className="rounded-xl shadow" />
+        <Image src="/SaiBaba5.png" alt="Rare photo of Sai Baba" width={400} height={500} className="rounded-xl shadow" />
       </section>
     </div>
   );
