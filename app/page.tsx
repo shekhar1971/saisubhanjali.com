@@ -1,21 +1,20 @@
-// app/page.tsx — refined devotional grids & verified image paths
+// app/page.tsx — refined devotional grids & correct filenames (rev 3)
 // -----------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   /*
-    🔑 Heads‑up on file names
-    ‑ /public/
-      ├─ SubbaLakshmi_Sattiraju.png
-      ├─ SubbaLakshmi_Performance.png              ⟵ NEW (first grid image)
-      ├─ SubbaLakshmi_Singing_With_Sitar.png        ⟵ NEW (second grid image)
-      ├─ SubbaLakshmi_Award_Felicitations.png       ⟵ NEW (third grid image)
-      ├─ SubbaLakshmi_International_Womens_Day.jpg  ⟵ already used (big image)
-      ├─ SaiBaba1/2/3/4/5.png … etc.
-      ├─ GrandParents_Montage.png                   ⟵ merged montage (blue background)
-      ├─ Parents_Portrait.jpg                       ⟵ smiling couple (no spaces!)
-      ├─ MohanaKrishna.jpg                          ⟵ circular tribute
+    🔑 Verified files now in /public:
+      SubbaLakshmi_Sattiraju.png
+      SubbaLakshmi_Performance.png
+      SubbaLakshmi_Singing_With_Sitar.png
+      SubbaLakshmi_Award_Felicitations.png
+      SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg
+      SaiBaba1‑5.png
+      Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png
+      Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg
+      Shri_Mohan_Krishna.jpg
   */
 
   return (
@@ -29,6 +28,7 @@ export default function Home() {
           priority
           className="object-cover opacity-20"
         />
+
         <div className="relative z-10 grid gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
           <div>
             <h1 className="mb-4 text-5xl font-extrabold leading-tight text-brand-700 drop-shadow md:text-6xl">
@@ -57,13 +57,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AMMA DEVOTIONAL MOMENTS – own row so they stay aligned */}
+      {/* AMMA DEVOTIONAL MOMENTS */}
       <section className="flex flex-wrap justify-center gap-6">
         {[
           '/SubbaLakshmi_Performance.png',
           '/SubbaLakshmi_Singing_With_Sitar.png',
           '/SubbaLakshmi_Award_Felicitations.png',
-          '/SubbaLakshmi_International_Womens_Day.jpg',
+          '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
         ].map((src) => (
           <Image
             key={src}
@@ -79,7 +79,7 @@ export default function Home() {
       {/* FAMILY HERITAGE */}
       <section className="grid gap-8 md:grid-cols-3 md:items-center">
         <Image
-          src="/GrandParents_Montage.png"
+          src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
           width={450}
           height={350}
@@ -87,7 +87,7 @@ export default function Home() {
         />
 
         <Image
-          src="/Parents_Portrait.jpg"
+          src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
           width={450}
           height={350}
@@ -107,7 +107,7 @@ export default function Home() {
       {/* SON‑IN‑LAW TRIBUTE */}
       <section className="mx-auto max-w-md text-center">
         <Image
-          src="/MohanaKrishna.jpg"
+          src="/Shri_Mohan_Krishna.jpg"
           alt="Sri Mohana Krishna — son‑in‑law &amp; recording pillar"
           width={300}
           height={400}
