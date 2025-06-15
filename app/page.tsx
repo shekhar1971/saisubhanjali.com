@@ -1,4 +1,4 @@
-// app/page.tsx — add detailed About section (rev 7)
+// app/page.tsx — full “About” narrative (rev 8)
 // ------------------------------------------------------------
 import Image from 'next/image';
 import Link from 'next/link';
@@ -55,32 +55,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT — full narrative */}
+      {/* ABOUT — full narrative (verbatim) */}
       <section className="mx-auto max-w-4xl space-y-6 rounded-xl bg-white/60 p-8 shadow">
         <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
         <p>
-          <strong>Sai Subhanjali</strong> blossomed from the unwavering devotion of
-          <strong> Smt. Subbalakshmi Sattiraju</strong> (fondly called “Subha Amma”) to Sri Shirdi Sai Baba and His
-          timeless teachings. What began as humble <em>parayanam</em> (daily reading) of the
-          <em>Sai Satcharitra</em> soon blossomed, through Baba’s grace, into original bhajans that flowed to her as
-          spontaneous divine inspiration.
+          Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.
         </p>
         <p>
-          Over the decades Subha Amma released <strong>six audio albums</strong> (10–14 tracks each) and authored
-          <strong> two books</strong> — in Telugu and Hindi — chronicling her spiritual experiences. Her soul‑stirring
-          compositions continue to kindle faith and joy in countless devotees.
+          Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by Mrs. Subbalakshmi Sattiraju. She has released six albums with 10 to 14 bhajans in each album. She has also written two books – one in Telugu and one in Hindi. These books give detailed insights on experience on this spiritual path.
         </p>
         <p>
-          <strong>Late Sri Nageswara Rao Sattiraju</strong> — a civil engineer whose 40‑year career helped bring life‑giving
-          water projects to India — stood by her side as a quiet <em>Karma Yogi</em>. Their daughter’s husband,
-          <strong> Sri Mohana Krishna</strong>, lovingly provided the technical know‑how that captured Amma’s voice in studio
-          quality. We feel their blessings in every note you hear today.
+          This journey started when Mrs. Subha Sattiraju decided to do <em>Parayanam</em> of Sai Satcharitra. Initially, she was not sure if she had the courage to go on this path. With Sri Sai Baba's blessings she came across the book – Sri Sai Leela Amritam and started reading it. She felt instant peace and joy while reading the book.
         </p>
         <p>
-          <em>Sai Subhanjali</em> remains a not‑for‑profit, seva‑driven initiative sustained entirely by the family and
-          well‑wishers. May these melodies bring you peace, and may Sri Sai Baba’s message of 
-          <strong>Śraddhā ( Faith ) &amp; Sabūrī ( Patience )</strong> shine in your heart.
+          This experience set the foundations of her following the path towards Sri Sai Baba and spirituality. Soon she had the Divine awakening to write, compose, and sing her own bhajans on Sai Baba. Inspiration, lyrics and music composition continue to come to her with divine blessings of Sri Sai Baba.
         </p>
+        <p>
+          Mrs. Subha Sattiraju passed away in September 2024. She was a trained musician and a home maker. Mrs. Late Subha Sattiraju &amp; her late husband Late Nageswara Rao Sattiraju were born in small villages in Andhra Pradesh (Sidhantam &amp; Kattunga Village, in West &amp; East Godavari district). Mrs. Sattiraju has performed at various spiritual events for many years, throughout the city.
+        </p>
+        <p>
+          Sai Subhanjali is a not‑for‑profit initiative with the sole purpose of promoting spirituality, peace, and joy. This initiative was made possible by encouragement and unflinching support of her husband Late Sri Nageswara Rao Sattiraju, a civil engineer, who spent 40+ years helping build dams in India. Many of the key water projects in India have his signature on them. He was always humble, a <em>Karma Yogi</em>, who gave a lot more to the world than we will ever know. We all miss him dearly.
+        </p>
+        <p>
+          All music recordings were facilitated by her late son‑in‑law Sri Mohana Krishna (husband of Smt Lalita — second eldest among 5 siblings). Without Sri Mohan's encouragement, know‑how &amp; support, this would not have been possible. We miss Sri Mohan immensely and see him smiling and blessing us as more &amp; more devotees can now hear these soulful bhajans.
+        </p>
+        <p>
+          This endeavour was possible only with divine blessings from Sri Sai Baba, selfless dedication from Late Sri Nageswara Rao &amp; Subha Sattiraju, their late son‑in‑law Sri Mohana Krishna, their immediate/extended family along with numerous voluntary musicians &amp; friends over the years.
+        </p>
+        <p>
+          All expenses for recording and publishing these songs and books are borne completely by Mrs. Subha Sattiraju &amp; her late husband Sri Nageswara Rao Sattiraju.
+        </p>
+        <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
       {/* AMMA DEVOTIONAL MOMENTS */}
@@ -94,7 +99,6 @@ export default function Home() {
 
       {/* FAMILY HERITAGE */}
       <section className="grid gap-8 md:grid-cols-3 md:items-center">
-        {/* Grandparents montage */}
         <Image
           src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
           alt="Parental roots of Amma & Ayyagaru"
@@ -102,20 +106,15 @@ export default function Home() {
           height={260}
           className="h-48 w-auto rounded-xl object-contain shadow lg:h-60"
         />
-
-        {/* Parents’ portrait */}
         <DevotionalImg
           src="/Shri_NageswaraRao_and_Smt_Subbalakshmi.jpg"
           alt="Smt Subbalakshmi & Sri Nageswara Rao Garu"
         />
-
-        {/* Heritage blurb */}
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-brand-700">A Legacy of Devotion</h2>
           <p>
-            From humble roots in East and West Godavari Districts, the Sattiraju family passed down
-            faith, music, and selfless service across generations. Their blessings echo through every
-            note of <em>Sai Subhanjali</em>.
+            From humble roots in East and West Godavari Districts, the Sattiraju family passed down faith, music, and
+            selfless service across generations. Their blessings echo through every note of <em>Sai Subhanjali</em>.
           </p>
         </div>
       </section>
@@ -124,14 +123,13 @@ export default function Home() {
       <section className="mx-auto max-w-md text-center">
         <Image
           src="/Shri_Mohan_Krishna.jpg"
-          alt="Sri Mohana Krishna — son‑in‑law &amp; recording pillar"
+          alt="Sri Mohana Krishna — son‑in‑law & recording pillar"
           width={300}
           height={400}
           className="mx-auto rounded-full object-cover shadow-md"
         />
         <p className="mt-4 text-sm text-gray-600">
-          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings
-          possible.
+          In loving memory of <strong>Sri Mohana Krishna</strong>, whose technical guidance made these recordings possible.
         </p>
       </section>
 
