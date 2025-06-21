@@ -1,4 +1,4 @@
-import CD1Display from "@/components/CD1Display";
+import CD1Display from "../../components/CD1Display";
 
 export default function CDPage() {
   return (
