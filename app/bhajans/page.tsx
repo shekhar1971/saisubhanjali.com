@@ -1,10 +1,9 @@
-import CD1Display from "../../components/CD1Display";
+import BhajanLibrary from "@/components/BhajanLibrary";
 
-export default function CDPage() {
+export default function BhajanPage() {
   return (
     <main className="min-h-screen bg-gray-50 py-10 px-4">
-      <CD1Display />
+      <BhajanLibrary />
     </main>
   );
 }
- 
