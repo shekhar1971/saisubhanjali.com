@@ -32,7 +32,10 @@ export default function CD1Display() {
               {index + 1}. {song.title}
             </div>
             <audio controls className="w-full">
-              <source src={`${basePath}${encodeURIComponent(song.file)}`} type="audio/mpeg" />
+              <source
+                src={`${basePath}${encodeURIComponent(song.file)}`}
+                type="audio/mpeg"
+              />
               Your browser does not support the audio element.
             </audio>
             <a
