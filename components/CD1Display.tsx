@@ -1,7 +1,7 @@
 'use client';
 export default function CD1Display() {
-  const basePath =
-    "https://juotvbvuyviisjvjqofc.supabase.co/storage/v1/object/public/sai-subhanjali-audio/CD1/";
+const basePath = "https://juotvbuuyiisjjviqofc.supabase.co/storage/v1/object/public/sai-subhanjali-audio/CD1/";
+
 
   const songs = [
     { file: "01 Track 1-Monologue.mp3", title: "Monologue" },
