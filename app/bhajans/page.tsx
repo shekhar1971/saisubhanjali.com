@@ -1,5 +1,5 @@
-import CD1Display from "@/components/CD1Display";
-import CD2Display from "@/components/CD2Display";
+import CD1Display from "../../components/CD1Display";
+import CD2Display from "../../components/CD2Display";
 
 export default function BhajanPage() {
   return (
