@@ -1,8 +1,10 @@
+// app/layout.tsx — SEO + favicon ready
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
   description:
     'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all 6 Sai Subhanjali CDs.',
@@ -26,7 +28,7 @@ export const metadata = {
     siteName: 'SaiSubhanjali.com',
     images: [
       {
-        url: 'https://www.saisubhanjali.com/og-banner.jpg', // Add this image to /public
+        url: 'https://www.saisubhanjali.com/og-banner.jpg',
         width: 1200,
         height: 630,
         alt: 'Sai Subhanjali banner',
@@ -49,6 +51,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Optional Apple/Android (if you upload those later) */}
+        {/* <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
+        {/* <link rel="manifest" href="/site.webmanifest" /> */}
+      </head>
       <body className="bg-gray-50 text-gray-800 antialiased">
         {/* ——— SITE NAV ——— */}
         <header className="sticky top-0 z-20 bg-brand-700 py-3 text-white shadow">
