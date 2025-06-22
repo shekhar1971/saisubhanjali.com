@@ -40,13 +40,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-export const metadata = {
-  title: 'Sai Subhanjali – Devotional Bhajans by Subbalakshmi Sattiraju',
-  description: 'Listen to and download devotional songs composed by Late Smt. Subbalakshmi Sattiraju in tribute to Shri Shirdi Sai Baba.',
-  openGraph: {
-    title: 'Sai Subhanjali',
-    description: 'Tribute site for Subbalakshmi Sattiraju’s Sai Baba bhajans',
-    url: 'https://www.saisubhanjali.com',
-    type: 'website',
-  },
-};
