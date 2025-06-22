@@ -1,3 +1,36 @@
+export const metadata = {
+  title: 'Sai Subhanjali – Devotional Bhajans of Shri Sai Baba',
+  description:
+    'A spiritual collection of Shri Sai Baba bhajans composed and sung by Smt. Subbalakshmi Sattiraju. Explore divine music, blessings, and legacy.',
+  keywords: [
+    'Sai Baba Bhajans',
+    'Subbalakshmi Sattiraju',
+    'Shirdi Sai Devotional Songs',
+    'Sai Subhanjali',
+    'Sai Satcharitra',
+    'Spiritual Telugu Bhajans',
+    'Devotional Hindi Songs',
+  ],
+  openGraph: {
+    title: 'Sai Subhanjali – Devotional Bhajans of Shri Sai Baba',
+    description:
+      'A spiritual collection of Shri Sai Baba bhajans composed and sung by Smt. Subbalakshmi Sattiraju.',
+    url: 'https://www.saisubhanjali.com',
+    siteName: 'Sai Subhanjali',
+    images: [
+      {
+        url: '/SaiBaba1.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sai Subhanjali Bhajans Cover',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
+
 // app/page.tsx — FINAL version with full narrative and enhanced design
 import Image from 'next/image';
 import Link from 'next/link';
