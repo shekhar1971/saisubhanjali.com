@@ -1,4 +1,4 @@
-// app/page.tsx — FINAL version with responsive layout and full narrative
+// app/page.tsx — FINAL version with full narrative and enhanced design
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,12 +36,14 @@ export default function Home() {
               A devotional treasury of Sai Baba bhajans — lovingly written, composed & sung by
               <span className="font-semibold"> Smt. Subbalakshmi Sattiraju</span>.
             </p>
-            <Link
-              href="/bhajans"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-6 py-3 font-medium text-white shadow hover:bg-brand-700"
-            >
-              🎵 Listen to Bhajans
-            </Link>
+            <div className="inline-block rounded-xl bg-white/20 backdrop-blur-md p-1 shadow-md">
+              <Link
+                href="/bhajans"
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-5 py-2.5 text-base font-semibold text-white hover:bg-brand-800 transition"
+              >
+                🎵 Listen to Bhajans
+              </Link>
+            </div>
           </div>
           <Image
             src="/SaiBaba4.png"
