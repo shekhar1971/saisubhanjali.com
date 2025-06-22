@@ -11,24 +11,26 @@ export default function BhajanPage() {
     <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen">
 
       {/* Desktop Left Navigation */}
-      <aside className="hidden md:flex flex-col w-1/5 bg-white border-r shadow-md sticky top-0 h-screen z-30 px-6 py-8">
-        <h2 className="text-xl font-bold text-purple-800 mb-6">Sai Subhanjali</h2>
-        <ul className="space-y-4">
-          {Array.from({ length: 6 }, (_, i) => (
-            <li key={i}>
-              <a
-                href={`#cd${i + 1}`}
-                className="block text-purple-700 font-medium hover:text-purple-900"
-              >
-                CD {i + 1}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <aside className="hidden md:flex flex-col w-64 p-6 sticky top-[64px] self-start z-20">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
+          <h2 className="text-lg font-bold text-purple-800 mb-5">Sai Subhanjali</h2>
+          <ul className="space-y-3">
+            {Array.from({ length: 6 }, (_, i) => (
+              <li key={i}>
+                <a
+                  href={`#cd${i + 1}`}
+                  className="block text-purple-700 hover:text-white hover:bg-purple-600 px-4 py-2 rounded transition duration-200 font-medium"
+                >
+                  CD {i + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </aside>
 
       {/* Mobile Top CD Navigation */}
-      <div className="md:hidden sticky top-[56px] z-20 bg-white border-b px-4 py-3 shadow-sm flex flex-wrap justify-center gap-3">
+      <div className="md:hidden sticky top-[56px] z-30 bg-white border-b px-4 py-3 shadow-sm flex flex-wrap justify-center gap-3">
         {Array.from({ length: 6 }, (_, i) => (
           <a
             key={i}
