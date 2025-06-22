@@ -7,11 +7,15 @@ export default function ContactPage() {
       </p>
 
       <a
-        href="mailto:shekhar72@hotmail.com"
+        href="mailto:info@saisubhanjali.com"
         className="block rounded-xl bg-brand-600 py-3 text-center font-medium text-white hover:bg-brand-700"
       >
-        📧 shekhar72@hotmail.com
+        📧 info@saisubhanjali.com
       </a>
+
+      <p className="mt-4 text-sm text-gray-600 text-center">
+        This is our official contact email. All messages are forwarded directly to the family team.
+      </p>
     </div>
   );
 }
