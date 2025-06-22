@@ -1,10 +1,8 @@
-// app/layout.tsx — SEO + favicon ready
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
   description:
     'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all 6 Sai Subhanjali CDs.',
@@ -44,20 +42,16 @@ export const metadata: Metadata = {
       'Stream or download rare Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. A timeless devotional tribute.',
     images: ['https://www.saisubhanjali.com/og-banner.jpg'],
   },
-  authors: [{ name: 'Shekhar Sattiraju', url: 'https://www.saisubhanjali.com' }],
-  creator: 'Shekhar Sattiraju',
+  authors: [{ name: 'Shekhar Sattiraju and family', url: 'https://www.saisubhanjali.com' }],
+  creator: 'Shekhar Sattiraju and family',
+  other: {
+    copyright: '© 2025 Family of Subbalakshmi Sattiraju. All rights reserved.',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        {/* Optional Apple/Android (if you upload those later) */}
-        {/* <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
-        {/* <link rel="manifest" href="/site.webmanifest" /> */}
-      </head>
       <body className="bg-gray-50 text-gray-800 antialiased">
         {/* ——— SITE NAV ——— */}
         <header className="sticky top-0 z-20 bg-brand-700 py-3 text-white shadow">
@@ -82,6 +76,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         {/* ——— MAIN CONTENT ——— */}
         <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">{children}</main>
+
+        {/* ——— COPYRIGHT FOOTER ——— */}
+        <footer className="text-center text-sm text-gray-500 py-6 border-t border-gray-200 px-4">
+          © {new Date().getFullYear()} The Family of Late Smt. Subbalakshmi Sattiraju.
+          <br />
+          These bhajans are offered for devotional use only. Commercial use is strictly prohibited without written permission.
+        </footer>
       </body>
     </html>
   );
