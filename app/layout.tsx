@@ -1,12 +1,49 @@
-// app/layout.tsx — removed “About Amma” nav item
-// ------------------------------------------------------------------
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 export const metadata = {
-  title: 'Sai Subhanjali',
-  description: 'A devotional treasury of Sai Baba bhajans by Smt. Subbalakshmi Sattiraju',
+  title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
+  description:
+    'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all 6 Sai Subhanjali CDs.',
+  keywords: [
+    'Sai Subhanjali',
+    'Subbalakshmi Sattiraju',
+    'Sai Baba Bhajans',
+    'Sai Bhakti Songs',
+    'Shirdi Sai devotional',
+    'Telugu bhakti songs',
+    'devotional CDs',
+    'spiritual music',
+    'Sai Baba songs download',
+  ],
+  metadataBase: new URL('https://www.saisubhanjali.com'),
+  openGraph: {
+    title: 'Sai Subhanjali | Bhajans by Subbalakshmi Sattiraju',
+    description:
+      'A tribute to the musical devotion of Late Smt. Subbalakshmi Sattiraju to Shirdi Sai Baba. All 6 CDs available to listen and download.',
+    url: 'https://www.saisubhanjali.com',
+    siteName: 'SaiSubhanjali.com',
+    images: [
+      {
+        url: 'https://www.saisubhanjali.com/og-banner.jpg', // Add this image to /public
+        width: 1200,
+        height: 630,
+        alt: 'Sai Subhanjali banner',
+      },
+    ],
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sai Subhanjali – Bhajans by Smt. Subbalakshmi Sattiraju',
+    description:
+      'Stream or download rare Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. A timeless devotional tribute.',
+    images: ['https://www.saisubhanjali.com/og-banner.jpg'],
+  },
+  authors: [{ name: 'Shekhar Sattiraju', url: 'https://www.saisubhanjali.com' }],
+  creator: 'Shekhar Sattiraju',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
