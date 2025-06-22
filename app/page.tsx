@@ -1,3 +1,8 @@
+// app/page.tsx — FINAL version with SEO, full narrative, and enhanced design
+import Image from 'next/image';
+import Link from 'next/link';
+
+/** SEO metadata for search engines and sharing */
 export const metadata = {
   title: 'Sai Subhanjali – Devotional Bhajans of Shri Sai Baba',
   description:
@@ -29,11 +34,6 @@ export const metadata = {
     type: 'website',
   },
 };
-
-
-// app/page.tsx — FINAL version with full narrative and enhanced design
-import Image from 'next/image';
-import Link from 'next/link';
 
 /** Utility to render a devotional photo with ideal layout */
 function DevotionalImg({ src, alt }: { src: string; alt: string }) {
