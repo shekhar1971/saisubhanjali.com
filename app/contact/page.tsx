@@ -8,11 +8,10 @@ export default function ContactPage() {
 
       <a
         href="mailto:info@saisubhanjali.com"
-        className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-white font-medium hover:bg-brand-700 transition"
+        className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-white font-semibold shadow hover:bg-brand-700 transition"
       >
-        {/* Email Icon SVG */}
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12l-4-4m0 0l-4 4m4-4v12" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4h16v16H4z M4 4l8 8 8-8" />
         </svg>
         info@saisubhanjali.com
       </a>
