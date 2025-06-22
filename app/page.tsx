@@ -1,3 +1,5 @@
+'use client'
+
 // app/page.tsx — FINAL version with SEO, full narrative, visitor counter, and enhanced design
 import Image from 'next/image';
 import Link from 'next/link';
