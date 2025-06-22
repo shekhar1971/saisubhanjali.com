@@ -9,9 +9,9 @@ import CD6Display from '../../components/CD6Display';
 export default function BhajanPage() {
   return (
     <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen">
-      {/* Left Nav for Desktop */}
-      <nav className="hidden md:flex md:w-1/5 px-4 py-10">
-        <div className="bg-white shadow-xl rounded-xl p-6 w-full sticky top-24">
+      {/* Left Nav for Desktop (Sticky Sidebar) */}
+      <nav className="hidden md:block md:w-1/5 px-4 pt-24 fixed top-0 left-0 h-screen overflow-y-auto bg-white shadow-md z-20">
+        <div className="p-6">
           <h2 className="text-2xl font-bold text-purple-700 mb-6 border-b pb-2">Sai Subhanjali</h2>
           <ul className="space-y-4">
             {Array.from({ length: 6 }, (_, i) => (
@@ -29,23 +29,23 @@ export default function BhajanPage() {
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 pb-16">
-        {/* Top title */}
-        <div className="text-center pt-10 px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-purple-800 tracking-wide">Sai Subhanjali</h1>
-        </div>
-
-        {/* Mobile CD Navigation */}
-        <div className="flex flex-wrap justify-center mt-6 gap-3 px-4 md:hidden">
+      <main className="flex-1 md:ml-[20%] pb-16">
+        {/* Sticky Mobile Nav (Top Bar) */}
+        <div className="md:hidden sticky top-0 bg-white z-30 shadow-sm px-4 py-3 border-b flex justify-center gap-3">
           {Array.from({ length: 6 }, (_, i) => (
             <a
               key={i}
               href={`#cd${i + 1}`}
-              className="px-4 py-2 rounded-full text-purple-800 border border-purple-300 hover:bg-purple-100 hover:text-purple-900 font-semibold text-sm transition"
+              className="px-3 py-2 text-sm rounded-full border border-purple-300 text-purple-700 font-medium hover:bg-purple-100 transition"
             >
               CD{i + 1}
             </a>
           ))}
+        </div>
+
+        {/* Title */}
+        <div className="text-center pt-10 px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-purple-800 tracking-wide">Sai Subhanjali</h1>
         </div>
 
         {/* CD Sections */}
