@@ -1,8 +1,15 @@
-// app/page.tsx — FINAL version with SEO, full narrative, and enhanced design
+// app/page.tsx — FINAL version with SEO, full narrative, visitor counter, and enhanced design
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
-/** SEO metadata for search engines and sharing */
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+/** SEO metadata for search engines and social sharing */
 export const metadata = {
   title: 'Sai Subhanjali – Devotional Bhajans of Shri Sai Baba',
   description:
@@ -49,6 +56,16 @@ function DevotionalImg({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function Home() {
+  const [visitCount, setVisitCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const recordVisit = async () => {
+      const { data, error } = await supabase.rpc('increment_visit_counter');
+      if (!error) setVisitCount(data);
+    };
+    recordVisit();
+  }, []);
+
   return (
     <div className="space-y-24">
       {/* ───────────── HERO ───────────── */}
@@ -77,6 +94,9 @@ export default function Home() {
                 🎵 Listen to Bhajans
               </Link>
             </div>
+            {visitCount !== null && (
+              <p className="mt-4 text-sm text-gray-700">🙏 {visitCount.toLocaleString()} visitors</p>
+            )}
           </div>
           <Image
             src="/SaiBaba4.png"
@@ -89,7 +109,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
+      {/* ───────────── ABOUT (Full Narrative) ───────────── */}
       <section className="mx-auto max-w-6xl space-y-6 rounded-xl bg-white/60 p-8 shadow lg:max-w-7xl">
         <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
         <p> Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.</p>
