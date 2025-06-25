@@ -1,6 +1,7 @@
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 export const metadata = {
   title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
@@ -50,6 +51,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-gray-50 text-gray-800 antialiased">
@@ -59,34 +62,38 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Link href="/" className="text-xl font-bold text-brand-700 hover:text-brand-800">
               Sai Subhanjali
             </Link>
+
+            {/* Desktop Menu */}
             <ul className="hidden gap-6 text-sm font-medium text-gray-800 md:flex">
-              <li>
-                <Link href="#about" scroll={false} className="hover:text-brand-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#photos" scroll={false} className="hover:text-brand-600">
-                  Photos
-                </Link>
-              </li>
-              <li>
-                <Link href="#legacy" scroll={false} className="hover:text-brand-600">
-                  Legacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/bhajans" className="hover:text-brand-600">
-                  Bhajans
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-600">
-                  Contact
-                </Link>
-              </li>
+              <li><Link href="#about" scroll={false} className="hover:text-brand-600">About</Link></li>
+              <li><Link href="#photos" scroll={false} className="hover:text-brand-600">Photos</Link></li>
+              <li><Link href="#legacy" scroll={false} className="hover:text-brand-600">Legacy</Link></li>
+              <li><Link href="/bhajans" className="hover:text-brand-600">Bhajans</Link></li>
+              <li><Link href="/contact" className="hover:text-brand-600">Contact</Link></li>
             </ul>
+
+            {/* Mobile Toggle Button */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden text-gray-700 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              ☰
+            </button>
           </nav>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="md:hidden px-6 pb-4">
+              <ul className="space-y-2 text-sm font-medium text-gray-800">
+                <li><Link href="#about" scroll={false} className="block hover:text-brand-600" onClick={() => setMenuOpen(false)}>About</Link></li>
+                <li><Link href="#photos" scroll={false} className="block hover:text-brand-600" onClick={() => setMenuOpen(false)}>Photos</Link></li>
+                <li><Link href="#legacy" scroll={false} className="block hover:text-brand-600" onClick={() => setMenuOpen(false)}>Legacy</Link></li>
+                <li><Link href="/bhajans" className="block hover:text-brand-600" onClick={() => setMenuOpen(false)}>Bhajans</Link></li>
+                <li><Link href="/contact" className="block hover:text-brand-600" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+              </ul>
+            </div>
+          )}
         </header>
 
         {/* ——— MAIN CONTENT ——— */}
