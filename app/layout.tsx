@@ -1,6 +1,9 @@
+'use client';
+
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 export const metadata = {
   title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
@@ -55,36 +58,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="bg-gray-50 text-gray-800 antialiased">
         {/* ——— SITE NAVIGATION ——— */}
         <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-6 py-3">
             <Link href="/" className="text-xl font-bold text-brand-700 hover:text-brand-800">
               Sai Subhanjali
             </Link>
-            <ul className="hidden gap-6 text-sm font-medium text-gray-800 md:flex">
-              <li>
-                <Link href="#about" scroll={false} className="hover:text-brand-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#photos" scroll={false} className="hover:text-brand-600">
-                  Photos
-                </Link>
-              </li>
-              <li>
-                <Link href="#legacy" scroll={false} className="hover:text-brand-600">
-                  Legacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/bhajans" className="hover:text-brand-600">
-                  Bhajans
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-600">
-                  Contact
-                </Link>
-              </li>
+            <ul className="flex flex-wrap gap-4 text-sm font-medium text-gray-800 w-full md:w-auto justify-center md:justify-end">
+              <li><Link href="#about" scroll={false} className="hover:text-brand-600">About</Link></li>
+              <li><Link href="#photos" scroll={false} className="hover:text-brand-600">Photos</Link></li>
+              <li><Link href="#legacy" scroll={false} className="hover:text-brand-600">Legacy</Link></li>
+              <li><Link href="/bhajans" className="hover:text-brand-600">Bhajans</Link></li>
+              <li><Link href="/contact" className="hover:text-brand-600">Contact</Link></li>
             </ul>
           </nav>
         </header>
@@ -102,4 +85,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
