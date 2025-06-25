@@ -53,20 +53,35 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-gray-50 text-gray-800 antialiased">
-        {/* ——— SITE NAV ——— */}
-        <header className="sticky top-0 z-20 bg-brand-700 py-3 text-white shadow">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
-            <Link href="/" className="text-lg font-semibold hover:text-brand-100">
+        {/* ——— SITE NAVIGATION ——— */}
+        <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+            <Link href="/" className="text-xl font-bold text-brand-700 hover:text-brand-800">
               Sai Subhanjali
             </Link>
-            <ul className="flex items-center gap-6 text-sm font-medium">
+            <ul className="hidden gap-6 text-sm font-medium text-gray-800 md:flex">
               <li>
-                <Link href="/bhajans" className="hover:text-brand-100">
+                <Link href="#about" scroll={false} className="hover:text-brand-600">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="#photos" scroll={false} className="hover:text-brand-600">
+                  Photos
+                </Link>
+              </li>
+              <li>
+                <Link href="#legacy" scroll={false} className="hover:text-brand-600">
+                  Legacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/bhajans" className="hover:text-brand-600">
                   Bhajans
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-brand-100">
+                <Link href="/contact" className="hover:text-brand-600">
                   Contact
                 </Link>
               </li>
@@ -77,7 +92,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* ——— MAIN CONTENT ——— */}
         <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">{children}</main>
 
-        {/* ——— COPYRIGHT FOOTER ——— */}
+        {/* ——— FOOTER COPYRIGHT ——— */}
         <footer className="text-center text-sm text-gray-500 py-6 border-t border-gray-200 px-4">
           © {new Date().getFullYear()} The Family of Late Smt. Subbalakshmi Sattiraju.
           <br />
