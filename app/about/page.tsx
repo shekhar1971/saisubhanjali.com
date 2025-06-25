@@ -1,4 +1,5 @@
 // app/about/page.tsx
+
 export const metadata = {
   title: 'About – Sai Subhanjali | Bhajans of Subbalakshmi Sattiraju',
   description:
@@ -8,7 +9,13 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 text-gray-800">
-      <h1 className="text-4xl font-extrabold text-brand-700 mb-6">About Sai Subhanjali</h1>
+      <img
+        src="/SubbaLakshmi_Sattiraju.png"
+        alt="Subbalakshmi Sattiraju"
+        className="rounded-xl shadow-md mx-auto w-full max-w-md mb-8"
+      />
+
+      <h1 className="text-4xl font-extrabold text-brand-700 mb-4">About Sai Subhanjali</h1>
 
       <p><strong>Om Sairam!</strong></p>
 
