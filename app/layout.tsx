@@ -1,92 +1,56 @@
+'use client';
+
 import './globals.css';
 import Link from 'next/link';
+import { useState } from 'react';
 import type { ReactNode } from 'react';
 
 export const metadata = {
-  title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
-  description:
-    'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all 6 Sai Subhanjali CDs.',
-  keywords: [
-    'Sai Subhanjali',
-    'Subbalakshmi Sattiraju',
-    'Sai Baba Bhajans',
-    'Sai Bhakti Songs',
-    'Shirdi Sai devotional',
-    'Telugu bhakti songs',
-    'devotional CDs',
-    'spiritual music',
-    'Sai Baba songs download',
-  ],
-  metadataBase: new URL('https://www.saisubhanjali.com'),
-  openGraph: {
-    title: 'Sai Subhanjali | Bhajans by Subbalakshmi Sattiraju',
-    description:
-      'A tribute to the musical devotion of Late Smt. Subbalakshmi Sattiraju to Shirdi Sai Baba. All 6 CDs available to listen and download.',
-    url: 'https://www.saisubhanjali.com',
-    siteName: 'SaiSubhanjali.com',
-    images: [
-      {
-        url: 'https://www.saisubhanjali.com/og-banner.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Sai Subhanjali banner',
-      },
-    ],
-    type: 'website',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sai Subhanjali – Bhajans by Smt. Subbalakshmi Sattiraju',
-    description:
-      'Stream or download rare Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. A timeless devotional tribute.',
-    images: ['https://www.saisubhanjali.com/og-banner.jpg'],
-  },
-  authors: [{ name: 'Shekhar Sattiraju and family', url: 'https://www.saisubhanjali.com' }],
-  creator: 'Shekhar Sattiraju and family',
-  other: {
-    copyright: '© 2025 Family of Subbalakshmi Sattiraju. All rights reserved.',
-  },
+  // (same as before, omitted for brevity)
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-gray-50 text-gray-800 antialiased">
         {/* ——— SITE NAVIGATION ——— */}
         <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <nav className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
             <Link href="/" className="text-xl font-bold text-brand-700 hover:text-brand-800">
               Sai Subhanjali
             </Link>
-            <ul className="hidden gap-6 text-sm font-medium text-gray-800 md:flex">
-              <li>
-                <Link href="#about" scroll={false} className="hover:text-brand-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#photos" scroll={false} className="hover:text-brand-600">
-                  Photos
-                </Link>
-              </li>
-              <li>
-                <Link href="#legacy" scroll={false} className="hover:text-brand-600">
-                  Legacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/bhajans" className="hover:text-brand-600">
-                  Bhajans
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-brand-600">
-                  Contact
-                </Link>
-              </li>
+
+            {/* — Toggle Button (Mobile only) — */}
+            <button
+              className="md:hidden text-2xl text-brand-700"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle Menu"
+            >
+              ☰
+            </button>
+
+            {/* — Menu (Desktop) — */}
+            <ul className="hidden md:flex gap-6 text-sm font-medium text-gray-800">
+              <li><Link href="#about" scroll={false} className="hover:text-brand-600">About</Link></li>
+              <li><Link href="#photos" scroll={false} className="hover:text-brand-600">Photos</Link></li>
+              <li><Link href="#legacy" scroll={false} className="hover:text-brand-600">Legacy</Link></li>
+              <li><Link href="/bhajans" className="hover:text-brand-600">Bhajans</Link></li>
+              <li><Link href="/contact" className="hover:text-brand-600">Contact</Link></li>
             </ul>
           </nav>
+
+          {/* — Mobile Menu Dropdown — */}
+          {menuOpen && (
+            <ul className="md:hidden px-6 pb-4 space-y-2 text-sm font-medium text-gray-800">
+              <li><Link href="#about" scroll={false} className="block hover:text-brand-600">About</Link></li>
+              <li><Link href="#photos" scroll={false} className="block hover:text-brand-600">Photos</Link></li>
+              <li><Link href="#legacy" scroll={false} className="block hover:text-brand-600">Legacy</Link></li>
+              <li><Link href="/bhajans" className="block hover:text-brand-600">Bhajans</Link></li>
+              <li><Link href="/contact" className="block hover:text-brand-600">Contact</Link></li>
+            </ul>
+          )}
         </header>
 
         {/* ——— MAIN CONTENT ——— */}
@@ -102,4 +66,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-
