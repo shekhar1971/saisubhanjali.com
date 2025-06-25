@@ -1,68 +1,75 @@
-import Image from 'next/image';
-import Link from 'next/link';
-
+// app/about/page.tsx
 export const metadata = {
-  title: 'About Amma – Sai Subhanjali',
+  title: 'About – Sai Subhanjali | Bhajans of Subbalakshmi Sattiraju',
+  description:
+    'Learn about the devotional journey of Subbalakshmi Sattiraju and the creation of Sai Subhanjali – a heartfelt collection of Sai Baba bhajans.',
 };
 
 export default function AboutPage() {
   return (
-    <article className="prose prose-lg mx-auto">
-      <h1 className="text-brand-700">Smt. Subbalakshmi Sattiraju (Subha Amma)</h1>
+    <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 text-gray-800">
+      <h1 className="text-4xl font-extrabold text-brand-700 mb-6">About Sai Subhanjali</h1>
 
-      <Image
-        src="/Shri_NageswaraRao%20and%20Smt%20Subbalakshmi.jpg"
-        alt="Amma with Sri Nageswara Rao Garu"
-        width={800}
-        height={550}
-        className="rounded-xl shadow"
-      />
+      <p><strong>Om Sairam!</strong></p>
 
       <p>
-        <strong>Om Sairam!</strong> Subbalakshmi Sattiraju was a classically trained singer whose life
-        revolved around devotion to <strong>Sri Shirdi Sai Baba</strong>. After experiencing deep
-        peace while reading <em>Sai Leela Amritam</em>, she felt divinely inspired to write her own
-        bhajans. Over three decades she released six albums, each filled with heartfelt melodies and
-        lyrics that have touched devotees worldwide.
+        Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju)
+        to Sri Shirdi Sai Baba and his teachings.
       </p>
-
-      <h2>The Pillars Behind the Music</h2>
-
-      <ul>
-        <li>
-          <strong>Sri Nageswara Rao Garu</strong> – husband, civil-engineer, and Amma’s steadfast
-          supporter.
-        </li>
-        <li>
-          <strong>Sri Mohana Krishna</strong> – son-in-law and recording engineer whose guidance
-          brought the bhajans to life.
-        </li>
-        <li>
-          A circle of selfless musicians and friends who volunteered their time and talent.
-        </li>
-      </ul>
-
-      <Image
-        src="/Smt%20Subbalakshi%20and%20Shri%20Nageswara%20Rao%20Parents.png"
-        alt="Family roots in Andhra Pradesh"
-        width={800}
-        height={350}
-        className="rounded-xl shadow-md"
-      />
 
       <p>
-        Amma’s parents and in-laws instilled the values of <em>shraddha</em> (faith) and
-        <em> saburi</em> (patience) that guided her spiritual journey.
+        Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by Mrs. Subbalakshmi Sattiraju.
+        She has released six albums with 10 to 14 bhajans in each album. She has also written two books – one in Telugu and one in Hindi.
+        These books give detailed insights on experience on this spiritual path.
       </p>
 
-      <p className="italic text-gray-600">
-        “May every bhajan kindle devotion in your heart and bring Sai’s grace to your home.” —
-        Subbalakshmi Sattiraju
+      <p>
+        This journey started when Mrs. Subha Sattiraju decided to do <em>Parayanam</em> of Sai Satcharitra.
+        Initially, she was not sure if she had the courage to go on this path.
+        With Sri Sai Baba&apos;s blessings she came across the book – Sri Sai Leela Amritam and started reading it.
+        She felt instant peace and joy while reading the book.
       </p>
 
-      <Link href="/" className="text-brand-600 no-underline hover:underline">
-        ← Back to Home
-      </Link>
-    </article>
+      <p>
+        This experience set the foundations of her following the path towards Sri Sai Baba and spirituality.
+        Soon she had the Divine awakening to write, compose, and sing her own bhajans on Sai Baba.
+        Inspiration, lyrics and music composition continue to come to her with divine blessings of Sri Sai Baba.
+      </p>
+
+      <p>
+        Mrs. Subha Sattiraju passed away in September 2024. She was a trained musician and a home maker.
+        Mrs. Late Subha Sattiraju & her late husband Late Nageswara Rao Sattiraju were born in small villages in Andhra Pradesh
+        (Sidhantam & Kattunga Village, in West & East Godavari district).
+        Mrs. Sattiraju has performed at various spiritual events for many years, throughout the city.
+      </p>
+
+      <p>
+        Sai Subhanjali is a not‑for‑profit initiative with the sole purpose of promoting spirituality, peace, and joy.
+        This initiative was made possible by encouragement and unflinching support of her husband Late Sri Nageswara Rao Sattiraju,
+        a civil engineer, who spent 40+ years helping build dams in India.
+        Many of the key water projects in India have his signature on them.
+        He was always humble, a <em>Karma Yogi</em>, who gave a lot more to the world than we will ever know.
+        We all miss him dearly.
+      </p>
+
+      <p>
+        All music recordings were facilitated by her late son‑in‑law Sri Mohana Krishna (husband of Smt Lalita — second eldest among 5 siblings).
+        Without Sri Mohan&apos;s encouragement, know‑how & support, this would not have been possible.
+        We miss Sri Mohan immensely and see him smiling and blessing us as more & more devotees can now hear these soulful bhajans.
+      </p>
+
+      <p>
+        This endeavour was possible only with divine blessings from Sri Sai Baba, selfless dedication from
+        Late Sri Nageswara Rao & Subha Sattiraju, their late son‑in‑law Sri Mohana Krishna,
+        their immediate/extended family along with numerous voluntary musicians & friends over the years.
+      </p>
+
+      <p>
+        All expenses for recording and publishing these songs and books are borne completely by
+        Mrs. Subha Sattiraju & her late husband Sri Nageswara Rao Sattiraju.
+      </p>
+
+      <p className="text-center font-semibold mt-10 text-brand-700">OM SAI RAM</p>
+    </div>
   );
 }
