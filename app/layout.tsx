@@ -1,3 +1,5 @@
+'use client'; // Required because we use useState
+
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -72,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <li><Link href="/contact" className="hover:text-brand-600">Contact</Link></li>
             </ul>
 
-            {/* Mobile Toggle Button */}
+            {/* Mobile Toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden text-gray-700 focus:outline-none"
