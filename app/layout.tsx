@@ -77,14 +77,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {/* Mobile Toggle Button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-gray-700 focus:outline-none"
+              className="md:hidden text-gray-700 focus:outline-none text-2xl"
               aria-label="Toggle menu"
             >
               ☰
             </button>
           </nav>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Dropdown */}
           {menuOpen && (
             <div className="md:hidden px-6 pb-4">
               <ul className="space-y-2 text-sm font-medium text-gray-800">
