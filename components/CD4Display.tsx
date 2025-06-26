@@ -5,7 +5,7 @@ export default function CD4Display() {
 
   const songs = [
     { file: "04 Track 1-Akhianda Koti.mp3", title: "Akhianda Koti" },
-   { file: '04 Track 2-Sairam Sairam.mp3', title: 'Sairam Sairam' }
+   { file: '04 Track 2-Sairam Sairam.mp3', title: 'Sairam Sairam' },
     { file: "04 Track 3-Aasanamu Vesaanu.mp3", title: "Aasanamu Vesaanu" },
     { file: "04 Track 4-Koluvai Vunavu.mp3", title: "Koluvai Vunavu" },
     { file: "04 Track 5-Kalaloki Rava.mp3", title: "Kalaloki Rava" },
