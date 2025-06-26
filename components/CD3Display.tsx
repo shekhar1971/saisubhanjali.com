@@ -15,7 +15,7 @@ const songs = [
   { file: '03 Track 9-Madhuram Madhuram.mp3', title: 'Madhuram Madhuram' },
   { file: '03 Track 10-Pallakarichevu Nannu.mp3', title: 'Pallakarichevu Nannu' },
   { file: '03 Track 11-Karuna Sagara Sai.mp3', title: 'Karuna Sagara Sai' },
-  { file: '03 Track 12-Nee Kannulalo.mp3', title: 'Nee Kannulalo' },
+ { file: '03 Track 12-Nee Kannulalo.mp3', title: 'Nee Kannulalo' },
   { file: '03 Track 13-Sai Nathuniki Managalam.mp3', title: 'Sai Nathuniki Managalam' },
   { file: '03 Track 14-Sayaninchu.mp3', title: 'Sayaninchu' },
 ];
