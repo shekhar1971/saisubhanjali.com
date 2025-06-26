@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
             <ul className="flex flex-wrap justify-center gap-4 w-full md:w-auto md:justify-end">
               <li>
-                <Link href="#about" scroll={false} className="hover:text-brand-600">About</Link>
+                <Link href="/about" scroll={false} className="hover:text-brand-600">About</Link>
               </li>
               <li>
                 <Link href="#photos" scroll={false} className="hover:text-brand-600">Photos</Link>
