@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Link href="/about" scroll={false} className="hover:text-brand-600">About</Link>
               </li>
               <li>
-                <Link href="#photos" scroll={false} className="hover:text-brand-600">Photos</Link>
+                <Link href="/photos" scroll={false} className="hover:text-brand-600">Photos</Link>
               </li>
               <li>
                 <Link href="#legacy" scroll={false} className="hover:text-brand-600">Legacy</Link>
