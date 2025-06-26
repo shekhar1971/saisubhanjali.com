@@ -5,7 +5,7 @@ const basePath =
 
 const songs = [
   { file: '05 Track 1-Om Sai Vandanamu.mp3', title: 'Om Sai Vandanamu' },
-  { file: '05 Track 2-Vinayaka.mp3', title: 'Vinayaka' },
+  { file: '05 Track 2- Vinayaka.mp3',        title: 'Vinayaka' }, 
   { file: '05 Track 3-Sai O Sai.mp3', title: 'Sai O Sai' },
   { file: '05 Track 4-Hanumanthaiya.mp3', title: 'Hanumanthaiya' },
   { file: '05 Track 5-Yanta Chusina.mp3', title: 'Yanta Chusina' },
