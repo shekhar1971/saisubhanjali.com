@@ -1,4 +1,6 @@
+// app/bhajans/page.tsx
 'use client';
+
 import CD1Display from '../../components/CD1Display';
 import CD2Display from '../../components/CD2Display';
 import CD3Display from '../../components/CD3Display';
@@ -8,64 +10,100 @@ import CD6Display from '../../components/CD6Display';
 
 export default function BhajanPage() {
   return (
-    <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen">
-
-      {/* Desktop Left Navigation */}
-      <aside className="hidden md:flex flex-col w-64 p-6 sticky top-[64px] self-start z-20">
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
-          <h2 className="text-lg font-bold text-purple-800 mb-5">Sai Subhanjali</h2>
+    <div className="flex min-h-screen flex-col bg-gray-50 md:flex-row">
+      {/* -------------- DESKTOP LEFT NAV -------------- */}
+      <aside className="sticky top-[64px] hidden w-64 self-start p-6 md:flex">
+        <nav className="w-full rounded-xl border border-gray-200 bg-white p-5 shadow-lg">
+          <h2 className="mb-5 text-lg font-bold text-purple-800">
+            Sai Subhanjali
+          </h2>
           <ul className="space-y-3">
             {Array.from({ length: 6 }, (_, i) => (
               <li key={i}>
                 <a
                   href={`#cd${i + 1}`}
-                  className="block text-purple-700 hover:text-white hover:bg-purple-600 px-4 py-2 rounded transition duration-200 font-medium"
+                  className="block rounded px-4 py-2 font-medium text-purple-700 transition duration-200 hover:bg-purple-600 hover:text-white"
                 >
                   CD {i + 1}
                 </a>
               </li>
             ))}
+
+            {/* NEW: Play-All link */}
+            <li>
+              <a
+                href="/bhajans/play-all"
+                className="block rounded px-4 py-2 font-medium text-teal-700 transition duration-200 hover:bg-teal-600 hover:text-white"
+              >
+                ▶ Play All
+              </a>
+            </li>
           </ul>
-        </div>
+        </nav>
       </aside>
 
-      {/* Mobile Top CD Navigation */}
-      <div className="md:hidden sticky top-[56px] z-30 bg-white border-b px-4 py-3 shadow-sm flex flex-wrap justify-center gap-3">
+      {/* -------------- MOBILE TOP NAV -------------- */}
+      <div className="sticky top-[56px] z-30 flex flex-wrap justify-center gap-3 border-b bg-white px-4 py-3 shadow-sm md:hidden">
         {Array.from({ length: 6 }, (_, i) => (
           <a
             key={i}
             href={`#cd${i + 1}`}
-            className="px-3 py-2 rounded-full text-sm font-medium text-purple-700 border border-purple-300 hover:bg-purple-100 transition"
+            className="rounded-full border border-purple-300 px-3 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100"
           >
             CD{i + 1}
           </a>
         ))}
+
+        {/* NEW: Play-All pill */}
+        <a
+          href="/bhajans/play-all"
+          className="rounded-full border border-teal-300 px-3 py-2 text-sm font-medium text-teal-700 hover:bg-teal-100"
+        >
+          ▶ Play All
+        </a>
       </div>
 
-      {/* Main Content */}
-      <main className="flex-1 px-4 md:px-8 py-8 space-y-20">
+      {/* -------------- MAIN CONTENT -------------- */}
+      <main className="flex-1 space-y-20 px-4 py-8 md:px-8">
         <section id="cd1">
-          <h2 className="text-center text-2xl font-bold text-purple-700 mb-4">Sai Subhanjali – CD1</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold text-purple-700">
+            Sai Subhanjali – CD1
+          </h2>
           <CD1Display />
         </section>
+
         <section id="cd2">
-          <h2 className="text-center text-2xl font-bold text-purple-700 mb-4">Sai Subhanjali – CD2</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold text-purple-700">
+            Sai Subhanjali – CD2
+          </h2>
           <CD2Display />
         </section>
+
         <section id="cd3">
-          <h2 className="text-center text-2xl font-bold text-purple-700 mb-4">Sai Subhanjali – CD3</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold text-purple-700">
+            Sai Subhanjali – CD3
+          </h2>
           <CD3Display />
         </section>
+
         <section id="cd4">
-          <h2 className="text-center text-2xl font-bold text-purple-700 mb-4">Sai Subhanjali – CD4</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold text-purple-700">
+            Sai Subhanjali – CD4
+          </h2>
           <CD4Display />
         </section>
+
         <section id="cd5">
-          <h2 className="text-center text-2xl font-bold text-purple-700 mb-4">Sai Subhanjali – CD5</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold text-purple-700">
+            Sai Subhanjali – CD5
+          </h2>
           <CD5Display />
         </section>
+
         <section id="cd6">
-          <h2 className="text-center text-2xl font-bold text-purple-700 mb-4">Sai Subhanjali – CD6</h2>
+          <h2 className="mb-4 text-center text-2xl font-bold text-purple-700">
+            Sai Subhanjali – CD6
+          </h2>
           <CD6Display />
         </section>
       </main>
