@@ -3,22 +3,22 @@
 
 import Link from 'next/link';
 
-/* ---------- CONSTANTS ---------- */
+/* -------- paths & data -------- */
 const basePath =
   'https://juotvbuuyiisjjviqofc.supabase.co/storage/v1/object/public/sai-subhanjali-audio/CD6/';
 
 const songs = [
   { file: '06 Track 1-Akhanda Jyoti.mp3', title: 'Akhanda Jyoti' },
-  // (add more tracks here as you upload them)
+  // add more as you upload:
+  // { file: '06 Track 2-XXX.mp3', title: 'Song Title' },
 ];
 
-/* ---------- EXPORT FOR “PLAY-ALL” PAGE ---------- */
+/*  export list for “Play All”  */
 export const tracks = songs.map((s) => ({
   title: s.title,
-  file: `${basePath}${encodeURIComponent(s.file)}`, // fully-qualified URL
+  file: `${basePath}${encodeURIComponent(s.file)}`,
 }));
 
-/* ---------- DISPLAY COMPONENT ---------- */
 export default function CD6Display() {
   return (
     <div className="mx-auto mt-12 max-w-4xl rounded-xl bg-white p-6 shadow-xl">
@@ -28,7 +28,7 @@ export default function CD6Display() {
 
       <ul className="space-y-6">
         {songs.map((song, i) => (
-          <li key={i} className="border-b pb-4">
+          <li key={song.file} className="border-b pb-4">
             <div className="mb-2 text-xl font-semibold text-gray-800">
               {i + 1}. {song.title}
             </div>
@@ -51,7 +51,7 @@ export default function CD6Display() {
         ))}
       </ul>
 
-      {/* ---------- PLAY-ALL BUTTON ---------- */}
+      {/* ---- play-all link ---- */}
       <div className="mt-10 text-center">
         <Link
           href="/bhajans/play-all"
