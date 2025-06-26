@@ -50,12 +50,11 @@ export default function CD4Display() {
     </div>
   );
 }
-/* -------------------------------------------------------------------- */
-/*  paste this right after the songs[] array in each CD component file  */
-/* -------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------
+   EXPORT the track list so the Play-All page can import it
+   ------------------------------------------------------------------ */
 export const tracks = songs.map(({ file, title }) => ({
   title,
-  // fully-qualified URL ready for <audio>
   file: `${basePath}${encodeURIComponent(file)}`,
 }));
-
