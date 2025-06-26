@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const metadata = {
   title: 'Photos – Sai Subhanjali',
   description:
-    'A gallery of cherished photographs of Subbalakshmi Sattiraju and her family who helped bring the Sai Subhanjali bhajans to life.',
+    'Cherished photographs of Subbalakshmi Sattiraju and the family members who helped create the Sai Subhanjali bhajans.',
 };
 
 type Photo = {
@@ -26,7 +26,7 @@ export default function PhotosPage() {
     },
     {
       src: '/SmtSubbalakshmi_International_Womans_Day_Award_inDelhi.jpg',
-      alt: "Smt Subbalakshmi receiving Women's Day award in Delhi",
+      alt: 'Smt Subbalakshmi receiving Women’s Day award in Delhi',
       caption:
         "Smt Subbalakshmi receiving an award on International Women's Day, Delhi – India",
     },
@@ -44,24 +44,27 @@ export default function PhotosPage() {
         Photo&nbsp;Gallery
       </h1>
 
-      {/* --- RESPONSIVE GRID (auto rows on desktop) --- */}
+      {/* ---------- UNIFORM SQUARE THUMBNAILS ---------- */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {photos.map(({ src, alt, caption }) => (
           <figure
             key={src}
             className="flex flex-col overflow-hidden rounded-xl shadow-md"
           >
-            <Image
-              src={src}
-              alt={alt}
-              width={900}
-              height={700}
-              className="h-auto w-full object-cover transition-transform duration-300 hover:scale-105"
-              sizes="(max-width:1024px) 50vw, 25vw"
-              priority
-            />
+            {/* Square wrapper: on desktop ≈18rem (h-72), scales down on mobile */}
+            <div className="relative h-72 w-full">
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+
             {caption && (
-              <figcaption className="mt-3 px-3 pb-4 text-center text-sm text-gray-700">
+              <figcaption className="px-3 py-4 text-center text-sm text-gray-700">
                 {caption}
               </figcaption>
             )}
