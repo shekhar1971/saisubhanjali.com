@@ -1,4 +1,3 @@
-app/bhajans/play-all/page.tsx
 'use client';
 
 import { tracks as cd1 } from '../../../components/CD1Display';
