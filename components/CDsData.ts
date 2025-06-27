@@ -1,69 +1,99 @@
 export const baseURL =
-  "https://juotvbuuyiisjjviqofc.supabase.co/storage/v1/object/public/sai-subhanjali-audio/";
+  'https://juotvbuuyiisjjviqofc.supabase.co/storage/v1/object/public/sai-subhanjali-audio/';
 
 export const CDs = [
   {
     cdNumber: "CD1",
     songs: [
-      {
-        file: "01 Track 1-songname.mp3",
-        title: "Song Title 1",
-      },
-      {
-        file: "01 Track 2-songname.mp3",
-        title: "Song Title 2",
-      },
-      // Add other CD1 songs here
+      { file: '01 Track 1-Monologue.mp3', title: 'Monologue' },
+      { file: '01 Track 2-Manavinivinuma.mp3', title: 'Manavinivinuma' },
+      { file: '01 Track 3-Kolichiti Kolichiti.mp3', title: 'Kolichiti Kolichiti' },
+      { file: '01 Track 4-Sharanantini Baba.mp3', title: 'Sharanantini Baba' },
+      { file: '01 Track 5-Shirdi Vasa.mp3', title: 'Shirdi Vasa' },
+      { file: '01 Track 6-Yentadaya.mp3', title: 'Yentadaya' },
+      { file: '01 Track 7-Nitya Satyudu Sai.mp3', title: 'Nitya Satyudu Sai' },
+      { file: '01 Track 8-Jai Sachitananda.mp3', title: 'Jai Sachitananda' },
+      { file: '01 Track 9-Jaya Jaya Haarati Baba.mp3', title: 'Jaya Jaya Haarati Baba' },
+      { file: '01 Track 10-Melukolupulu.mp3', title: 'Melukolupulu' },
+      { file: '01 Track 11-Baba Baba.mp3', title: 'Baba Baba' },
+      { file: '01 Track 12-Pataa Ne Padeda.mp3', title: 'Pataa Ne Padeda' },
+      { file: '01 Track 13-Mahadeva Mahadeva.mp3', title: 'Mahadeva Mahadeva' },
+      { file: '01 Track 14-Neevichina Eespoortito.mp3', title: 'Neevichina Eespoortito' },
     ],
   },
   {
     cdNumber: "CD2",
     songs: [
-      {
-        file: "02 Track 1-Sai Nadhuni ki Vandanamu.mp3",
-        title: "Sai Nadhuni ki Vandanamu",
-      },
-      {
-        file: "02 Track 2-Sai Pada Seva.mp3",
-        title: "Sai Pada Seva",
-      },
-      {
-        file: "02 Track 3-Shirdi Sai.mp3",
-        title: "Shirdi Sai",
-      },
-      {
-        file: "02 Track 4-Dwarakamayini.mp3",
-        title: "Dwarakamayini",
-      },
-      {
-        file: "02 Track 5-Poovulu Koyandi.mp3",
-        title: "Poovulu Koyandi",
-      },
-      {
-        file: "02 Track 6-Sai Namamu.mp3",
-        title: "Sai Namamu",
-      },
-      {
-        file: "02 Track 7-Aadiyantaalu.mp3",
-        title: "Aadiyantaalu",
-      },
-      {
-        file: "02 Track 8-Kripa Drishtini.mp3",
-        title: "Kripa Drishtini",
-      },
-      {
-        file: "02 Track 9-Guruvarameeroju.mp3",
-        title: "Guruvarameeroju",
-      },
-      {
-        file: "02 Track 10-Raksha Raksha.mp3",
-        title: "Raksha Raksha",
-      },
-      {
-        file: "02 Track 11-Sai Nadhuni ki Managalam.mp3",
-        title: "Sai Nadhuni ki Managalam",
-      },
+      { file: '02 Track 1-Sai Nadhuni ki Vandanamu.mp3', title: 'Sai Nadhuni ki Vandanamu' },
+      { file: '02 Track 2-Sai Pada Seva.mp3', title: 'Sai Pada Seva' },
+      { file: '02 Track 3-Shirdi Sai.mp3', title: 'Shirdi Sai' },
+      { file: '02 Track 4-Dwarakamayini.mp3', title: 'Dwarakamayini' },
+      { file: '02 Track 5-Poovulu Koyandi.mp3', title: 'Poovulu Koyandi' },
+      { file: '02 Track 6-Sai Namamu.mp3', title: 'Sai Namamu' },
+      { file: '02 Track 7-Aadiyantaalu.mp3', title: 'Aadiyantaalu' },
+      { file: '02 Track 8-Kripa Drishtini.mp3', title: 'Kripa Drishtini' },
+      { file: '02 Track 9-Guruvarameeroju.mp3', title: 'Guruvarameeroju' },
+      { file: '02 Track 10-Raksha Raksha.mp3', title: 'Raksha Raksha' },
+      { file: '02 Track 11-Sai Nadhuni ki Managalam.mp3', title: 'Sai Nadhuni ki Managalam' },
     ],
   },
-  // Repeat for CD3, CD4, CD5, CD6 following the same structure
+  {
+    cdNumber: "CD3",
+    songs: [
+      { file: '03 Track 1-Monologue.mp3', title: 'Monologue' },
+      { file: '03 Track 2-Melukolupulu.mp3', title: 'Melukolupulu' },
+      { file: '03 Track 3-Varameeyava.mp3', title: 'Varameeyava' },
+      { file: '03 Track 4-Sharanam Sharanam.mp3', title: 'Sharanam Sharanam' },
+      { file: '03 Track 5-Deepalu Deepalu.mp3', title: 'Deepalu Deepalu' },
+      { file: '03-Track 6-Dakshina Dakshina.mp3', title: 'Dakshina Dakshina' },
+      { file: '03-Track 7-Sai Hasthamu.mp3', title: 'Sai Hasthamu' },
+      { file: '03 Track 8-Jaya Sainatha.mp3', title: 'Jaya Sainatha' },
+      { file: '03 Track 9-Madhuram Madhuram.mp3', title: 'Madhuram Madhuram' },
+      { file: '03 Track 10-Pallakarichevu Nannu.mp3', title: 'Pallakarichevu Nannu' },
+      { file: '03 Track 11-Karuna Sagara Sai.mp3', title: 'Karuna Sagara Sai' },
+      { file: '03-Track 12-Nee Kannulalo.mp3', title: 'Nee Kannulalo' },
+      { file: '03 Track 13-Sai Nathuniki Managalam.mp3', title: 'Sai Nathuniki Managalam' },
+      { file: '03 Track 14-Sayaninchu.mp3', title: 'Sayaninchu' },
+    ],
+  },
+  {
+    cdNumber: "CD4",
+    songs: [
+      { file: '04 Track 1-Akhianda Koti.mp3', title: 'Akhianda Koti' },
+      { file: '04 Track 2- Sairam Sairam.mp3', title: 'Sairam Sairam' },
+      { file: '04 Track 3-Aasanamu Vesaanu.mp3', title: 'Aasanamu Vesaanu' },
+      { file: '04 Track 4-Koluvai Vunavu.mp3', title: 'Koluvai Vunavu' },
+      { file: '04 Track 5-Kalaloki Rava.mp3', title: 'Kalaloki Rava' },
+      { file: '04 Track 6-Akhanda Vishwam.mp3', title: 'Akhanda Vishwam' },
+      { file: '04 Track 7-Amma Lalithambika.mp3', title: 'Amma Lalithambika' },
+      { file: '04 Track 8-Shamboo Shamboo.mp3', title: 'Shamboo Shamboo' },
+      { file: '04 Track 9-Mata Saraswati.mp3', title: 'Mata Saraswati' },
+      { file: '04 Track 10-Namastute.mp3', title: 'Namastute' },
+      { file: '04 Track 11-Govinda Govinda.mp3', title: 'Govinda Govinda' },
+      { file: '04 Track 12-Tallivi Neeve.mp3', title: 'Tallivi Neeve' },
+      { file: '04 Track 13-Aaraginchu.mp3', title: 'Aaraginchu' },
+      { file: '04 Track 14-Mangalam.mp3', title: 'Mangalam' },
+    ],
+  },
+  {
+    cdNumber: "CD5",
+    songs: [
+      { file: '05 Track 1-Om Sai Vandanamu.mp3', title: 'Om Sai Vandanamu' },
+      { file: '05 Track 2- Vinayaka.mp3', title: 'Vinayaka' }, 
+      { file: '05 Track 3-Sai O Sai.mp3', title: 'Sai O Sai' },
+      { file: '05 Track 4-Hanumanthaiya.mp3', title: 'Hanumanthaiya' },
+      { file: '05 Track 5-Yanta Chusina.mp3', title: 'Yanta Chusina' },
+      { file: '05 Track 6-Tirupathi Venkata Ramana.mp3', title: 'Tirupathi Venkata Ramana' },
+      { file: '05 Track 7-Sai Neeve.mp3', title: 'Sai Neeve' },
+      { file: '05 Track 8-Sharanam Sharanam Aiyappa.mp3', title: 'Sharanam Sharanam Aiyappa' },
+      { file: '05 Track 9-Sheeladhi Anugramam.mp3', title: 'Sheeladhi Anugramam' },
+      { file: '05 Track 10-Managalam.mp3', title: 'Managalam' },
+    ],
+  },
+  {
+    cdNumber: "CD6",
+    songs: [
+      { file: '06 Track 1-Akhanda Jyoti.mp3', title: 'Akhanda Jyoti' },
+    ],
+  },
 ];
