@@ -75,6 +75,7 @@ export default function PlayAllBhajans() {
             Now Playing: {currentPlaylist[currentIndex].title}
           </div>
           <audio
+            key={currentPlaylist[currentIndex].file} // force re-render on new track
             controls
             autoPlay
             onEnded={handleEnded}
