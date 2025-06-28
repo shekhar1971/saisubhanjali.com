@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Music, Play } from 'lucide-react';
 
+// Match sidebar CD paths exactly (adjust as per your working left nav paths)
 const CDs = [
   { label: 'CD 1', path: '/bhajans/cd1' },
   { label: 'CD 2', path: '/bhajans/cd2' },
@@ -15,6 +16,9 @@ const CDs = [
 
 export default function CDNav() {
   const pathname = usePathname();
+
+  // Show CDNav only on /bhajans pages
+  if (!pathname.startsWith('/bhajans')) return null;
 
   return (
     <nav className="flex flex-wrap justify-center gap-2 bg-gradient-to-r from-[#FDF6EC] to-white p-2 shadow-inner rounded-xl">
