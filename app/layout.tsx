@@ -31,4 +31,4 @@ export default function RootLayout({ children }) {
   );
 }
 
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '../components/Sidebar';
