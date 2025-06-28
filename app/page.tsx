@@ -1,6 +1,8 @@
-// app/page.tsx — FINAL version with SEO, full narrative, and enhanced design
+// app/page.tsx — FINAL version with Sidebar row, SEO, and brand-inspired colors
+
 import Image from 'next/image';
 import Link from 'next/link';
+import Sidebar from '../components/Sidebar'; // Ensure correct path
 
 /** SEO metadata for search engines and sharing */
 export const metadata = {
@@ -51,8 +53,14 @@ function DevotionalImg({ src, alt }: { src: string; alt: string }) {
 export default function Home() {
   return (
     <div className="space-y-24">
+
+      {/* ───────────── SIDEBAR ROW ───────────── */}
+      <div className="bg-[#FDF6EC]">
+        <Sidebar />
+      </div>
+
       {/* ───────────── HERO ───────────── */}
-      <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow">
+      <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#FDF6EC] via-white to-[#FDF6EC] shadow">
         <Image
           src="/SaiBaba1.png"
           alt="Shirdi Sai Baba sanctum"
@@ -62,17 +70,17 @@ export default function Home() {
         />
         <div className="relative z-10 grid gap-8 px-6 py-20 md:grid-cols-2 md:items-center">
           <div>
-            <h1 className="mb-4 text-5xl font-extrabold leading-tight text-brand-700 drop-shadow md:text-6xl">
+            <h1 className="mb-4 text-5xl font-extrabold leading-tight text-[#7B3F00] drop-shadow md:text-6xl">
               Sai Subhanjali
             </h1>
-            <p className="mb-8 max-w-prose text-lg">
+            <p className="mb-8 max-w-prose text-lg text-[#7B3F00]">
               A devotional treasury of Sai Baba bhajans — lovingly written, composed & sung by
               <span className="font-semibold"> Smt. Subbalakshmi Sattiraju</span>.
             </p>
             <div className="inline-block rounded-xl bg-white/20 backdrop-blur-md p-1 shadow-md">
               <Link
                 href="/bhajans"
-                className="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-5 py-2.5 text-base font-semibold text-white hover:bg-brand-800 transition"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#C28F2C] px-5 py-2.5 text-base font-semibold text-white hover:bg-[#B33A24] transition"
               >
                 🎵 Listen to Bhajans
               </Link>
@@ -91,7 +99,7 @@ export default function Home() {
 
       {/* ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
       <section className="mx-auto max-w-6xl space-y-6 rounded-xl bg-white/60 p-8 shadow lg:max-w-7xl">
-        <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
+        <h2 className="text-center text-3xl font-bold text-[#7B3F00]">Om Sairam!</h2>
         <p> Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.</p>
         <p> Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by Mrs. Subbalakshmi Sattiraju. She has released six albums with 10 to 14 bhajans in each album. She has also written two books – one in Telugu and one in Hindi. These books give detailed insights on experience on this spiritual path.</p>
         <p> This journey started when Mrs. Subha Sattiraju decided to do <em>Parayanam</em> of Sai Satcharitra. Initially, she was not sure if she had the courage to go on this path. With Sri Sai Baba's blessings she came across the book – Sri Sai Leela Amritam and started reading it. She felt instant peace and joy while reading the book.</p>
@@ -121,7 +129,7 @@ export default function Home() {
           height={350}
           className="mx-auto rounded-xl object-cover shadow mb-6"
         />
-        <h2 className="text-3xl font-bold text-brand-700 mb-2">A Legacy of Devotion</h2>
+        <h2 className="text-3xl font-bold text-[#7B3F00] mb-2">A Legacy of Devotion</h2>
         <p className="max-w-3xl mx-auto text-lg">
           From humble roots in East and West Godavari Districts, the Sattiraju family passed down faith, music, and
           selfless service across generations. Their blessings echo through every note of <em>Sai Subhanjali</em>.
