@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Music, Play } from 'lucide-react';
 
-// Match sidebar CD paths exactly (adjust as per your working left nav paths)
+// Define CDs with correct paths matching your sidebar routing setup
 const CDs = [
   { label: 'CD 1', path: '/bhajans/cd1' },
   { label: 'CD 2', path: '/bhajans/cd2' },
@@ -17,23 +17,25 @@ const CDs = [
 export default function CDNav() {
   const pathname = usePathname();
 
-  // Show CDNav only on /bhajans pages
+  // Show CDNav only on /bhajans page and its child routes
   if (!pathname.startsWith('/bhajans')) return null;
 
   return (
-    <nav className="flex flex-wrap justify-center gap-2 bg-gradient-to-r from-[#FDF6EC] to-white p-2 shadow-inner rounded-xl">
+    <nav className="flex flex-wrap justify-center gap-2 bg-gradient-to-r from-[#FDF6EC] to-white px-2 py-3 shadow-inner rounded-xl">
       {CDs.map(cd => (
         <Link
           key={cd.label}
           href={cd.path}
-          className="flex items-center gap-1 rounded bg-[#C28F2C] px-3 py-1 text-white text-sm md:text-base font-semibold hover:bg-[#B33A24] transition"
+          passHref
+          className="flex items-center gap-1 rounded bg-[#C28F2C] px-3 py-1 text-white text-xs sm:text-sm md:text-base font-semibold hover:bg-[#B33A24] transition"
         >
           <Music className="w-4 h-4" /> {cd.label}
         </Link>
       ))}
       <Link
         href="/bhajans/play-all"
-        className="flex items-center gap-1 rounded bg-[#B33A24] px-3 py-1 text-white text-sm md:text-base font-semibold hover:bg-[#7B3F00] transition"
+        passHref
+        className="flex items-center gap-1 rounded bg-[#B33A24] px-3 py-1 text-white text-xs sm:text-sm md:text-base font-semibold hover:bg-[#7B3F00] transition"
       >
         <Play className="w-4 h-4" /> Play All
       </Link>
