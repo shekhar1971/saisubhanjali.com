@@ -1,8 +1,9 @@
-// app/layout.tsx
+// app/layout.tsx — FINAL version with CDNav row, brand colors, and no Sidebar
+
 import './globals.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Sidebar from '../components/Sidebar';
+import CDNav from '../components/CDNav';
 
 export const metadata = {
   title: 'Sai Subhanjali',
@@ -14,25 +15,26 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-white via-emerald-50 to-white min-h-screen">
-        <header className="bg-white border-b-2 border-yellow-400 shadow-sm p-4 flex justify-between items-center">
+      <body className="bg-gradient-to-br from-white via-[#FDF6EC] to-white min-h-screen">
+        <header className="bg-white border-b-2 border-[#C28F2C] shadow-sm p-4 flex justify-between items-center">
           <Link href="/">
-            <h1 className="text-2xl font-bold text-emerald-800 hover:text-emerald-600">Sai Subhanjali</h1>
+            <h1 className="text-2xl font-bold text-[#7B3F00] hover:text-[#B33A24]">Sai Subhanjali</h1>
           </Link>
           <nav className="space-x-6">
-            <Link href="/about" className="hover:text-emerald-700">About</Link>
-            <Link href="/photos" className="hover:text-emerald-700">Photos</Link>
-            <Link href="/legacy" className="hover:text-emerald-700">Legacy</Link>
-            <Link href="/bhajans" className="hover:text-emerald-700">Bhajans</Link>
-            <Link href="/contact" className="hover:text-emerald-700">Contact</Link>
+            <Link href="/about" className="hover:text-[#B33A24]">About</Link>
+            <Link href="/photos" className="hover:text-[#B33A24]">Photos</Link>
+            <Link href="/legacy" className="hover:text-[#B33A24]">Legacy</Link>
+            <Link href="/bhajans" className="hover:text-[#B33A24]">Bhajans</Link>
+            <Link href="/contact" className="hover:text-[#B33A24]">Contact</Link>
           </nav>
         </header>
 
-        <main className="flex flex-col lg:flex-row">
-          {/* Only show sidebar if NOT on home page */}
-          {pathname !== '/' && <Sidebar />}
-          <div className="flex-1 p-6">{children}</div>
-        </main>
+        {/* ───────────── TOP CD NAV ROW (visible on all pages) ───────────── */}
+        <div className="bg-[#FDF6EC]">
+          <CDNav />
+        </div>
+
+        <main className="p-6">{children}</main>
       </body>
     </html>
   );
