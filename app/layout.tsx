@@ -1,43 +1,69 @@
 // app/layout.tsx
 import './globals.css';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import CDNav from '../components/CDNav'; // Ensure this path is correct
+import type { ReactNode } from 'react';
 
 export const metadata = {
-  title: 'Sai Subhanjali',
-  description: 'Devotional bhajans composed by Subbalakshmi Sattiraju in praise of Shri Shirdi Sai Baba',
+  title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
+  description:
+    'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all 6 Sai Subhanjali CDs.',
+  metadataBase: new URL('https://www.saisubhanjali.com'),
 };
 
-export default function RootLayout({ children }) {
-  const pathname = usePathname();
-
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-gradient-to-br from-[#FDF6EC] via-white to-[#FDF6EC] min-h-screen">
-        {/* ───────────── HEADER ───────────── */}
-        <header className="bg-white border-b-2 border-[#C28F2C] shadow-sm p-4 flex justify-between items-center">
-          <Link href="/">
-            <h1 className="text-2xl font-bold text-[#7B3F00] hover:text-[#C28F2C]">Sai Subhanjali</h1>
-          </Link>
-          <nav className="space-x-6">
-            <Link href="/about" className="hover:text-[#C28F2C]">About</Link>
-            <Link href="/photos" className="hover:text-[#C28F2C]">Photos</Link>
-            <Link href="/legacy" className="hover:text-[#C28F2C]">Legacy</Link>
-            <Link href="/bhajans" className="hover:text-[#C28F2C]">Bhajans</Link>
-            <Link href="/contact" className="hover:text-[#C28F2C]">Contact</Link>
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-gray-50 text-gray-800 antialiased">
+        {/* ——— SITE NAVIGATION ——— */}
+        <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow">
+          <nav
+            className="
+              mx-auto flex max-w-7xl
+              flex-col items-center gap-3 px-4 py-3 text-sm font-medium text-gray-800
+              sm:flex-row sm:justify-between sm:gap-6 sm:px-6
+            "
+          >
+            {/* Brand on its own row on very small screens, inline on ≥ 640 px */}
+            <Link
+              href="/"
+              className="
+                order-1 text-xl font-bold text-brand-700 hover:text-brand-800
+                sm:order-none
+              "
+            >
+              Sai Subhanjali
+            </Link>
+
+            {/* Top-level links – wrap automatically on the next line if needed */}
+            <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:ml-auto">
+              {[
+                ['About', '/about'],
+                ['Photos', '/photos'],
+                ['Legacy', '/legacy'],
+                ['Bhajans', '/bhajans'],
+                ['Contact', '/contact'],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href} className="hover:text-brand-600">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
         </header>
 
-        {/* ───────────── TOP CD NAVIGATION ───────────── */}
-        <div className="bg-[#FDF6EC]">
-          <CDNav />
-        </div>
+        {/* ——— MAIN CONTENT ——— */}
+        <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">{children}</main>
 
-        {/* ───────────── MAIN CONTENT ───────────── */}
-        <main className="p-6">
-          {children}
-        </main>
+        {/* ——— FOOTER COPYRIGHT ——— */}
+        <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-gray-500">
+          © {new Date().getFullYear()} The Family of Late Smt. Subbalakshmi
+          Sattiraju.
+          <br />
+          These bhajans are offered for devotional use only. Commercial use is
+          strictly prohibited without written permission.
+        </footer>
       </body>
     </html>
   );
