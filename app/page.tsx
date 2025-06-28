@@ -1,8 +1,6 @@
-// app/page.tsx — FINAL version with CDNav row, SEO, and brand-inspired colors
-
+// app/page.tsx — FINAL version with top gap removed, SEO, full narrative, and enhanced design
 import Image from 'next/image';
 import Link from 'next/link';
-import CDNav from '../components/CDNav'; // Replace Sidebar with CDNav
 
 /** SEO metadata for search engines and sharing */
 export const metadata = {
@@ -52,15 +50,9 @@ function DevotionalImg({ src, alt }: { src: string; alt: string }) {
 
 export default function Home() {
   return (
-    <div className="space-y-24">
-
-      {/* ───────────── TOP CD NAV ROW ───────────── */}
-      <div className="bg-[#FDF6EC]">
-        <CDNav />
-      </div>
-
+    <div className="space-y-24 pt-0">
       {/* ───────────── HERO ───────────── */}
-      <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#FDF6EC] via-white to-[#FDF6EC] shadow">
+      <section className="relative overflow-hidden rounded-none bg-gradient-to-br from-brand-100 via-brand-50 to-white shadow mt-0">
         <Image
           src="/SaiBaba1.png"
           alt="Shirdi Sai Baba sanctum"
@@ -70,17 +62,17 @@ export default function Home() {
         />
         <div className="relative z-10 grid gap-8 px-6 py-20 md:grid-cols-2 md:items-center">
           <div>
-            <h1 className="mb-4 text-5xl font-extrabold leading-tight text-[#7B3F00] drop-shadow md:text-6xl">
+            <h1 className="mb-4 text-5xl font-extrabold leading-tight text-brand-700 drop-shadow md:text-6xl">
               Sai Subhanjali
             </h1>
-            <p className="mb-8 max-w-prose text-lg text-[#7B3F00]">
+            <p className="mb-8 max-w-prose text-lg">
               A devotional treasury of Sai Baba bhajans — lovingly written, composed & sung by
               <span className="font-semibold"> Smt. Subbalakshmi Sattiraju</span>.
             </p>
             <div className="inline-block rounded-xl bg-white/20 backdrop-blur-md p-1 shadow-md">
               <Link
                 href="/bhajans"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#C28F2C] px-5 py-2.5 text-base font-semibold text-white hover:bg-[#B33A24] transition"
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-700 px-5 py-2.5 text-base font-semibold text-white hover:bg-brand-800 transition"
               >
                 🎵 Listen to Bhajans
               </Link>
@@ -99,7 +91,7 @@ export default function Home() {
 
       {/* ───────────── FULL “ABOUT” NARRATIVE ───────────── */}
       <section className="mx-auto max-w-6xl space-y-6 rounded-xl bg-white/60 p-8 shadow lg:max-w-7xl">
-        <h2 className="text-center text-3xl font-bold text-[#7B3F00]">Om Sairam!</h2>
+        <h2 className="text-center text-3xl font-bold text-brand-700">Om Sairam!</h2>
         <p> Sai Subhanjali is the result of love and devotion of Mrs. SubbaLakshmi Sattiraju (lovingly known as Subha Sattiraju) to Sri Shirdi Sai Baba and his teachings.</p>
         <p> Sai Subhanjali is a collection of bhajans on Sri Sai Baba written, composed, and sung by Mrs. Subbalakshmi Sattiraju. She has released six albums with 10 to 14 bhajans in each album. She has also written two books – one in Telugu and one in Hindi. These books give detailed insights on experience on this spiritual path.</p>
         <p> This journey started when Mrs. Subha Sattiraju decided to do <em>Parayanam</em> of Sai Satcharitra. Initially, she was not sure if she had the courage to go on this path. With Sri Sai Baba's blessings she came across the book – Sri Sai Leela Amritam and started reading it. She felt instant peace and joy while reading the book.</p>
@@ -108,7 +100,7 @@ export default function Home() {
         <p> Sai Subhanjali is a not‑for‑profit initiative with the sole purpose of promoting spirituality, peace, and joy. This initiative was made possible by encouragement and unflinching support of her husband Late Sri Nageswara Rao Sattiraju, a civil engineer, who spent 40+ years helping build dams in India. Many of the key water projects in India have his signature on them. He was always humble, a <em>Karma Yogi</em>, who gave a lot more to the world than we will ever know. We all miss him dearly.</p>
         <p> All music recordings were facilitated by her late son‑in‑law Sri Mohana Krishna (husband of Smt Lalita — second eldest among 5 siblings). Without Sri Mohan's encouragement, know‑how & support, this would not have been possible. We miss Sri Mohan immensely and see him smiling and blessing us as more & more devotees can now hear these soulful bhajans.</p>
         <p> This endeavour was possible only with divine blessings from Sri Sai Baba, selfless dedication from Late Sri Nageswara Rao & Subha Sattiraju, their late son‑in‑law Sri Mohana Krishna, their immediate/extended family along with numerous voluntary musicians & friends over the years.</p>
-        <p> All expenses for recording and publishing these songs and books are borne completely by Mrs. Subba Sattiraju & her late husband Sri Nageswara Rao Sattiraju.</p>
+        <p> All expenses for recording and publishing these songs and books are borne completely by Mrs. Subha Sattiraju & her late husband Sri Nageswara Rao Sattiraju.</p>
         <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
@@ -129,7 +121,7 @@ export default function Home() {
           height={350}
           className="mx-auto rounded-xl object-cover shadow mb-6"
         />
-        <h2 className="text-3xl font-bold text-[#7B3F00] mb-2">A Legacy of Devotion</h2>
+        <h2 className="text-3xl font-bold text-brand-700 mb-2">A Legacy of Devotion</h2>
         <p className="max-w-3xl mx-auto text-lg">
           From humble roots in East and West Godavari Districts, the Sattiraju family passed down faith, music, and
           selfless service across generations. Their blessings echo through every note of <em>Sai Subhanjali</em>.
