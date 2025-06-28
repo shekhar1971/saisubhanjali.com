@@ -1,7 +1,8 @@
 // app/layout.tsx
 import './globals.css';
 import Link from 'next/link';
-import CDNav from '../components/CDNav';
+import { usePathname } from 'next/navigation';
+import CDNav from '../components/CDNav'; // Ensure this path is correct
 
 export const metadata = {
   title: 'Sai Subhanjali',
@@ -9,26 +10,34 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-white via-emerald-50 to-white min-h-screen">
-        <header className="bg-white border-b-2 border-yellow-400 shadow-sm p-4 flex flex-col md:flex-row md:justify-between md:items-center">
+      <body className="bg-gradient-to-br from-[#FDF6EC] via-white to-[#FDF6EC] min-h-screen">
+        {/* ───────────── HEADER ───────────── */}
+        <header className="bg-white border-b-2 border-[#C28F2C] shadow-sm p-4 flex justify-between items-center">
           <Link href="/">
-            <h1 className="text-2xl font-bold text-[#B33A24] hover:text-[#C28F2C]">Sai Subhanjali</h1>
+            <h1 className="text-2xl font-bold text-[#7B3F00] hover:text-[#C28F2C]">Sai Subhanjali</h1>
           </Link>
-          <nav className="space-x-4 mt-4 md:mt-0 flex flex-wrap items-center justify-center">
-            <Link href="/about" className="hover:text-[#B33A24] px-2">About</Link>
-            <Link href="/photos" className="hover:text-[#B33A24] px-2">Photos</Link>
-            <Link href="/legacy" className="hover:text-[#B33A24] px-2">Legacy</Link>
-            <Link href="/bhajans" className="hover:text-[#B33A24] px-2">Bhajans</Link>
-            <Link href="/contact" className="hover:text-[#B33A24] px-2">Contact</Link>
+          <nav className="space-x-6">
+            <Link href="/about" className="hover:text-[#C28F2C]">About</Link>
+            <Link href="/photos" className="hover:text-[#C28F2C]">Photos</Link>
+            <Link href="/legacy" className="hover:text-[#C28F2C]">Legacy</Link>
+            <Link href="/bhajans" className="hover:text-[#C28F2C]">Bhajans</Link>
+            <Link href="/contact" className="hover:text-[#C28F2C]">Contact</Link>
           </nav>
         </header>
 
-        {/* CDNav renders only on bhajans pages */}
-        <CDNav />
+        {/* ───────────── TOP CD NAVIGATION ───────────── */}
+        <div className="bg-[#FDF6EC]">
+          <CDNav />
+        </div>
 
-        <main className="p-4">{children}</main>
+        {/* ───────────── MAIN CONTENT ───────────── */}
+        <main className="p-6">
+          {children}
+        </main>
       </body>
     </html>
   );
