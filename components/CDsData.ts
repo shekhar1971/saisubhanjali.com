@@ -5,21 +5,21 @@ export const CDs = [
   {
     cdNumber: "CD1",
     songs: [
-  { file: '01 Track 1-Monologue.mp3', title: 'Monologue' },
-  { file: '01 Track 2-Manavinivinuma.mp3', title: 'Melukolupulu' }, // corrected title
-  { file: '01 Track 3-Kolichiti Kolichiti.mp3', title: 'Kolichiti Kolichiti' },
-  { file: '01 Track 4-Sharanantini Baba.mp3', title: 'Yentadaya' }, // corrected title
-  { file: '01 Track 5-Shirdi Vasa.mp3', title: 'Sharanantini Baba' }, // corrected title
-  { file: '01 Track 6-Yentadaya.mp3', title: 'Shirdi Vasa' }, // corrected title
-  { file: '01 Track 7-Nitya Satyudu Sai.mp3', title: 'Baba Baba' }, // corrected title
-  { file: '01 Track 8-Jai Sachitananda.mp3', title: 'Mahadeva Mahadeva' }, // corrected title
-  { file: '01 Track 9-Jaya Jaya Haarati Baba.mp3', title: 'Nitya Satyudu Sai' }, // corrected title
-  { file: '01 Track 10-Melukolupulu.mp3', title: 'Jai Sachitananda' }, // corrected title
-  { file: '01 Track 11-Baba Baba.mp3', title: 'Manavinivinuma' }, // corrected title
-  { file: '01 Track 12-Pataa Ne Padeda.mp3', title: 'Pataa Ne Padeda' },
-  { file: '01 Track 13-Mahadeva Mahadeva.mp3', title: 'Neevichina Eespoortito' }, // corrected title
-  { file: '01 Track 14-Neevichina Eespoortito.mp3', title: 'Jaya Jaya Haarati Baba' }, // corrected title
-];
+      { file: '01 Track 1-Monologue.mp3', title: 'Monologue' },
+      { file: '01 Track 2-Manavinivinuma.mp3', title: 'Melukolupulu' },
+      { file: '01 Track 3-Kolichiti Kolichiti.mp3', title: 'Kolichiti Kolichiti' },
+      { file: '01 Track 4-Sharanantini Baba.mp3', title: 'Yentadaya' },
+      { file: '01 Track 5-Shirdi Vasa.mp3', title: 'Sharanantini Baba' },
+      { file: '01 Track 6-Yentadaya.mp3', title: 'Shirdi Vasa' },
+      { file: '01 Track 7-Nitya Satyudu Sai.mp3', title: 'Baba Baba' },
+      { file: '01 Track 8-Jai Sachitananda.mp3', title: 'Mahadeva Mahadeva' },
+      { file: '01 Track 9-Jaya Jaya Haarati Baba.mp3', title: 'Nitya Satyudu Sai' },
+      { file: '01 Track 10-Melukolupulu.mp3', title: 'Jai Sachitananda' },
+      { file: '01 Track 11-Baba Baba.mp3', title: 'Manavinivinuma' },
+      { file: '01 Track 12-Pataa Ne Padeda.mp3', title: 'Pataa Ne Padeda' },
+      { file: '01 Track 13-Mahadeva Mahadeva.mp3', title: 'Neevichina Eespoortito' },
+      { file: '01 Track 14-Neevichina Eespoortito.mp3', title: 'Jaya Jaya Haarati Baba' },
+    ],
   },
   {
     cdNumber: "CD2",
@@ -79,7 +79,7 @@ export const CDs = [
     cdNumber: "CD5",
     songs: [
       { file: '05 Track 1-Om Sai Vandanamu.mp3', title: 'Om Sai Vandanamu' },
-      { file: '05 Track 2- Vinayaka.mp3', title: 'Vinayaka' }, 
+      { file: '05 Track 2- Vinayaka.mp3', title: 'Vinayaka' },
       { file: '05 Track 3-Sai O Sai.mp3', title: 'Sai O Sai' },
       { file: '05 Track 4-Hanumanthaiya.mp3', title: 'Hanumanthaiya' },
       { file: '05 Track 5-Yanta Chusina.mp3', title: 'Yanta Chusina' },
