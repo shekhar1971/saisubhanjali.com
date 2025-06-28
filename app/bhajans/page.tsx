@@ -2,6 +2,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import CDNav from '../../components/CDNav';
 
 import CD1Display from '../../components/CD1Display';
@@ -13,7 +14,14 @@ import CD6Display from '../../components/CD6Display';
 
 export default function BhajanPage() {
   const searchParams = useSearchParams();
-  const cdParam = searchParams.get('cd') || 'cd1'; // default to cd1
+  const [cdParam, setCdParam] = useState('cd1');
+
+  useEffect(() => {
+    const cd = searchParams.get('cd');
+    if (cd) {
+      setCdParam(cd);
+    }
+  }, [searchParams]);
 
   let CDComponent;
   switch (cdParam) {
