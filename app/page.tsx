@@ -1,8 +1,8 @@
-// app/page.tsx — FINAL version with Sidebar row, SEO, and brand-inspired colors
+// app/page.tsx — FINAL version with CDNav row, SEO, and brand-inspired colors
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Sidebar from '../components/Sidebar'; // Ensure correct path
+import CDNav from '../components/CDNav'; // Replace Sidebar with CDNav
 
 /** SEO metadata for search engines and sharing */
 export const metadata = {
@@ -54,9 +54,9 @@ export default function Home() {
   return (
     <div className="space-y-24">
 
-      {/* ───────────── SIDEBAR ROW ───────────── */}
+      {/* ───────────── TOP CD NAV ROW ───────────── */}
       <div className="bg-[#FDF6EC]">
-        <Sidebar />
+        <CDNav />
       </div>
 
       {/* ───────────── HERO ───────────── */}
@@ -108,7 +108,7 @@ export default function Home() {
         <p> Sai Subhanjali is a not‑for‑profit initiative with the sole purpose of promoting spirituality, peace, and joy. This initiative was made possible by encouragement and unflinching support of her husband Late Sri Nageswara Rao Sattiraju, a civil engineer, who spent 40+ years helping build dams in India. Many of the key water projects in India have his signature on them. He was always humble, a <em>Karma Yogi</em>, who gave a lot more to the world than we will ever know. We all miss him dearly.</p>
         <p> All music recordings were facilitated by her late son‑in‑law Sri Mohana Krishna (husband of Smt Lalita — second eldest among 5 siblings). Without Sri Mohan's encouragement, know‑how & support, this would not have been possible. We miss Sri Mohan immensely and see him smiling and blessing us as more & more devotees can now hear these soulful bhajans.</p>
         <p> This endeavour was possible only with divine blessings from Sri Sai Baba, selfless dedication from Late Sri Nageswara Rao & Subha Sattiraju, their late son‑in‑law Sri Mohana Krishna, their immediate/extended family along with numerous voluntary musicians & friends over the years.</p>
-        <p> All expenses for recording and publishing these songs and books are borne completely by Mrs. Subha Sattiraju & her late husband Sri Nageswara Rao Sattiraju.</p>
+        <p> All expenses for recording and publishing these songs and books are borne completely by Mrs. Subba Sattiraju & her late husband Sri Nageswara Rao Sattiraju.</p>
         <p className="text-center font-semibold">OM SAI RAM</p>
       </section>
 
