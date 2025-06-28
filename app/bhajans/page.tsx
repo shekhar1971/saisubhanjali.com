@@ -41,27 +41,6 @@ export default function BhajanPage() {
         </nav>
       </aside>
 
-      {/* -------------- MOBILE TOP NAV -------------- */}
-      <div className="sticky top-0 z-30 flex flex-wrap justify-center gap-3 border-b bg-white px-4 py-3 shadow-sm md:hidden">
-        {Array.from({ length: 6 }, (_, i) => (
-          <a
-            key={i}
-            href={`#cd${i + 1}`}
-            className="rounded-full border border-purple-300 px-3 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100"
-          >
-            CD{i + 1}
-          </a>
-        ))}
-
-        {/* Play-All pill */}
-        <a
-          href="/bhajans/play-all"
-          className="rounded-full border border-teal-300 px-3 py-2 text-sm font-medium text-teal-700 hover:bg-teal-100"
-        >
-          ▶ Play All
-        </a>
-      </div>
-
       {/* -------------- MAIN CONTENT -------------- */}
       <main className="flex-1 space-y-20 px-4 py-4 md:px-8">
         <section id="cd1">
