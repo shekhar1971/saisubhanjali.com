@@ -1,4 +1,3 @@
-// app/bhajans/page.tsx
 'use client';
 
 import CD1Display from '../../components/CD1Display';
@@ -22,9 +21,9 @@ export default function BhajanPage() {
               <li key={i}>
                 <a
                   href={`#cd${i + 1}`}
-                  className="block rounded px-4 py-2 font-medium text-purple-700 transition duration-200 hover:bg-purple-600 hover:text-white"
+                  className="flex items-center justify-center gap-2 rounded bg-amber-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-amber-700 transition"
                 >
-                  CD {i + 1}
+                  🎵 CD {i + 1}
                 </a>
               </li>
             ))}
@@ -33,7 +32,7 @@ export default function BhajanPage() {
             <li>
               <a
                 href="/bhajans/play-all"
-                className="block rounded px-4 py-2 font-medium text-teal-700 transition duration-200 hover:bg-teal-600 hover:text-white"
+                className="flex items-center justify-center gap-2 rounded bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-red-800 transition"
               >
                 ▶ Play All
               </a>
