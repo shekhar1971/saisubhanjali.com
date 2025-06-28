@@ -1,10 +1,6 @@
 // app/bhajans/page.tsx
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import CDNav from '../../components/CDNav';
-
 import CD1Display from '../../components/CD1Display';
 import CD2Display from '../../components/CD2Display';
 import CD3Display from '../../components/CD3Display';
@@ -13,40 +9,6 @@ import CD5Display from '../../components/CD5Display';
 import CD6Display from '../../components/CD6Display';
 
 export default function BhajanPage() {
-  const searchParams = useSearchParams();
-  const [cdParam, setCdParam] = useState('cd1');
-
-  useEffect(() => {
-    const cd = searchParams.get('cd');
-    if (cd) {
-      setCdParam(cd);
-    }
-  }, [searchParams]);
-
-  let CDComponent;
-  switch (cdParam) {
-    case 'cd1':
-      CDComponent = <CD1Display />;
-      break;
-    case 'cd2':
-      CDComponent = <CD2Display />;
-      break;
-    case 'cd3':
-      CDComponent = <CD3Display />;
-      break;
-    case 'cd4':
-      CDComponent = <CD4Display />;
-      break;
-    case 'cd5':
-      CDComponent = <CD5Display />;
-      break;
-    case 'cd6':
-      CDComponent = <CD6Display />;
-      break;
-    default:
-      CDComponent = <CD1Display />;
-  }
-
   return (
     <div className="flex min-h-screen flex-col bg-gray-50 md:flex-row">
       {/* -------------- DESKTOP LEFT NAV -------------- */}
@@ -59,7 +21,7 @@ export default function BhajanPage() {
             {Array.from({ length: 6 }, (_, i) => (
               <li key={i}>
                 <a
-                  href={`/bhajans?cd=cd${i + 1}`}
+                  href={`#cd${i + 1}`}
                   className="block rounded px-4 py-2 font-medium text-purple-700 transition duration-200 hover:bg-purple-600 hover:text-white"
                 >
                   CD {i + 1}
@@ -67,7 +29,7 @@ export default function BhajanPage() {
               </li>
             ))}
 
-            {/* NEW: Play-All link */}
+            {/* Play-All link */}
             <li>
               <a
                 href="/bhajans/play-all"
@@ -80,14 +42,47 @@ export default function BhajanPage() {
         </nav>
       </aside>
 
-      {/* -------------- MOBILE TOP NAV (REPLACED WITH CDNav) -------------- */}
-      <div className="sticky top-[56px] z-30 md:hidden">
-        <CDNav />
+      {/* -------------- MOBILE TOP NAV -------------- */}
+      <div className="sticky top-[56px] z-30 flex flex-wrap justify-center gap-3 border-b bg-white px-4 py-3 shadow-sm md:hidden">
+        {Array.from({ length: 6 }, (_, i) => (
+          <a
+            key={i}
+            href={`#cd${i + 1}`}
+            className="rounded-full border border-purple-300 px-3 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100"
+          >
+            CD{i + 1}
+          </a>
+        ))}
+
+        {/* Play-All pill */}
+        <a
+          href="/bhajans/play-all"
+          className="rounded-full border border-teal-300 px-3 py-2 text-sm font-medium text-teal-700 hover:bg-teal-100"
+        >
+          ▶ Play All
+        </a>
       </div>
 
       {/* -------------- MAIN CONTENT -------------- */}
       <main className="flex-1 space-y-20 px-4 py-8 md:px-8">
-        {CDComponent}
+        <section id="cd1">
+          <CD1Display />
+        </section>
+        <section id="cd2">
+          <CD2Display />
+        </section>
+        <section id="cd3">
+          <CD3Display />
+        </section>
+        <section id="cd4">
+          <CD4Display />
+        </section>
+        <section id="cd5">
+          <CD5Display />
+        </section>
+        <section id="cd6">
+          <CD6Display />
+        </section>
       </main>
     </div>
   );
