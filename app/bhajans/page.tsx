@@ -12,7 +12,7 @@ export default function BhajanPage() {
   return (
     <div className="flex min-h-screen flex-col bg-gray-50 md:flex-row">
       {/* -------------- DESKTOP LEFT NAV -------------- */}
-      <aside className="sticky top-[64px] hidden w-64 self-start p-6 md:flex">
+      <aside className="sticky top-0 hidden w-64 self-start p-6 md:flex">
         <nav className="w-full rounded-xl border border-gray-200 bg-white p-5 shadow-lg">
           <h2 className="mb-5 text-lg font-bold text-purple-800">
             Sai Subhanjali
@@ -43,7 +43,7 @@ export default function BhajanPage() {
       </aside>
 
       {/* -------------- MOBILE TOP NAV -------------- */}
-      <div className="sticky top-[56px] z-30 flex flex-wrap justify-center gap-3 border-b bg-white px-4 py-3 shadow-sm md:hidden">
+      <div className="sticky top-0 z-30 flex flex-wrap justify-center gap-3 border-b bg-white px-4 py-3 shadow-sm md:hidden">
         {Array.from({ length: 6 }, (_, i) => (
           <a
             key={i}
@@ -64,7 +64,7 @@ export default function BhajanPage() {
       </div>
 
       {/* -------------- MAIN CONTENT -------------- */}
-      <main className="flex-1 space-y-20 px-4 py-8 md:px-8">
+      <main className="flex-1 space-y-20 px-4 py-4 md:px-8">
         <section id="cd1">
           <CD1Display />
         </section>
