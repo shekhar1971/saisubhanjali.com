@@ -5,3 +5,9 @@
 body {
   @apply bg-slate-50 text-gray-800;
 }
+body {
+  font-family: 'Inter', sans-serif;
+}
+h1, h2, h3 {
+  font-family: 'Noto Serif Telugu', serif;
+}
