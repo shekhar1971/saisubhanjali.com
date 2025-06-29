@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-/* ---------- SEO metadata ---------- */
+/* ───────── SEO metadata ───────── */
 export const metadata = {
   title: 'Divine Restoration: Sai Baba’s Grace | Sai Subhanjali',
   description:
@@ -15,7 +15,7 @@ export const metadata = {
     siteName: 'Sai Subhanjali',
     images: [
       {
-        url: '/SaiBaba1.png', // or a dedicated miracle thumbnail
+        url: '/SaiBaba1.png',
         width: 1200,
         height: 630,
         alt: 'Sai Baba blessing Smt. Subbalakshmi Sattiraju',
@@ -33,45 +33,49 @@ export const metadata = {
   ],
 };
 
-/* ---------- Page component ---------- */
+/* ───────── Page ───────── */
 export default function DivineRestoration() {
   return (
-    <article className="mx-auto max-w-3xl space-y-8 rounded-xl bg-white/80 p-6 shadow-lg">
-      <header className="text-center space-y-3">
+    <article className="mx-auto max-w-3xl rounded-xl bg-white/90 p-8 shadow-lg">
+      {/* heading */}
+      <header className="text-center space-y-2">
         <h1 className="text-3xl font-extrabold text-brand-700">
           Divine Restoration: Sai Baba’s Grace
         </h1>
         <p className="text-sm text-gray-600">
           A true incident from the life of&nbsp;
-          <strong>Smt. Subbalakshmi&nbsp;Sattiraju</strong>
+          <strong>Smt.&nbsp;Subbalakshmi&nbsp;Sattiraju</strong>
         </p>
       </header>
 
-      {/* Optional hero image */}
-      <Image
-        src="/SaiBaba4.png"
-        alt="Shirdi Sai Baba blessing devotees"
-        width={600}
-        height={400}
-        className="mx-auto rounded-xl shadow"
-        priority
-      />
+      {/* hero image (smaller & centred) */}
+      <div className="my-6 flex justify-center">
+        <Image
+          src="/SaiBaba4.png"
+          alt="Shirdi Sai Baba blessing devotees"
+          width={420}
+          height={280}
+          className="rounded-xl shadow"
+          priority
+        />
+      </div>
 
-      <section className="prose prose-lg max-w-none">
-        <p>
+      {/* story */}
+      <section className="prose prose-lg max-w-none prose-headings:text-brand-700">
+        <p className="first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-extrabold first-letter:text-brand-700">
           Throughout her lifetime, Smt. Subbalakshmi Sattiraju experienced many
           profound miracles that deepened her unwavering devotion to Shri Sai
           Baba. One remarkable incident—often recounted in our family—shows
           Baba’s loving intervention in the most practical of ways.
         </p>
 
-        <h2>The Stolen Notebook</h2>
+        <h2>The stolen notebook</h2>
         <p>
           One afternoon in Delhi, Amma was travelling with a friend in a
-          slow-moving cycle&nbsp;rickshaw. Tucked safely in her handbag was a
-          precious notebook: <strong>over 60 bhajans</strong>—lyrics and
-          melodies she received directly through Sai Baba’s divine inspiration
-          and had never copied anywhere else.
+          slow-moving cycle rickshaw. Tucked safely in her handbag was a
+          precious notebook: <strong>over&nbsp;60 bhajans</strong>—lyrics and
+          melodies she received directly through Sai Baba’s divine inspiration,
+          and <em>never</em> copied anywhere else.
         </p>
         <p>
           Suddenly, two thieves on a motorcycle snatched the handbag and sped
@@ -80,22 +84,19 @@ export default function DivineRestoration() {
           her by Baba.
         </p>
 
-        <h2>A Prayer of Surrender</h2>
-        <p>
-          Heartbroken, Amma returned home, knelt before Baba’s image, and
-          prayed:
-        </p>
-        <blockquote>
+        {/* pull-quote */}
+        <div className="my-8 rounded-lg border-l-4 border-brand-700 bg-brand-50/50 p-4 italic">
           “Baba, all these songs are yours. If you wish them to live, please
           bring them back.”
-        </blockquote>
+        </div>
 
-        <h2>The Miraculous Return</h2>
+        <h2>The miraculous return</h2>
         <p>
-          That very evening, around 7 PM, a Delhi Police officer appeared at the
-          door with the handbag—<em>untouched</em>. No complaint had been filed.
-          The officer had found a doctor’s prescription inside, visited the
-          nursing home shown on it, and there obtained Amma’s address.
+          That very evening, around&nbsp;7 PM, a Delhi Police officer arrived at
+          her door with the handbag—<em>completely untouched</em>. No police
+          complaint had ever been filed. The officer explained that he found a
+          doctor’s prescription inside, visited the nursing home listed on it,
+          and there obtained Amma’s address.
         </p>
         <p>
           Such an outcome, especially in bustling Delhi, was nothing short of a
@@ -103,7 +104,7 @@ export default function DivineRestoration() {
           bestowed.
         </p>
 
-        <h2>Lasting Significance</h2>
+        <h2>Lasting significance</h2>
         <p>
           This incident remains an unforgettable testament to Baba’s continual
           protection and a reminder that sincere devotion is always recognised
@@ -111,13 +112,13 @@ export default function DivineRestoration() {
         </p>
       </section>
 
-      {/* Back-link to About or Miracles list */}
-      <footer className="text-center">
+      {/* back-link */}
+      <footer className="mt-10 text-center">
         <Link
-          href="/about"
-          className="inline-block rounded bg-brand-700 px-4 py-2 font-semibold text-white hover:bg-brand-800"
+          href="/miracles"
+          className="inline-block rounded bg-brand-700 px-5 py-2 font-semibold text-white shadow hover:bg-brand-800"
         >
-          ←&nbsp;Back to About
+          ←&nbsp;All Miracles
         </Link>
       </footer>
     </article>
