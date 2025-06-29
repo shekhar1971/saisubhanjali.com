@@ -2,7 +2,7 @@
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import AlbumRenamer from '../components/AlbumRenamer';   // ← NEW import ✅
+import AlbumRenamer from '../components/AlbumRenamer';
 
 export const metadata = {
   title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
@@ -25,7 +25,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               sm:flex-row sm:justify-between sm:gap-6 sm:px-6
             "
           >
-            {/* Brand name */}
             <Link
               href="/"
               className="
@@ -36,7 +35,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               Sai Subhanjali
             </Link>
 
-            {/* Primary links */}
             <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:ml-auto">
               {[
                 ['About', '/about'],
@@ -55,9 +53,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </nav>
         </header>
 
-        {/* ——— TEXT-SWAP HELPER (CD → Album) ——— */}
-        <AlbumRenamer />   {/* ← NEW line ✅ */}
-
         {/* ——— MAIN CONTENT ——— */}
         <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">
           {children}
@@ -69,6 +64,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <br />
           These bhajans are offered for devotional use only. Commercial use is strictly prohibited without written permission.
         </footer>
+
+        {/* ——— CD → Album text-swap helper ——— */}
+        <AlbumRenamer />
       </body>
     </html>
   );
