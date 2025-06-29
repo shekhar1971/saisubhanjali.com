@@ -8,6 +8,7 @@ import CD4Display from '../../components/CD4Display';
 import CD5Display from '../../components/CD5Display';
 import CD6Display from '../../components/CD6Display';
 
+/** internal anchors stay #cd1 … #cd6 so routing / links don’t change */
 const cds = Array.from({ length: 6 }, (_, i) => `cd${i + 1}`);
 
 export default function BhajanPage() {
@@ -25,9 +26,13 @@ export default function BhajanPage() {
               <li key={cd}>
                 <a
                   href={`#${cd}`}
-                  className="flex items-center justify-center gap-2 rounded bg-amber-600 px-3 py-2 text-sm font-semibold text-white shadow transition hover:bg-amber-700"
+                  className="
+                    flex items-center justify-center gap-2 rounded
+                    bg-amber-600 px-3 py-2 text-sm font-semibold text-white
+                    shadow transition hover:bg-amber-700
+                  "
                 >
-                  🎵 CD {idx + 1}
+                  🎵 Album {idx + 1}
                 </a>
               </li>
             ))}
@@ -35,7 +40,11 @@ export default function BhajanPage() {
             <li>
               <a
                 href="/bhajans/play-all"
-                className="flex items-center justify-center gap-2 rounded bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow transition hover:bg-red-800"
+                className="
+                  flex items-center justify-center gap-2 rounded
+                  bg-red-700 px-3 py-2 text-sm font-semibold text-white
+                  shadow transition hover:bg-red-800
+                "
               >
                 ▶ Play All
               </a>
@@ -61,11 +70,11 @@ export default function BhajanPage() {
               shadow transition hover:bg-amber-700
             "
           >
-            🎵 CD {idx + 1}
+            🎵 Album {idx + 1}
           </a>
         ))}
 
-        {/* full-width Play-All spans the row */}
+        {/* full-width Play-All button */}
         <a
           href="/bhajans/play-all"
           className="
@@ -80,23 +89,22 @@ export default function BhajanPage() {
 
       {/* ───────── MAIN CONTENT ───────── */}
       <main className="flex-1 space-y-20 px-4 py-8 md:px-8">
-        {/* Raised scroll-margin (≈120 px) so section tops clear sticky header + grid nav on mobile */}
-        <section id="cd1" className="scroll-mt-[120px]">
+        <section id="cd1" className="scroll-mt-32">
           <CD1Display />
         </section>
-        <section id="cd2" className="scroll-mt-[120px]">
+        <section id="cd2" className="scroll-mt-32">
           <CD2Display />
         </section>
-        <section id="cd3" className="scroll-mt-[120px]">
+        <section id="cd3" className="scroll-mt-32">
           <CD3Display />
         </section>
-        <section id="cd4" className="scroll-mt-[120px]">
+        <section id="cd4" className="scroll-mt-32">
           <CD4Display />
         </section>
-        <section id="cd5" className="scroll-mt-[120px]">
+        <section id="cd5" className="scroll-mt-32">
           <CD5Display />
         </section>
-        <section id="cd6" className="scroll-mt-[120px]">
+        <section id="cd6" className="scroll-mt-32">
           <CD6Display />
         </section>
       </main>
