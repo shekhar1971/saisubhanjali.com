@@ -6,11 +6,10 @@ import dynamic from 'next/dynamic';
 
 /* ❶ ──────────────────────────────────────────────────────────────
    Load the tiny text-replacement helper *only* in the browser
-   (so it never affects the server build).
    ─────────────────────────────────────────────────────────────── */
 const AlbumRenamer = dynamic(
   () => import('../components/AlbumRenamer'),
-  { ssr: false }      //  ← browser-only
+  { ssr: false }
 );
 
 export const metadata = {
@@ -24,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-gray-50 text-gray-800 antialiased">
+
         {/* ——— SITE NAVIGATION ——— */}
         <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow">
           <nav
@@ -33,6 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               sm:flex-row sm:justify-between sm:gap-6 sm:px-6
             "
           >
+            {/* Brand */}
             <Link
               href="/"
               className="
@@ -43,13 +44,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               Sai Subhanjali
             </Link>
 
+            {/* Top-level links */}
             <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:ml-auto">
               {[
-                ['About',    '/about'   ],
-                ['Photos',   '/photos'  ],
-                ['Legacy',   '/legacy'  ],
-                ['Bhajans',  '/bhajans' ],
-                ['Contact',  '/contact' ],
+                ['About',    '/about'    ],
+                ['Photos',   '/photos'   ],
+                ['Legacy',   '/legacy'   ],
+                ['Bhajans',  '/bhajans'  ],
+                ['Miracles', '/miracles' ],   // ← NEW MENU ITEM
+                ['Contact',  '/contact'  ],
               ].map(([label, href]) => (
                 <li key={label}>
                   <Link href={href} className="hover:text-brand-600">
@@ -62,7 +65,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </header>
 
         {/* ——— MAIN CONTENT ——— */}
-        <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">{children}</main>
+        <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">
+          {children}
+        </main>
 
         {/* ——— FOOTER COPYRIGHT ——— */}
         <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-gray-500">
@@ -72,7 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           prohibited without written permission.
         </footer>
 
-        {/* ❷ ─── Little helper that rewrites “CD n” → “Album n” everywhere */}
+        {/* ❷ — Album label helper */}
         <AlbumRenamer />
       </body>
     </html>
