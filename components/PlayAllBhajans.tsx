@@ -1,38 +1,49 @@
-/* components/PlayAllBhajans.tsx */
 'use client';
 
 import React, { useState } from 'react';
 import { CDs, baseURL } from './CDsData';
 
-type Track = { title: string; file: string };
+type Track = {
+  title: string;
+  file: string;
+};
 
 export default function PlayAllBhajans() {
-  const [playlist, setPlaylist]   = useState<Track[]>([]);
-  const [idx, setIdx]             = useState<number | null>(null);
+  const [currentPlaylist, setCurrentPlaylist] = useState<Track[]>([]);
+  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
-  /* ---------- helpers ---------- */
-  const toTracks = (c = CDs) =>
-    c.flatMap(cd =>
-      cd.songs.map(s => ({
-        title: s.title,
-        file : `${baseURL}${cd.cdNumber}/${encodeURIComponent(s.file)}`,
-      })),
+  /* ---------- BUILD PLAYLISTS ---------- */
+  const playAllCDs = () => {
+    const allTracks = CDs.flatMap(cd =>
+      cd.songs.map(song => ({
+        title: song.title,
+        file: `${baseURL}${cd.cdNumber}/${encodeURIComponent(song.file)}`,
+      }))
     );
-
-  /* ---------- handlers ---------- */
-  const playAllAlbums = () => { setPlaylist(toTracks()); setIdx(0); };
-
-  const playSingleAlbum = (cdNumber: string) => {
-    const cd = CDs.find(c => c.cdNumber === cdNumber);
-    if (!cd) return;
-    setPlaylist(toTracks([cd] as any));  // TypeScript happy-path
-    setIdx(0);
+    setCurrentPlaylist(allTracks);
+    setCurrentIndex(0);
   };
 
+  const playSingleCD = (cdNumber: string) => {
+    const cd = CDs.find(c => c.cdNumber === cdNumber);
+    if (!cd) return;
+    const tracks = cd.songs.map(song => ({
+      title: song.title,
+      file: `${baseURL}${cd.cdNumber}/${encodeURIComponent(song.file)}`,
+    }));
+    setCurrentPlaylist(tracks);
+    setCurrentIndex(0);
+  };
+
+  /* ---------- ADVANCE WHEN TRACK ENDS ---------- */
   const handleEnded = () => {
-    if (idx === null) return;
-    const next = idx + 1;
-    next < playlist.length ? setIdx(next) : setIdx(null);
+    if (currentIndex === null || currentPlaylist.length === 0) return;
+    const next = currentIndex + 1;
+    if (next < currentPlaylist.length) {
+      setCurrentIndex(next);
+    } else {
+      setCurrentIndex(null); // finished
+    }
   };
 
   /* ---------- UI ---------- */
@@ -42,52 +53,54 @@ export default function PlayAllBhajans() {
         Sai Subhanjali Bhajans
       </h2>
 
-      {/* --- play buttons --- */}
+      {/* ---- PLAY BUTTONS ---- */}
       <div className="flex flex-col items-center space-y-4">
         <button
-          onClick={playAllAlbums}
+          onClick={playAllCDs}
           className="rounded bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-700"
         >
-          ▶️ Play All Albums
+          ▶️ Play All
         </button>
 
-        {CDs.map(cd => {
-          const albumNo = cd.cdNumber.replace(/\D+/g, '') || '?';
-          return (
-            <button
-              key={cd.cdNumber}
-              onClick={() => playSingleAlbum(cd.cdNumber)}
-              className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
-            >
-              ▶️ Play Album {albumNo}
-            </button>
-          );
-        })}
+        {CDs.map(cd => (
+          <button
+            key={cd.cdNumber}
+            onClick={() => playSingleCD(cd.cdNumber)}
+            className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+          >
+            ▶️ Play {cd.cdNumber}
+          </button>
+        ))}
       </div>
 
-      {/* --- player --- */}
-      {idx !== null && playlist[idx] && (
+      {/* ---- PLAYER ---- */}
+      {currentIndex !== null && currentPlaylist.length > 0 && (
         <div className="mt-6">
           <div className="mb-2 text-lg font-medium text-gray-700">
-            Now Playing: {playlist[idx].title}
+            Now Playing: {currentPlaylist[currentIndex].title}
           </div>
           <audio
-            key={playlist[idx].file}           /* re-render on track change */
-            controls autoPlay onEnded={handleEnded}
+            key={currentPlaylist[currentIndex].file} // force re-render on new track
+            controls
+            autoPlay
+            onEnded={handleEnded}
             className="w-full"
           >
-            <source src={playlist[idx].file} type="audio/mpeg" />
+            <source
+              src={currentPlaylist[currentIndex].file}
+              type="audio/mpeg"
+            />
           </audio>
         </div>
       )}
 
-      {/* --- visible queue --- */}
+      {/* ---- PLAYLIST ---- */}
       <div className="mt-8">
         <h3 className="mb-4 text-xl font-semibold text-indigo-700">Playlist</h3>
         <ul className="space-y-2">
-          {playlist.map((t, i) => (
-            <li key={t.file} className="border-b pb-2">
-              {i + 1}. {t.title}
+          {currentPlaylist.map((track, index) => (
+            <li key={track.file} className="border-b pb-2">
+              {index + 1}. {track.title}
             </li>
           ))}
         </ul>
