@@ -1,6 +1,8 @@
 // app/bhajans/page.tsx
 'use client';
 
+import Link from 'next/link';
+
 import CD1Display from '../../components/CD1Display';
 import CD2Display from '../../components/CD2Display';
 import CD3Display from '../../components/CD3Display';
@@ -8,7 +10,7 @@ import CD4Display from '../../components/CD4Display';
 import CD5Display from '../../components/CD5Display';
 import CD6Display from '../../components/CD6Display';
 
-/** internal anchors stay #cd1 … #cd6 so routing / links don’t change */
+/* internal anchors stay #cd1 … #cd6 so existing nav links don’t change */
 const cds = Array.from({ length: 6 }, (_, i) => `cd${i + 1}`);
 
 export default function BhajanPage() {
@@ -89,25 +91,57 @@ export default function BhajanPage() {
 
       {/* ───────── MAIN CONTENT ───────── */}
       <main className="flex-1 space-y-20 px-4 py-8 md:px-8">
-        <section id="cd1" className="scroll-mt-32">
+        {/* Each section: play-album link + existing display */}
+        <section id="cd1" className="scroll-mt-32 space-y-4">
+          <HeaderWithPlay album="1" />
           <CD1Display />
         </section>
-        <section id="cd2" className="scroll-mt-32">
+
+        <section id="cd2" className="scroll-mt-32 space-y-4">
+          <HeaderWithPlay album="2" />
           <CD2Display />
         </section>
-        <section id="cd3" className="scroll-mt-32">
+
+        <section id="cd3" className="scroll-mt-32 space-y-4">
+          <HeaderWithPlay album="3" />
           <CD3Display />
         </section>
-        <section id="cd4" className="scroll-mt-32">
+
+        <section id="cd4" className="scroll-mt-32 space-y-4">
+          <HeaderWithPlay album="4" />
           <CD4Display />
         </section>
-        <section id="cd5" className="scroll-mt-32">
+
+        <section id="cd5" className="scroll-mt-32 space-y-4">
+          <HeaderWithPlay album="5" />
           <CD5Display />
         </section>
-        <section id="cd6" className="scroll-mt-32">
+
+        <section id="cd6" className="scroll-mt-32 space-y-4">
+          <HeaderWithPlay album="6" />
           <CD6Display />
         </section>
       </main>
+    </div>
+  );
+}
+
+/* ——— Small reusable header component ——— */
+function HeaderWithPlay({ album }: { album: string }) {
+  return (
+    <div className="flex items-center justify-between">
+      <h2 className="text-xl font-bold text-purple-700">
+        Sai Subhanjali – Album {album}
+      </h2>
+      <Link
+        href={`/bhajans/play-all?album=CD${album}`}
+        className="
+          inline-flex items-center gap-1 rounded bg-green-700 px-3 py-1
+          text-sm font-semibold text-white shadow hover:bg-green-800
+        "
+      >
+        ▶ Play Album {album}
+      </Link>
     </div>
   );
 }
