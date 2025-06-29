@@ -5,44 +5,42 @@ import Link from 'next/link';
 import { Music } from 'lucide-react';
 
 /* ------------------------------------------------------------------
-   We keep the canonical slug ('cd-1', …) for routing,
-   but show “Album 1 … Album 6” in the button text.
+   •  We keep the                 ROUTES  exactly the same:  /bhajans/cd-1 …
+   •  We only change the VISIBLE TEXT from “CD n” → “Album n”.
    ----------------------------------------------------------------- */
-const cdSlugs = Array.from({ length: 6 }, (_, i) => `cd-${i + 1}`);
+
+const albums = Array.from({ length: 6 }, (_, i) => ({
+  slug: `cd-${i + 1}`,      // keeps your existing route
+  label: `Album ${i + 1}`,  // what the visitor sees
+}));
 
 export default function Sidebar() {
   return (
-    <nav
-      className="
-        mb-4 flex flex-wrap justify-center rounded
-        bg-[#FDF6EC] p-4 shadow
-      "
-    >
-      {cdSlugs.map((slug, idx) => (
+    <nav className="mb-4 flex flex-wrap justify-center rounded bg-[#FDF6EC] p-4 shadow">
+      {albums.map(({ slug, label }) => (
         <Link
           key={slug}
           href={`/bhajans/${slug}`}
           className="
-            mx-2 flex items-center rounded
-            bg-[#C28F2C] px-3 py-2 text-white transition
-            hover:bg-[#B33A24]
+            mx-2 flex items-center justify-center gap-1 rounded
+            bg-amber-600 px-3 py-2 text-sm font-semibold text-white
+            shadow transition hover:bg-amber-700
           "
         >
-          <Music className="mr-1 h-4 w-4" />
-          Album&nbsp;{idx + 1}
+          <Music className="h-4 w-4" /> {label}
         </Link>
       ))}
 
-      {/* Play-All keeps its old route */}
+      {/* Play-All keeps its old route and styling */}
       <Link
         href="/bhajans/play-all"
         className="
-          mx-2 flex items-center rounded
-          bg-[#D44A32] px-3 py-2 text-white transition
-          hover:bg-[#B33A24]
+          mx-2 flex items-center justify-center gap-1 rounded
+          bg-red-700 px-3 py-2 text-sm font-semibold text-white
+          shadow transition hover:bg-red-800
         "
       >
-        ▶️&nbsp;Play&nbsp;All
+        ▶ Play All
       </Link>
     </nav>
   );
