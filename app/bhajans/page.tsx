@@ -16,7 +16,9 @@ export default function BhajanPage() {
       {/* ───────── DESKTOP LEFT SIDEBAR ───────── */}
       <aside className="sticky top-24 hidden w-64 self-start p-6 md:block">
         <nav className="rounded-xl border border-gray-200 bg-white p-5 shadow-lg">
-          <h2 className="mb-5 text-lg font-bold text-purple-800">Sai Subhanjali</h2>
+          <h2 className="mb-5 text-lg font-bold text-purple-800">
+            Sai Subhanjali
+          </h2>
 
           <ul className="space-y-3">
             {cds.map((cd, idx) => (
@@ -62,7 +64,8 @@ export default function BhajanPage() {
             🎵 CD {idx + 1}
           </a>
         ))}
-        {/* full-width Play-All spans both columns on second row */}
+
+        {/* full-width Play-All spans the row */}
         <a
           href="/bhajans/play-all"
           className="
@@ -77,23 +80,23 @@ export default function BhajanPage() {
 
       {/* ───────── MAIN CONTENT ───────── */}
       <main className="flex-1 space-y-20 px-4 py-8 md:px-8">
-        {/* Adding scroll-margin so anchors appear under sticky bar on mobile */}
-        <section id="cd1" className="scroll-mt-32">
+        {/* Raised scroll-margin (≈120 px) so section tops clear sticky header + grid nav on mobile */}
+        <section id="cd1" className="scroll-mt-[120px]">
           <CD1Display />
         </section>
-        <section id="cd2" className="scroll-mt-32">
+        <section id="cd2" className="scroll-mt-[120px]">
           <CD2Display />
         </section>
-        <section id="cd3" className="scroll-mt-32">
+        <section id="cd3" className="scroll-mt-[120px]">
           <CD3Display />
         </section>
-        <section id="cd4" className="scroll-mt-32">
+        <section id="cd4" className="scroll-mt-[120px]">
           <CD4Display />
         </section>
-        <section id="cd5" className="scroll-mt-32">
+        <section id="cd5" className="scroll-mt-[120px]">
           <CD5Display />
         </section>
-        <section id="cd6" className="scroll-mt-32">
+        <section id="cd6" className="scroll-mt-[120px]">
           <CD6Display />
         </section>
       </main>
