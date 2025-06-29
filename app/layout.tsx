@@ -2,6 +2,7 @@
 import './globals.css';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import AlbumRenamer from '../components/AlbumRenamer';   // ← NEW import ✅
 
 export const metadata = {
   title: 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-gray-50 text-gray-800 antialiased">
+
         {/* ——— SITE NAVIGATION ——— */}
         <header className="sticky top-0 z-20 bg-white/90 backdrop-blur shadow">
           <nav
@@ -23,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               sm:flex-row sm:justify-between sm:gap-6 sm:px-6
             "
           >
-            {/* Brand on its own row on very small screens, inline on ≥ 640 px */}
+            {/* Brand name */}
             <Link
               href="/"
               className="
@@ -34,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               Sai Subhanjali
             </Link>
 
-            {/* Top-level links – wrap automatically on the next line if needed */}
+            {/* Primary links */}
             <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:ml-auto">
               {[
                 ['About', '/about'],
@@ -53,16 +55,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </nav>
         </header>
 
-        {/* ——— MAIN CONTENT ——— */}
-        <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">{children}</main>
+        {/* ——— TEXT-SWAP HELPER (CD → Album) ——— */}
+        <AlbumRenamer />   {/* ← NEW line ✅ */}
 
-        {/* ——— FOOTER COPYRIGHT ——— */}
+        {/* ——— MAIN CONTENT ——— */}
+        <main className="mx-auto max-w-7xl px-6 py-12 lg:py-16">
+          {children}
+        </main>
+
+        {/* ——— FOOTER ——— */}
         <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} The Family of Late Smt. Subbalakshmi
-          Sattiraju.
+          © {new Date().getFullYear()} The Family of Late Smt. Subbalakshmi Sattiraju.
           <br />
-          These bhajans are offered for devotional use only. Commercial use is
-          strictly prohibited without written permission.
+          These bhajans are offered for devotional use only. Commercial use is strictly prohibited without written permission.
         </footer>
       </body>
     </html>
