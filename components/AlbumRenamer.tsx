@@ -1,35 +1,32 @@
-/* components/AlbumRenamer.tsx */
 'use client';
 
 import { useEffect } from 'react';
 
-/** Swap every visible “CD 1…6” string for “Album 1…6” — and keep watching. */
+/**
+ * Convert every “CD1 … CD 6” (with or without spaces or NBSP) to
+ * “Album 1 … Album 6” — and keep watching for new nodes.
+ */
 export default function AlbumRenamer() {
   useEffect(() => {
-    const cdToAlbum = (root: Node) => {
+    const swap = (root: Node) => {
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       let n: Node | null;
       while ((n = walker.nextNode())) {
         if (n.nodeValue) {
-          n.nodeValue = n.nodeValue.replace(/CD\s([1-6])/g, 'Album $1');
+          // match “CD” followed by any spaces / non-breaking spaces and 1-6
+          n.nodeValue = n.nodeValue.replace(/CD[\u00A0\s]*([1-6])/g, 'Album $1');
         }
       }
     };
 
-    // initial pass (after first paint)
-    cdToAlbum(document.body);
+    // initial pass
+    swap(document.body);
 
-    // keep an eye on future DOM changes (e.g. route transitions)
-    const observer = new MutationObserver(muts =>
-      muts.forEach(m => cdToAlbum(m.target))
-    );
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
+    // watch for future mutations (client-side routing, lazy components, etc.)
+    const obs = new MutationObserver(muts => muts.forEach(m => swap(m.target)));
+    obs.observe(document.body, { childList: true, subtree: true, characterData: true });
 
-    return () => observer.disconnect();
+    return () => obs.disconnect();
   }, []);
 
   return null; // renders nothing
