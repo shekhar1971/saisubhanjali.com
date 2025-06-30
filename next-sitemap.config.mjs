@@ -6,7 +6,7 @@ export default {
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },
-      { userAgent: '*', disallow: '/api/*' }, // optional
-    ],
-  },
+      { userAgent: '*', disallow: '/api/*' } // optional
+    ]
+  }
 };
