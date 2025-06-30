@@ -1,24 +1,25 @@
 /* components/StructuredData.tsx
-   Injects JSON-LD into <head>.
+   Injects JSON-LD into <head> for richer Google / Bing indexing.
 
-   – Always:  WebSite  +  Person  +  MusicGroup (the 6-album series)
-   – Conditionally:  MusicAlbum + MusicRecording when the URL is
-     /bhajans, /bhajans#cd3, /bhajans/album-4, etc.
+   • Always:   WebSite  +  Person  +  MusicGroup (6-album set incl. every track)
+   • If URL matches /bhajans, /bhajans#cd3, /bhajans/album-4 …  
+     ⇒ adds a detailed MusicAlbum block for that one album.
 
-   Runs client-side only, so it never affects the server build.
------------------------------------------------------------------*/
+   Runs client-side only (strategy="afterInteractive"), so it never affects the
+   server build or TypeScript types.                                             */
+
 'use client';
 
 import Script           from 'next/script';
 import { usePathname }  from 'next/navigation';
-import { CDs }          from './CDsData';          // ← you already have this
+import { CDs, baseURL } from './CDsData';   // ← already in your repo
 
 const SITE = 'https://www.saisubhanjali.com';
 
 export default function StructuredData() {
   const path = usePathname();
 
-  /* --- 1. WebSite schema --------------------------------------- */
+  /* 1️⃣  WebSite ---------------------------------------------------------------- */
   const webSite = {
     '@context'       : 'https://schema.org',
     '@type'          : 'WebSite',
@@ -31,7 +32,7 @@ export default function StructuredData() {
     },
   };
 
-  /* --- 2. Person / Author -------------------------------------- */
+  /* 2️⃣  Person / Author -------------------------------------------------------- */
   const author = {
     '@context': 'https://schema.org',
     '@type'   : 'Person',
@@ -39,54 +40,64 @@ export default function StructuredData() {
     sameAs    : [`${SITE}/about`],
   };
 
-  /* --- 3. MusicGroup – the 6-album set ------------------------- */
+  /* 3️⃣  MusicGroup – six albums + EVERY track ---------------------------------- */
   const series = {
     '@context': 'https://schema.org',
     '@type'   : 'MusicGroup',
     name      : 'Sai Subhanjali Albums',
     url       : `${SITE}/bhajans`,
-    album     : CDs.map((cd, i) => ({
-      '@type': 'MusicAlbum',
-      name   : `Sai Subhanjali – Album ${i + 1}`,
-      url    : `${SITE}/bhajans#cd${i + 1}`,
+    album     : CDs.map((cd, idx) => ({
+      '@type' : 'MusicAlbum',
+      name    : `Sai Subhanjali – Album ${idx + 1}`,
+      url     : `${SITE}/bhajans#cd${idx + 1}`,
+      track   : cd.songs.map((song, i) => ({
+        '@type'   : 'MusicRecording',
+        position  : i + 1,
+        name      : song.title,
+        url       : `${baseURL}${cd.cdNumber}/${encodeURIComponent(song.file)}`,
+        inAlbum   : `Sai Subhanjali – Album ${idx + 1}`,
+        byArtist  : 'Smt. Subbalakshmi Sattiraju',
+      })),
     })),
   };
 
-  /* --- 4. Maybe add MusicAlbum details for one specific page --- */
-  let albumJSON: any = null;
+  /* 4️⃣  Optional: a single-album block when user is on that album -------------- */
+  let albumLD: any = null;
   const albumMatch = /^\/bhajans(?:\/(?:cd|album)-?(\d))?/.exec(path);
   if (albumMatch) {
     const idx = albumMatch[1] ? Number(albumMatch[1]) - 1 : null;
     if (idx !== null && CDs[idx]) {
       const cd = CDs[idx];
-      albumJSON = {
+      albumLD = {
         '@context': 'https://schema.org',
         '@type'   : 'MusicAlbum',
         name      : `Sai Subhanjali – Album ${idx + 1}`,
+        url       : `${SITE}/bhajans#cd${idx + 1}`,
         byArtist  : { '@type': 'Person', name: 'Smt. Subbalakshmi Sattiraju' },
         numTracks : cd.songs.length,
-        hasPart   : cd.songs.map((s, i) => ({
+        track     : cd.songs.map((song, i) => ({
           '@type'  : 'MusicRecording',
           position : i + 1,
-          name     : s.title,
-          url      : `${SITE}/bhajans#cd${idx + 1}-track-${i + 1}`,
+          name     : song.title,
+          url      : `${baseURL}${cd.cdNumber}/${encodeURIComponent(song.file)}`,
         })),
       };
     }
   }
 
-  /* ---------- render ------------------------------------------ */
+  /* 5️⃣  Render scripts ---------------------------------------------------------- */
   return (
     <>
-      <Script id="ld-website"  type="application/ld+json" strategy="afterInteractive"
+      <Script id="ld-website" type="application/ld+json" strategy="afterInteractive"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(webSite) }} />
-      <Script id="ld-person"   type="application/ld+json" strategy="afterInteractive"
+      <Script id="ld-author"  type="application/ld+json" strategy="afterInteractive"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(author)  }} />
-      <Script id="ld-series"   type="application/ld+json" strategy="afterInteractive"
+      <Script id="ld-series"  type="application/ld+json" strategy="afterInteractive"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(series)  }} />
-      {albumJSON && (
-        <Script id="ld-album"  type="application/ld+json" strategy="afterInteractive"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(albumJSON) }} />
+
+      {albumLD && (
+        <Script id="ld-album" type="application/ld+json" strategy="afterInteractive"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(albumLD) }} />
       )}
     </>
   );
