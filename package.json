@@ -17,13 +17,13 @@
     "lucide-react": "^0.263.0"
   },
 
- "devDependencies": {
-  "typescript": "5.3.3",
-  "@types/react": "18.2.41",
-  "@types/node": "20.11.18",
-  "tailwindcss": "3.4.2",
-  "postcss": "8.4.31",
-  "autoprefixer": "10.4.14",
-  "next-sitemap": "^5.0.0"        //  ← any 5.x that exists will be used
-}
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "@types/react": "18.2.41",
+    "@types/node": "20.11.18",
+    "tailwindcss": "3.4.2",
+    "postcss": "8.4.31",
+    "autoprefixer": "10.4.14",
+    "next-sitemap": "^5.0.0"
+  }
 }
