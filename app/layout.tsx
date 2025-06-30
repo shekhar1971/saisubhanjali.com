@@ -1,22 +1,32 @@
 /* app/layout.tsx
    – Mounts four client-only helpers:
      ① AlbumRenamer ② SeoBooster ③ SocialMeta ④ StructuredData
--------------------------------------------------------------- */
+   – Adds <link rel="alternate" type="application/rss+xml" …> for the new feed
+-----------------------------------------------------------------*/
 import './globals.css';
-import Link        from 'next/link';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
-import dynamic     from 'next/dynamic';
+import dynamic from 'next/dynamic';
 
 /* — client-only helpers — */
 const AlbumRenamer   = dynamic(() => import('../components/AlbumRenamer'),   { ssr: false });
 const SeoBooster     = dynamic(() => import('../components/SeoBooster'),     { ssr: false });
 const SocialMeta     = dynamic(() => import('../components/SocialMeta'),     { ssr: false });
-const StructuredData = dynamic(() => import('../components/StructuredData'), { ssr: false });  // 🔹 NEW
+const StructuredData = dynamic(() => import('../components/StructuredData'), { ssr: false });
 
+/* — site-wide <head> metadata — */
 export const metadata = {
   title       : 'Sai Subhanjali | Devotional Bhajans of Subbalakshmi Sattiraju',
   description : 'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all six Sai Subhanjali albums.',
   metadataBase: new URL('https://www.saisubhanjali.com'),
+
+  /* 🔹 NEW: expose the RSS / podcast feed to crawlers & browsers */
+  alternates  : {
+    canonical : '/',
+    types     : {
+      'application/rss+xml' : '/podcast/feed.xml',
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -67,7 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <AlbumRenamer   />
         <SeoBooster     />
         <SocialMeta     />
-        <StructuredData />  {/* 🔹 NEW – JSON-LD injector */}
+        <StructuredData />
       </body>
     </html>
   );
