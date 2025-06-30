@@ -1,49 +1,34 @@
 /* components/SocialMeta.tsx
-   Auto-fills Open Graph + Twitter tags from the current <title> & <meta name="description">
--------------------------------------------------------------------- */
+   Dynamically injects OG / Twitter tags based on <title>/<meta name="description"> */
 'use client';
 
-import { useEffect }   from 'react';
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export default function SocialMeta() {
-  const pathname = usePathname() ?? '/';
+  const path = usePathname();
 
   useEffect(() => {
-    /* grab the <title> and description already supplied by Next metadata */
-    const title = document.title;
-    const desc  =
-      document.querySelector<HTMLMetaElement>('meta[name="description"]')
-        ?.content || 'Sai Subhanjali – Devotional Bhajans';
+    const title       = document.title;
+    const description = (document.querySelector('meta[name="description"]') as HTMLMetaElement)?.content ?? '';
 
-    const url   = `https://www.saisubhanjali.com${pathname}`;
-    const image = 'https://www.saisubhanjali.com/SaiBaba1.png';
-
-    /** helper to add / update **/
-    const set = (attr: string, name: string, content: string) => {
-      let el =
-        document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${name}"]`);
+    const ensure = (name: string, property = false) => {
+      const selector  = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let   el        = document.head.querySelector(selector) as HTMLMetaElement | null;
       if (!el) {
         el = document.createElement('meta');
-        el.setAttribute(attr, name);
+        property ? el.setAttribute('property', name) : el.setAttribute('name', name);
         document.head.appendChild(el);
       }
-      el.setAttribute('content', content);
+      return el;
     };
 
-    /* -------- Open Graph -------- */
-    set('property', 'og:title'      , title);
-    set('property', 'og:description', desc);
-    set('property', 'og:url'        , url);
-    set('property', 'og:type'       , 'website');
-    set('property', 'og:image'      , image);
+    ensure('og:title', true).content            = title;
+    ensure('og:description', true).content      = description;
+    ensure('og:url', true).content              = `https://www.saisubhanjali.com${path}`;
+    ensure('twitter:title').content             = title;
+    ensure('twitter:description').content       = description;
+  }, [path]);
 
-    /* -------- Twitter Cards ----- */
-    set('name'    , 'twitter:card'        , 'summary_large_image');
-    set('name'    , 'twitter:title'       , title);
-    set('name'    , 'twitter:description' , desc);
-    set('name'    , 'twitter:image'       , image);
-  }, [pathname]);
-
-  return null;  // nothing rendered
+  return null; // renders nothing visible
 }
