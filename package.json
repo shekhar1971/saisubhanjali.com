@@ -7,8 +7,7 @@
     "dev": "next dev",
     "build": "next build",
 
-    /* ▶ post-build now runs two commands:
-       1) next-sitemap  2) our new image-sitemap script               */
+   
     "postbuild": "next-sitemap --config next-sitemap.config.mjs && node scripts/gen-image-sitemap.mjs",
 
     "start": "next start"
