@@ -1,4 +1,13 @@
+# ————————————————————————————————
+#  Robots policy for saisubhanjali.com
+#  • Allow everything that is public
+#  • Keep the tiny /api server-only routes out of the index
+#  • Expose both the HTML sitemap *and* the image-sitemap
+# ————————————————————————————————
+
 User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: https://www.saisubhanjali.com/sitemap.xml
+Sitemap: https://www.saisubhanjali.com/image-sitemap.xml
