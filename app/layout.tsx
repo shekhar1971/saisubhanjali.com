@@ -1,10 +1,11 @@
 /* app/layout.tsx
    – Mounts four client-only helpers:
      ① AlbumRenamer ② SeoBooster ③ SocialMeta ④ StructuredData
-   – Adds <link rel="alternate" type="application/rss+xml" …> for the new feed
+   – Adds RSS <link> + a global canonical tag + preconnect
 -----------------------------------------------------------------*/
 import './globals.css';
 import Link from 'next/link';
+import { headers } from 'next/headers';            // 🔹 grab pathname for canonical
 import type { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 
@@ -20,9 +21,9 @@ export const metadata = {
   description : 'A devotional treasury of Sai Baba bhajans composed by Late Smt. Subbalakshmi Sattiraju. Listen online or download from all six Sai Subhanjali albums.',
   metadataBase: new URL('https://www.saisubhanjali.com'),
 
-  /* 🔹 NEW: expose the RSS / podcast feed to crawlers & browsers */
+  /* expose the RSS / podcast feed */
   alternates  : {
-    canonical : '/',
+    canonical : '/',                                  // default, will be overridden per-page below
     types     : {
       'application/rss+xml' : '/podcast/feed.xml',
     },
@@ -30,8 +31,20 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  /* ——— build page-specific canonical (runs on server) ——— */
+  const pathname = headers().get('x-matched-path') ?? '/';
+  const canonicalURL = new URL(pathname, metadata.metadataBase).toString();
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* 🔹 tiny perf win for any Google-fonts you might add later */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* 🔹 always-present canonical link */}
+        <link rel="canonical" href={canonicalURL} />
+      </head>
+
       <body className="bg-gray-50 text-gray-800 antialiased">
 
         {/* —— NAV —— */}
