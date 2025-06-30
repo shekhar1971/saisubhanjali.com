@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",   
+    "postbuild": "next-sitemap",
     "start": "next start"
   },
 
@@ -24,7 +24,6 @@
     "tailwindcss": "3.4.2",
     "postcss": "8.4.31",
     "autoprefixer": "10.4.14",
-    "next-sitemap": "5.1.7"
+    "next-sitemap": "5.6.1"
   }
 }
-
