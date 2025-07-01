@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
   /* ① Strict-Transport-Security header (your existing code) */
   async headers() {
@@ -20,12 +22,11 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
-  /* ③ NEW — alias `next/image` → our LazyImage wrapper */
+  /* ③ Alias every  import Image from "next/image"  ➜  components/LazyImage  */
   webpack(config) {
-    const path = require('path');
     config.resolve.alias['next/image'] = path.resolve(
       __dirname,
-      'components/LazyImage.tsx'
+      'components/LazyImage'          // ← no “.tsx” needed
     );
     return config;
   },
