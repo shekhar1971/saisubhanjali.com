@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
-
 const nextConfig = {
-  /* ① Strict-Transport-Security header (your existing code) */
+  /* ①  Security header (unchanged) */
   async headers() {
     return [
       {
@@ -17,19 +15,12 @@ const nextConfig = {
     ];
   },
 
-  /* ② Serve AVIF / WebP automatically (your existing code) */
+  /* ②  Serve AVIF / WebP automatically (unchanged) */
   images: {
     formats: ['image/avif', 'image/webp'],
   },
 
-  /* ③ Alias every  import Image from "next/image"  ➜  components/LazyImage  */
-  webpack(config) {
-    config.resolve.alias['next/image'] = path.resolve(
-      __dirname,
-      'components/LazyImage'          // ← no “.tsx” needed
-    );
-    return config;
-  },
+  /* ③  ⬅︎ NO alias for `next/image` here any more – prevents the import loop */
 };
 
 module.exports = nextConfig;
