@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* ① security header – your original code */
+  /* ── 1.  your existing security header ── */
   async headers() {
     return [
       {
@@ -15,12 +15,10 @@ const nextConfig = {
     ];
   },
 
-  /* ② automatic AVIF / WebP – your original code */
-  images: {
-    formats: ['image/avif', 'image/webp']
-  },
+  /* ── 2.  serve AVIF / WebP automatically (unchanged) ── */
+  images: { formats: ['image/avif', 'image/webp'] },
 
-  /* ③ alias  next/image → LazyImage  at build time  */
+  /* ── 3.  runtime alias: every import "next/image" → wrapper ── */
   webpack(config) {
     const path = require('path');
     config.resolve.alias['next/image'] = path.join(
