@@ -1,16 +1,22 @@
 {
-  "extends": "next/tsconfig.json",
+  /* inherit sensible defaults & perf-focused rules from Next.js */
+  "extends": "next/core-web-vitals",
 
   "compilerOptions": {
-    /* ——— basic safety flags ——— */
+    /* ——— extra project flags ——— */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
 
     /* ——— path aliases ——— */
-    "baseUrl": ".",                       
+    "baseUrl": ".",                      // allow "@/…" absolute imports
     "paths": {
-      "@/*": ["./*"],                    
-      "next/image": ["components/LazyImage.tsx"]   
+      "@/*": ["./*"],
+      /* map every `import Image from "next/image"` to our lazy wrapper */
+      "next/image": ["components/LazyImage.tsx"]
     }
-  }
+  },
+
+  /* keep TypeScript happy when scanning files */
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
