@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* ①  Strict-Transport-Security header (unchanged) */
+  /* ①  Security header (unchanged) */
   async headers() {
     return [
       {
@@ -18,9 +18,18 @@ const nextConfig = {
   /* ②  Serve AVIF / WebP automatically (unchanged) */
   images: {
     formats: ["image/avif", "image/webp"]
-  }
+  },
 
-  /* ⬅︎  NO webpack alias anymore – we removed it */
+  /* ③  Alias *only at build time*  next/image  →  LazyImage wrapper */
+  webpack(config) {
+    const path = require("path");
+    config.resolve.alias["next/image"] = path.join(
+      __dirname,
+      "components",
+      "LazyImage.tsx"
+    );
+    return config;
+  }
 };
 
 module.exports = nextConfig;
