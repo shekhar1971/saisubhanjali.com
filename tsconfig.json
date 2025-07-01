@@ -1,37 +1,26 @@
 {
-  /* ——————————————————————————————————————————
-     No "extends": Next 14 removed the old stubs
-     —————————————————————————————————————————— */
+  /* inherit performant defaults from Next.js */
+  "extends": "next/core-web-vitals",
 
   "compilerOptions": {
-    /* 1. General safety / perf flags */
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    /* ——— project-wide flags ——— */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
 
-    /* 2. Path aliases */
-    "baseUrl": ".",
+    /* ——— path aliases ——— */
+    "baseUrl": ".",          // allow "@/…" absolute paths
     "paths": {
-      "@/*": ["./*"],
-
-      /*  Map every  import Image from "next/image"
-          to your wrapper.  The directive keeps
-          Next’s auto-rewriter from deleting it.           */
-      // @ts-expect-error – custom alias needed for Lazy loading
-      "next/image": ["components/LazyImage"]
+      "@/*": ["./*"]
+      /*  ⬅︎  we intentionally do NOT alias "next/image" here */
     }
   },
 
-  /* 3. Tell TS which files to scan */
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  /* keep TypeScript happy when scanning generated files */
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }
