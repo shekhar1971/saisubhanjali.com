@@ -1,10 +1,6 @@
 /* components/LazyImage.tsx
-   Drop-in replacement for next/image that defaults to loading="lazy"
-   (unless you pass  priority  ➜  hero / above-the-fold stays eager).
-
-   Use in any file via:
-     import Image from "@/components/LazyImage";
-*/
+   Drop-in replacement for next/image.  Defaults to loading="lazy"
+   unless you pass  priority  (heroes stay eager). */
 
 import NextImage, { type ImageProps } from "next/image";
 
