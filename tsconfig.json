@@ -1,25 +1,30 @@
 {
-  /*
-   * Use the official Next.js settings that live right inside
-   * node_modules/next/tsconfig.json  →  always present in every build.
-   */
-  "extends": "./node_modules/next/tsconfig.json",
-
   "compilerOptions": {
-    /* ── project flags ── */
+    /* ---------- strict & perf ---------- */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
 
-    /* ── path aliases ── */
-    "baseUrl": ".",                   // allow "@/…" imports
+    /* ---------- module / JSX ---------- */
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "incremental": true,
+
+    /* ---------- path aliases ---------- */
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
-      /*  we do NOT alias next/image here – webpack handles it */
-    }
+      "@/*": ["./*"],                                // (optional) existing alias
+      "next/image": ["components/LazyImage.tsx"]     // ← **TypeScript** sees wrapper
+    },
+
+    /* Next.js lint / TS plugin */
+    "plugins": [{ "name": "next" }]
   },
 
-  /* Let TS see generated files & your sources */
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
