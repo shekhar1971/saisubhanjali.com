@@ -1,26 +1,25 @@
 {
-  "compilerOptions": {
-    "target": "es2020",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "jsx": "preserve",
+  // keep Next.js defaults (they add the "next" plugin automatically)
+  "extends": "next/tsconfig.json",
 
+  "compilerOptions": {
+    /* strict-mode etc. – feel free to adjust */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
 
-    /* path aliases */
-    "baseUrl": ".",
+    /* -------- PATH ALIASES ------------------------------------- */
+    "baseUrl": ".",                 // allow "@/…" root imports
     "paths": {
-      "@/*": ["./*"],
-      "next/image": ["components/LazyImage.tsx"]
-    },
+      "@/*": ["./*"],               // (your existing alias)
 
-    "plugins": [{ "name": "next" }]
+      /* Map EVERY `import Image from "next/image"` to our wrapper.
+         The ts-expect-error comment stops Next from deleting it. */
+      // @ts-expect-error – custom alias required
+      "next/image": ["components/LazyImage"]
+    }
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+
+  /* keep TS happy when scanning files */
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
