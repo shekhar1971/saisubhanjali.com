@@ -1,6 +1,6 @@
 {
   /* inherit sensible defaults & perf-focused rules from Next.js */
-  "extends": "next/core-web-vitals",
+  "extends": "next",
 
   "compilerOptions": {
     /* ——— extra project flags ——— */
