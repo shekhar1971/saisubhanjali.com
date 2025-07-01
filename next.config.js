@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* ①  HSTS header (unchanged) */
+  /* HSTS header – unchanged */
   async headers() {
     return [
       {
@@ -15,10 +15,10 @@ const nextConfig = {
     ];
   },
 
-  /* ②  Serve AVIF / WebP (unchanged) */
+  /* Serve AVIF / WebP – unchanged */
   images: { formats: ["image/avif", "image/webp"] },
 
-  /* ③  Tell **webpack** that next/image == your wrapper */
+  /* Alias next/image → wrapper **for webpack only** */
   webpack(config) {
     const path = require("path");
     config.resolve.alias["next/image"] = path.join(
