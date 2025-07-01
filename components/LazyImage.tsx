@@ -1,16 +1,19 @@
 /* components/LazyImage.tsx
-   Drop-in replacement for next/image – now with default lazy-loading.
-   (Hero images that pass `priority` stay eager.)                        */
+   Wrapper around next/image that defaults to loading="lazy"
+   (unless you pass  priority  for hero / above-the-fold images).
 
-import React from 'react';
-import LegacyImage from 'next/legacy/image';
+   Use it only where you want lazy-by-default images:
 
-type ImageProps = React.ComponentProps<typeof LegacyImage>;
+     import Image from '@/components/LazyImage';
+*/
+
+import NextImage, { type ImageProps } from "next/image";
 
 export default function LazyImage(props: ImageProps) {
   return (
-    <LegacyImage
-      loading={props.priority ? 'eager' : 'lazy'}
+    <NextImage
+      /* hero images that already use `priority` stay eager-loaded */
+      loading={props.priority ? "eager" : "lazy"}
       {...props}
     />
   );
