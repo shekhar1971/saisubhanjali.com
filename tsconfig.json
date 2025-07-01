@@ -1,0 +1,16 @@
+{
+  "extends": "next/tsconfig.json",
+
+  "compilerOptions": {
+    /* ——— basic safety flags ——— */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* ——— path aliases ——— */
+    "baseUrl": ".",                       
+    "paths": {
+      "@/*": ["./*"],                    
+      "next/image": ["components/LazyImage.tsx"]   
+    }
+  }
+}
