@@ -1,6 +1,6 @@
 {
-  /* inherit sensible defaults & perf-focused rules from Next.js */
-  "extends": "next/core-web-vitals",
+  /* inherit the default Next.js TypeScript rules  */
+  "extends": "next",
 
   "compilerOptions": {
     /* ——— project-wide flags ——— */
@@ -8,12 +8,12 @@
     "forceConsistentCasingInFileNames": true,
 
     /* ——— path aliases ——— */
-    "baseUrl": ".",                  // allow "@/…" absolute imports
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-      /* If your editor still complains about lazy images, you MAY add:
+      /* You may add this line later if an editor still complains:
          "next/image": ["components/LazyImage.tsx"]
-         It is optional and has no effect on the build. */
+      */
     }
   },
 
