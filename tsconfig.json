@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
-    /* ---------- strict & perf ---------- */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
 
-    /* ---------- module / JSX ---------- */
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,14 +12,12 @@
     "skipLibCheck": true,
     "incremental": true,
 
-    /* ---------- path aliases ---------- */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],                                // (optional) existing alias
-      "next/image": ["components/LazyImage.tsx"]     // ← **TypeScript** sees wrapper
+      "@/*": ["./*"]              // keep any existing "@/foo" imports
+      /*  ⬅  no mapping for next/image here */
     },
 
-    /* Next.js lint / TS plugin */
     "plugins": [{ "name": "next" }]
   },
 
