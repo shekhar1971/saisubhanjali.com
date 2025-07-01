@@ -1,22 +1,29 @@
 {
-  /* inherit sensible defaults & build-time settings from Next JS */
-  "extends": "./node_modules/next/tsconfig.json",
-
   "compilerOptions": {
-    /* ——— project-wide flags ——— */
+    /* ——— baseline safety flags ——— */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
 
+    /* ——— module resolution ——— */
+    "module": "esnext",
+    "target": "es2020",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+
     /* ——— path aliases ——— */
-    "baseUrl": ".",                 // allow "@/…" absolute imports
+    "baseUrl": ".",                       // enable "@/…"
     "paths": {
-      "@/*": ["./*"],               // (leave out if you don’t use “@/”)
-      /* every `import Image from "next/image"` now points to our wrapper */
+      "@/*": ["./*"],                     // (keep if you use it)
+      /* every  import Image from "next/image"  ->  our wrapper */
       "next/image": ["components/LazyImage.tsx"]
-    }
+    },
+
+    /* ——— ambient types for Next / Node ——— */
+    "types": ["node", "next"]
   },
 
-  /* let TypeScript know which files belong to the project */
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
