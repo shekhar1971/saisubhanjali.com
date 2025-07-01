@@ -1,5 +1,4 @@
 {
-  /* ——— project-wide compiler flags ——— */
   "compilerOptions": {
     "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -13,19 +12,15 @@
     "esModuleInterop": true,
     "isolatedModules": true,
 
-    /* ——— path aliases ——— */
+    /* path aliases */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      /* every  import Image from "next/image"  →  components/LazyImage.tsx */
       "next/image": ["components/LazyImage.tsx"]
     },
 
-    /* let the Next.js plugin add its own types automatically */
     "plugins": [{ "name": "next" }]
   },
-
-  /* files the compiler must see */
   "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
