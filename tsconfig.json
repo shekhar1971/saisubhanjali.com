@@ -1,29 +1,23 @@
 {
+  /* inherit sensible defaults & perf-focused rules from Next.js */
+  "extends": "next/core-web-vitals",
+
   "compilerOptions": {
-    /* ——— baseline safety flags ——— */
+    /* ——— project-wide flags ——— */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
 
-    /* ——— module resolution ——— */
-    "module": "esnext",
-    "target": "es2020",
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true,
-
     /* ——— path aliases ——— */
-    "baseUrl": ".",                       // enable "@/…"
+    "baseUrl": ".",                  // allow "@/…" absolute imports
     "paths": {
-      "@/*": ["./*"],                     // (keep if you use it)
-      /* every  import Image from "next/image"  ->  our wrapper */
-      "next/image": ["components/LazyImage.tsx"]
-    },
-
-    /* ——— ambient types for Next / Node ——— */
-    "types": ["node", "next"]
+      "@/*": ["./*"]
+      /* If your editor still complains about lazy images, you MAY add:
+         "next/image": ["components/LazyImage.tsx"]
+         It is optional and has no effect on the build. */
+    }
   },
 
+  /* keep TypeScript happy when scanning files */
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
