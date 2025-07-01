@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* ①  Security header (unchanged) */
+  /* ①  HSTS header (unchanged) */
   async headers() {
     return [
       {
@@ -15,12 +15,10 @@ const nextConfig = {
     ];
   },
 
-  /* ②  Serve AVIF / WebP automatically (unchanged) */
-  images: {
-    formats: ["image/avif", "image/webp"]
-  },
+  /* ②  Serve AVIF / WebP (unchanged) */
+  images: { formats: ["image/avif", "image/webp"] },
 
-  /* ③  Alias *only at build time*  next/image  →  LazyImage wrapper */
+  /* ③  Tell **webpack** that next/image == your wrapper */
   webpack(config) {
     const path = require("path");
     config.resolve.alias["next/image"] = path.join(
