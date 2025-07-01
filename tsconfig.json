@@ -1,21 +1,25 @@
 {
-  /* inherit performant defaults from Next.js */
-  "extends": "next/core-web-vitals",
+  /*
+   * Use the official Next.js settings that live right inside
+   * node_modules/next/tsconfig.json  →  always present in every build.
+   */
+  "extends": "./node_modules/next/tsconfig.json",
 
   "compilerOptions": {
-    /* ——— project-wide flags ——— */
+    /* ── project flags ── */
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
 
-    /* ——— path aliases ——— */
-    "baseUrl": ".",          // allow "@/…" absolute paths
+    /* ── path aliases ── */
+    "baseUrl": ".",                   // allow "@/…" imports
     "paths": {
       "@/*": ["./*"]
-      /*  ⬅︎  we intentionally do NOT alias "next/image" here */
+      /*  we do NOT alias next/image here – webpack handles it */
     }
   },
 
-  /* keep TypeScript happy when scanning generated files */
+  /* Let TS see generated files & your sources */
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
