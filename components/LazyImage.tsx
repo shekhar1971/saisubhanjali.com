@@ -1,16 +1,18 @@
 /* components/LazyImage.tsx
-   Wrapper around Next 13/14 <Image>.
-   • If you set  priority  the image stays eager-loaded.
-   • Otherwise it defaults to loading="lazy".
+   Drop-in replacement for Next.js <Image>.
+   – If you pass  priority  it stays eager-loaded.
+   – Otherwise it defaults to  loading="lazy".
 
-   No other props change, so `fill`, `sizes`, `placeholder` … all work.
+   Usage (new or edited files):
+     import Image from '@/components/LazyImage';
 */
-import NextImage, { ImageProps } from 'next/image';
+'use client';
+
+import Image, { type ImageProps } from 'next/image';
 
 export default function LazyImage(props: ImageProps) {
   return (
-    <NextImage
-      /* keep heroes eager, everything else lazy */
+    <Image
       loading={props.priority ? 'eager' : props.loading ?? 'lazy'}
       {...props}
     />
