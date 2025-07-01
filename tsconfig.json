@@ -1,23 +1,31 @@
 {
-  /* inherit the default Next.js TypeScript rules  */
-  "extends": "next",
-
+  /* ——— project-wide compiler flags ——— */
   "compilerOptions": {
-    /* ——— project-wide flags ——— */
+    "target": "es2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
 
     /* ——— path aliases ——— */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
-      /* You may add this line later if an editor still complains:
-         "next/image": ["components/LazyImage.tsx"]
-      */
-    }
+      "@/*": ["./*"],
+      /* every  import Image from "next/image"  →  components/LazyImage.tsx */
+      "next/image": ["components/LazyImage.tsx"]
+    },
+
+    /* let the Next.js plugin add its own types automatically */
+    "plugins": [{ "name": "next" }]
   },
 
-  /* keep TypeScript happy when scanning files */
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  /* files the compiler must see */
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
