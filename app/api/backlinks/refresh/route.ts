@@ -1,3 +1,11 @@
+export const dynamic = 'force-dynamic';   // never prerender me
+export const runtime = 'nodejs';          // run in Node on Vercel
+export const revalidate = 0;              // no ISR
+
+import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
